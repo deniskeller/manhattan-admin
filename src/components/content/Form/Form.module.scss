@@ -1,0 +1,36 @@
+.Form {
+  width: 100%;
+  display: grid;
+  min-height: em(453px);
+
+  &_Row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: em(38px);
+    margin-bottom: em(36px);
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &_Input {
+    @include ifmobile {
+      margin-bottom: em(24px);
+    }
+  }
+
+  &_Textarea {
+    margin-bottom: em(56px);
+  }
+
+  &_Button {
+    width: em(350px);
+    height: em(56px);
+    @include ifmobile {
+      width: 100%;
+      height: em(48px);
+    }
+  }
+}

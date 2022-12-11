@@ -1,0 +1,54 @@
+.NewItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background: $blue;
+  padding-bottom: em(24px);
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0px 4px 6px -1px rgba(0, 0, 0, 0.08);
+  }
+
+  &_Image {
+    width: 100%;
+    height: em(344px);
+    background-color: $grey;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: em(22px);
+    @include ifmobile {
+      height: em(247px);
+    }
+  }
+
+  &_NewsInfo {
+    padding: 0 em(24px);
+    margin-bottom: em(12px);
+    color: rgba(255, 255, 255, 0.7);
+    span {
+      font-size: em(12px);
+      font-weight: 400;
+      line-height: 133%;
+    }
+  }
+
+  &_Title {
+    font-weight: 600;
+    font-size: em(16px);
+    line-height: 133%;
+    color: $white;
+    padding: 0 em(24px);
+    margin-bottom: em(12px);
+    @include ifmobile {
+    }
+  }
+
+  &_Description {
+    padding: 0 em(24px);
+    @include ifmobile {
+    }
+  }
+}

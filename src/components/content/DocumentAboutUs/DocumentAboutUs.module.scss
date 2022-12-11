@@ -1,0 +1,43 @@
+.AboutUs {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content;
+
+  @include iftablet {
+    grid-template-columns: em(90px) em(624px);
+    gap: em(63px);
+  }
+
+  &_Icon {
+    width: em(90px);
+    height: em(90px);
+    margin-bottom: em(37px);
+  }
+
+  &_Title {
+    font-size: em(24px);
+    font-weight: 500;
+    line-height: 133%;
+    color: $black;
+    margin-bottom: em(16px);
+  }
+
+  &_Text {
+    p {
+      font-weight: 400;
+      font-size: em(16px);
+      line-height: 150%;
+      color: $black;
+
+      @include ifmobile {
+        font-size: em(13px);
+      }
+      a {
+        color: #2e3d8d;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../common.module";
+.spacer{
+  margin-bottom: 16px;
+}
+.SuccessText{
+  font-size: em(18px);
+  line-height: em(30px);
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+}
+.wrapBtn{
+  display: flex;
+  justify-content: center;
+}

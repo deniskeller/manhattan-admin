@@ -1,0 +1,130 @@
+.InputDataList {
+  position: relative;
+  display: flex;
+  &_Wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: em(40px);
+    @include iftablet {
+      width: em(130px);
+    }
+    @include ifmobile {
+      width: em(100px);
+      padding-right: em(32px);
+    }
+  }
+
+  &_Currency {
+    margin-right: em(10px);
+    span {
+      font-size: em(32px);
+      font-weight: 500;
+      font-family: $font-Avenir;
+      color: $white;
+      @include iftablet {
+        font-size: em(28px);
+      }
+      @include ifmobile {
+        font-size: em(20px);
+      }
+    }
+  }
+
+  &_Input {
+    width: 100%;
+    font-size: em(32px);
+    font-weight: 500;
+    line-height: 100%;
+    font-family: $font-Avenir;
+    color: $white;
+    background: none;
+    outline: none;
+    border: none;
+    position: relative;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    @include placeholder-color(#fff);
+
+    @include iftablet {
+      font-size: em(28px);
+    }
+    @include ifmobile {
+      font-size: em(20px);
+    }
+
+    &:focus {
+      border-bottom: 1px solid #c3cffe;
+    }
+  }
+
+  &_IconArrow {
+    position: absolute;
+    right: em(5px);
+    width: em(20px);
+    height: em(20px);
+    transition: ease 0.6s;
+    &:hover{
+      cursor: pointer;
+    }
+    @include iftablet {
+    }
+    @include ifmobile {
+      width: em(17px);
+      height: em(17px);
+    }
+  }
+
+  .Active {
+    transform: rotate(180deg);
+  }
+}
+
+.SelectList {
+  position: absolute;
+  top: em(50px);
+  right: em(20px);
+  z-index: 1000;
+  width: em(159px);
+  background: #1d2747;
+  box-shadow: 1px 2px 10px rgb(0 0 0 / 35%);
+  border-radius: em(2px);
+  min-height: em(200px);
+  @include iftablet {
+  }
+  @include ifmobile {
+  }
+}
+
+.ListItem {
+  cursor: pointer;
+  height: em(40px);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0 em(16px);
+  color: $white;
+  text-align: right;
+  &:hover {
+    background-color: #2e3d8d;
+  }
+
+  @include iftablet {
+  }
+  @include ifmobile {
+  }
+
+  .ListItemTitle {
+    $size: 16px;
+    line-height: 100%;
+    font-size: em($size);
+    font-weight: 400;
+    font-family: $font-Avenir;
+
+    @include iftablet {
+    }
+    @include ifmobile {
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.Wrapper {
+  position: relative;
+  padding-bottom: em(130px);
+  @include ifmobile {
+    padding-bottom: em(117px);
+  }
+}
+
+.Description {
+  max-width: em(424px);
+  margin-bottom: em(96px);
+  @include iftablet {
+    margin-bottom: em(56px);
+  }
+  @include ifmobile {
+    margin-bottom: em(56px);
+  }
+}
+
+.Title {
+  max-width: em(530px);
+  margin-bottom: em(48px);
+  @include ifmobile {
+    margin-bottom: em(56px);
+  }
+}

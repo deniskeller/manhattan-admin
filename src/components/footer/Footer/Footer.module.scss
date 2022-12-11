@@ -1,0 +1,177 @@
+.Container {
+  background: $dirty_blue;
+  padding: em(50px) em(106px) em(44px) em(83px);
+  @include iftablet {
+    padding: em(50px) em(49px) em(37px) em(32px);
+  }
+  @include ifmobile {
+    padding: em(43px) em(12px) em(55px) em(12px);
+  }
+}
+
+.Footer {
+  display: flex;
+  flex-direction: row;
+
+  @include ifmobile {
+    flex-direction: column;
+  }
+
+  &_Content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: em(65px);
+    @include iftablet {
+      margin-bottom: em(42px);
+    }
+    @include ifmobile {
+      margin-bottom: em(16px);
+    }
+
+    &_Title {
+      font-size: em(16px);
+      font-weight: 700;
+      line-height: 100%;
+      color: $white;
+      margin-bottom: em(28px);
+      @include ifmobile {
+        font-size: em(14px);
+        margin-bottom: em(25px);
+      }
+    }
+
+    &_Description {
+      display: flex;
+      flex-direction: row;
+      @include ifmobile {
+        flex-direction: column;
+      }
+
+      &_Text {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: em(40px);
+        width: 100%;
+        max-width: em(766px);
+        margin-right: em(110px);
+        @media only screen and (max-width: 1440px) {
+          grid-template-columns: 1fr;
+          gap: em(16px);
+        }
+        @include iftablet {
+          margin-right: em(56px);
+          max-width: em(338px);
+        }
+        @include ifmobile {
+          order: 1;
+        }
+        span {
+          width: 100%;
+          max-width: em(363px);
+          @include iftablet {
+          }
+
+          p {
+            font-size: em(12px);
+            line-height: 140%;
+            font-weight: 400;
+            color: $white;
+
+            @include iftablet {
+              font-size: em(10px);
+            }
+            @include ifmobile {
+              font-size: em(9.5px);
+            }
+          }
+        }
+      }
+    }
+
+    &_Navbar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: em(87px);
+      width: em(303px);
+      @include iftablet {
+        gap: em(56px);
+      }
+      @include ifmobile {
+        gap: em(50px);
+        margin-bottom: em(37px);
+      }
+      .Link {
+        ul > li {
+          margin-bottom: em(15px);
+          &:last-child {
+            margin-bottom: 0;
+          }
+          @include iftablet {
+          }
+          @include ifmobile {
+          }
+          a {
+            display: flex;
+            color: white;
+            font-size: em(14px);
+            line-height: 100%;
+            font-weight: 400;
+            white-space: nowrap;
+            position: relative;
+            width: max-content;
+
+            @include iftablet {
+            }
+            @include ifmobile {
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: em(-5px);
+              left: 0;
+              height: em(2px);
+              background-color: #91a7fc;
+            }
+            &:hover {
+              &::after {
+                animation: bottomLine 0.3s linear forwards;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_Logo {
+    margin-left: auto;
+    @include ifmobile {
+      margin-left: 0;
+      order: -1;
+      margin-bottom: em(37px);
+    }
+  }
+
+  &_Copyright {
+    p {
+      font-size: em(12px);
+      font-weight: 400;
+      line-height: 100%;
+      color: $blue30;
+      @include ifmobile {
+        line-height: 140%;
+        font-size: em(9.5px);
+      }
+    }
+  }
+}
+
+@keyframes bottomLine {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

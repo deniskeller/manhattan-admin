@@ -1,0 +1,9 @@
+.Text {
+  font-size: em(16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 133%;
+  @include ifmobile {
+    font-size: em(14px);
+  }
+}

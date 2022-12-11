@@ -1,0 +1,97 @@
+@use 'sass:math';
+
+html {
+  color: $black;
+  font-family: $font-Avenir!important;
+  font-size: math.div(16, 720) * 100vh;
+  line-height: normal;
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+@media screen and (max-aspect-ratio: 1440/720) {
+  html {
+    font-size: math.div(16, 1440) * 100vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (max-aspect-ratio: 1440/720) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-height: 720px) and (min-aspect-ratio: 1440/720) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  @include iftablet {
+    font-size: math.div(16, 1024) * 100vw;
+  }
+
+  @include ifmobile {
+    font-size: math.div(16, 377) * 100vw;
+  }
+}
+
+body {
+  width: 100%;
+  background: $dirty_blue;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: $white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+textarea::placeholder {
+  line-height: 100%;
+}
+
+//remove arrows in all browser
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']:hover,
+input[type='number']:focus {
+  -moz-appearance: number-input;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:-webkit-autofill {
+  &:hover,
+  &:focus,
+  &:active {
+    transition-delay: 9999s;
+    transition-property: background-color, color;
+  }
+}

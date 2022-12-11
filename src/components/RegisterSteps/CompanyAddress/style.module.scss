@@ -1,0 +1,21 @@
+@import "../common.module";
+.spacer{
+  margin-bottom: 16px;
+}
+.spacerBig{
+  margin-bottom: 30px;
+}
+
+.Row{
+  display: flex;
+  & > *:first-child{
+    margin-right: 10px;
+    flex-basis: 67%;
+    flex-shrink: 0;
+  }
+  & > *:last-child{
+    flex-basis: 30%;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+}

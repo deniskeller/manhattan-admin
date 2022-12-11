@@ -1,0 +1,34 @@
+.Header {
+  .StepBack {
+    position: relative;
+
+    .IconBack {
+      width: em(30px);
+      height: em(30px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include ifmobile {
+        width: em(25px);
+      }
+
+      i {
+        border: solid $white;
+        border-width: 0 2.7px 2.7px 0;
+        display: flex;
+        padding: em(6px);
+        transform: rotate(-225deg);
+        @include ifmobile {
+          padding: em(5px);
+        }
+      }
+    }
+
+    &_Btn {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}

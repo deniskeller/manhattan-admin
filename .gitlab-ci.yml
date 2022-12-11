@@ -1,0 +1,45 @@
+stages:
+  - build
+  - deploy
+
+build:
+  only:
+    - dev
+    - main
+  tags:
+    - build
+  stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - VERSION=:$(date '+%Y%m%d-%H-%M-%S')
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+        cp "$ENV" .env
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+        cp "$ENV" .env
+      fi
+    - docker build --no-cache --pull -t "$CI_REGISTRY_IMAGE${tag}" -t "$CI_REGISTRY_IMAGE${VERSION}" .
+    - docker push "$CI_REGISTRY_IMAGE" --all-tags
+
+dev:
+  stage: deploy
+  allow_failure: false
+  tags:
+    - dev
+  only:
+    - dev
+  environment:
+    name: development
+    url: https://manisland.ipagar.labado.ru/
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - export TAG=":dev"
+    - cp "$ENV" .env
+    - docker pull $CI_REGISTRY_IMAGE$TAG
+    - docker-compose -f ./docker-compose-dev.yml up -d

@@ -1,0 +1,418 @@
+.Header {
+  width: 100%;
+  padding-top: em(263px);
+  padding-bottom: em(160px);
+  position: relative;
+
+  @include iftablet {
+    padding-top: em(196px);
+    padding-bottom: em(144px);
+  }
+
+  @include ifmobile {
+    padding-top: em(196px);
+    padding-bottom: em(276px);
+  }
+
+  &_Container {
+    position: relative;
+    max-width: em(1270px);
+    margin: 0 auto;
+
+    @include iftablet {
+      padding: 0 em(32px);
+    }
+  }
+
+  .BgImage {
+    @extend %fullsize;
+    z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    animation: showOverlay 1.5s linear forwards;
+  }
+
+  .BgOverlay {
+    @extend %fullsize;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &_Subtitle {
+    margin-bottom: em(43px);
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
+
+    @include iftablet {
+      margin-bottom: em(20px);
+    }
+    @include ifmobile {
+      max-width: em(228px);
+      margin-bottom: em(20px);
+    }
+
+    p {
+      font-weight: 600;
+      font-size: em(16px);
+      line-height: 150%;
+      color: #ebecef;
+      animation: fadeInUp 0.3s linear forwards;
+      animation-delay: 2.2s;
+      opacity: 0;
+      @include ifmobile {
+        font-size: em(14px);
+      }
+    }
+  }
+
+  &_Title {
+    max-width: em(900px);
+    margin-bottom: em(158px);
+    position: relative;
+    z-index: 100;
+
+    @include iftablet {
+      max-width: em(614px);
+      margin-bottom: em(143px);
+    }
+    @include ifmobile {
+      margin-bottom: em(184px);
+    }
+
+    .SpanWrapper {
+      overflow: hidden;
+    }
+    span {
+      display: inline-flex;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: em(56px);
+      line-height: 100%;
+      text-transform: uppercase;
+      color: #ebecef;
+      z-index: 100;
+      animation: fadeInUp 0.3s ease forwards;
+      opacity: 0;
+
+      .mobile {
+        display: none;
+        @include ifmobile {
+          display: block;
+        }
+      }
+      @include iftablet {
+        font-size: em(40px);
+      }
+      @include ifmobile {
+        font-size: em(24px);
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .BottomLine1,
+      .BottomLine2 {
+        position: relative;
+        z-index: 100;
+        transition: all;
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: -90;
+          width: 100%;
+          height: em(6px);
+          content: '';
+          opacity: 0;
+          background: $blue;
+          animation: TitleBottomLine 0.3s ease forwards;
+          animation-timing-function: cubic-bezier(0.25, 0.25, 0.8, 1);
+        }
+      }
+      .BottomLine1::after {
+        animation-delay: 3.7s;
+      }
+      .BottomLine2::after {
+        animation-delay: 4s;
+      }
+    }
+    .h1 {
+      animation-delay: 2.5s;
+    }
+    .h2 {
+      animation-delay: 2.7s;
+    }
+    .h3 {
+      animation-delay: 3s;
+    }
+    .h4 {
+      animation-delay: 3.3s;
+    }
+  }
+
+  &_Description {
+    position: relative;
+    z-index: 100;
+    padding-left: em(108px);
+    @include iftablet {
+      padding-left: em(86px);
+    }
+    @include ifmobile {
+      padding-left: 0;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: em(24px);
+      line-height: 167%;
+      color: #f0f3ff;
+      @include iftablet {
+        font-size: em(18px);
+      }
+      @include ifmobile {
+        font-size: em(18px);
+        line-height: 150%;
+      }
+    }
+  }
+
+  &_Image {
+    position: absolute;
+    right: em(-124px);
+    bottom: em(-215px);
+    width: em(796px);
+    height: em(796px);
+    animation: fadeInGear 0.5s linear forwards;
+    animation-delay: 1.7s;
+    opacity: 0;
+    @include iftablet {
+      right: em(-132px);
+      bottom: em(-71px);
+      width: em(535px);
+      height: em(535px);
+    }
+    @include ifmobile {
+      right: em(-193px);
+      bottom: em(-10px);
+      width: em(505px);
+      height: em(505px);
+    }
+  }
+
+  .InvestForm {
+    position: absolute;
+    right: em(100px);
+    bottom: em(-500px);
+    background: #060812;
+    border-radius: 2px;
+    padding: em(56px) em(30px) em(56px) em(72px);
+    width: 100%;
+    max-width: em(530px);
+    z-index: 10000;
+
+    @include iftablet {
+      right: 0;
+      bottom: em(-500px);
+      max-width: em(468px);
+    }
+
+    @include ifmobile {
+      right: auto;
+      bottom: em(-540px);
+      max-width: 100%;
+      padding: em(24px) em(16px) em(38px) em(48px);
+    }
+
+    &_BeforeIcon {
+      display: none;
+      position: absolute;
+      bottom: em(-70px);
+      left: calc(50% - em(20px));
+      width: em(40px);
+      height: em(40px);
+      z-index: 1000;
+      @include ifmobile {
+        display: flex;
+      }
+    }
+
+    &_Title {
+      margin-bottom: em(44px);
+      @include ifmobile {
+        margin-bottom: em(30px);
+      }
+      h1 {
+        font-weight: 500;
+        font-size: em(32px);
+        line-height: 100%;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $white;
+        @include iftablet {
+          font-size: em(24px);
+        }
+        @include ifmobile {
+          font-size: em(16px);
+        }
+      }
+    }
+
+    &_Actions {
+      margin-bottom: em(44px);
+      @include ifmobile {
+        margin-bottom: em(28px);
+      }
+
+      .Row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: em(32px);
+        @include iftablet {
+          margin-bottom: em(24px);
+        }
+        @include ifmobile {
+          margin-bottom: em(22px);
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &_Title {
+          padding-right: 7px;
+          flex-basis: 50%;
+          font-weight: 400;
+          font-size: em(16px);
+          line-height: 133%;
+          color: #f8f8fa;
+          width: 45%;
+          @include iftablet {
+            font-size: em(14px);
+          }
+          @include ifmobile {
+            font-size: em(11px);
+          }
+        }
+
+        &_Value {
+          font-weight: 500;
+          font-size: em(32px);
+          line-height: 100%;
+          color: #f0f3ff;
+          @include iftablet {
+            font-size: em(28px);
+          }
+          @include ifmobile {
+            font-size: em(20px);
+          }
+        }
+      }
+
+      .Row:nth-child(3),
+      .Row:nth-child(4),
+      .Row:nth-child(6) {
+        max-width: em(386px);
+        @include iftablet {
+          max-width: em(325px);
+        }
+        @include ifmobile {
+          max-width: em(240px);
+        }
+      }
+
+      .Border {
+        width: 100%;
+        max-width: em(386px);
+        height: 1px;
+        background: $blue;
+        margin-bottom: em(32px);
+        @include iftablet {
+          margin-bottom: em(24px);
+          max-width: em(325px);
+        }
+        @include ifmobile {
+          margin-bottom: em(22px);
+          max-width: em(240px);
+        }
+      }
+    }
+
+    &_Button {
+      width: 100%;
+      height: em(56px);
+      max-width: em(386px);
+      @include iftablet {
+        height: em(44px);
+        max-width: em(325px);
+      }
+      @include ifmobile {
+        height: em(36px);
+        max-width: em(240px);
+      }
+    }
+  }
+}
+
+@keyframes showOverlay {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes TitleBottomLine {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    width: 110%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInGear {
+  0% {
+    transform: translate(398px, 398px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

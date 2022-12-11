@@ -1,0 +1,131 @@
+.SelectContainer {
+  position: relative;
+}
+
+.SelectHeader {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  $size: 16px;
+  line-height: 100%;
+  font-size: em($size);
+  font-weight: 400;
+  font-family: $font-Avenir;
+  width: 100%;
+  height: em(38px);
+  position: relative;
+  border-bottom: em(2px) solid $white;
+  padding: em(12px, $size) em(12px, $size);
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  &:hover {
+    border-bottom: em(2px) solid #91a7fc;
+  }
+
+  p {
+    font-weight: normal;
+    line-height: 120%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #aaafbd;
+  }
+  .NotEmpty {
+    color: #f8f8fa;
+  }
+}
+
+.SelectHeaderFocus {
+  border-bottom: em(2px) solid #2e3d8d !important;
+}
+
+.IconArrow {
+  width: em(12px);
+  height: em(12px);
+  position: absolute;
+  right: em(19px);
+}
+
+.SelectList {
+  position: absolute;
+  top: em(75px);
+  z-index: 1000;
+  width: em(280px);
+  background: #1d2747;
+  box-shadow: 1px 2px 10px rgb(0 0 0 / 35%);
+  border-radius: em(2px);
+  max-height: em(200px);
+  overflow-y: scroll;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.SelectList::-webkit-scrollbar {
+  width: em(4px);
+  position: absolute;
+  padding-right: 10px;
+  right: -3px;
+}
+.SelectList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+}
+
+.ListItem {
+  cursor: pointer;
+  height: em(40px);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0 em(16px);
+  color: $white;
+  &:hover {
+    background-color: #2e3d8d;
+  }
+
+  .ListItemTitle {
+    $size: 16px;
+    line-height: 100%;
+    font-size: em($size);
+    font-weight: 400;
+    font-family: $font-Avenir;
+  }
+}
+
+.Label {
+  display: flex;
+  font-family: $font-Avenir;
+  font-size: em(16px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  color: $white;
+  position: relative;
+  margin-bottom: em(10px) !important;
+}
+
+.Error {
+  border-bottom: em(2px) solid #a11515;
+}
+
+.ErrorText {
+  font-family: $font-Avenir;
+  font-size: em(13px);
+  line-height: 100%;
+  color: #a11515;
+  display: block;
+  margin-top: em(10px);
+  font-weight: 400;
+}
+
+.IconArrow {
+  width: em(8px);
+  height: em(5px);
+  transition: ease 0.6s;
+}
+
+.IconArrowActive {
+  transform: rotate(180deg);
+}

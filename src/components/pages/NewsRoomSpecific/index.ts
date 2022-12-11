@@ -1,0 +1,2 @@
+export { default as NewsRoomSpecificHeader } from "./NewsRoomSpecificHeader/NewsRoomSpecificHeader";
+export { default as NewsRoomSpecificContent } from "./NewsRoomSpecificContent/NewsRoomSpecificContent";

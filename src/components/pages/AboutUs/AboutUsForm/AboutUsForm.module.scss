@@ -1,0 +1,18 @@
+.Wrapper {
+  position: relative;
+  padding-bottom: em(120px);
+
+  @include iftablet {
+    padding-bottom: em(112px);
+  }
+  @include ifmobile {
+    padding-bottom: em(92px);
+  }
+}
+
+.Title {
+  margin-bottom: em(48px);
+  @include ifmobile {
+    margin-bottom: em(56px);
+  }
+}

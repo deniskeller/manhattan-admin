@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      target: dev
+    ports:
+      - '3012:3012'
+    env_file: .env
+    restart: unless-stopped
+    command: npm run start

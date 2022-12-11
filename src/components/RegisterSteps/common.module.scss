@@ -1,0 +1,35 @@
+.ContainerForm {
+  width: 485px;
+  margin: 0 auto;
+}
+.Form {
+  background-color: $darkBlue;
+  border-radius: 4px;
+  padding: em(30px);
+}
+.TitleForm {
+  font-weight: 500;
+  font-size: em(24px);
+  line-height: em(34px);
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.SubtitleForm{
+  color: white;
+  font-size: em(20px);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.SubtitleBlock{
+  font-weight: 400;
+  font-size: em(18px);
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.bottomButtons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+}

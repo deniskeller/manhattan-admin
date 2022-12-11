@@ -1,0 +1,72 @@
+@import "../common.module";
+
+.spacer{
+  margin-bottom: 16px;
+}
+.spacerBig{
+  margin-bottom: 28px;
+}
+
+.RowTooltip{
+  display: flex;
+  margin-bottom: 20px;
+  &_Between{
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_LeftText{
+    font-weight: 400;
+    font-size: em(20px);
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    border-right: 1px solid white;
+    &_Noborder{
+      border-right: none;
+    }
+  }
+  &_RightText{
+    padding-left: 20px;
+    font-weight: 400;
+    font-size: em(16px);
+    color: white;
+  }
+  &_RightTextLight{
+    font-weight: 400;
+    font-size: em(16px);
+    color: rgba(255,255,255,0.7);
+  }
+}
+.Line{
+  height: 1px;
+  background: #95959D;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.TextLight{
+  font-weight: 400;
+  font-size: em(18px);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+.InputsRow{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: em(10px);
+}
+.AddButton{
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+.TextLightRow{
+  color: rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+}
+.iconTrash{
+  margin-left: 8px;
+}

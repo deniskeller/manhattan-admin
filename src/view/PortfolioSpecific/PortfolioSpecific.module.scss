@@ -1,0 +1,415 @@
+.Header {
+  position: relative;
+  z-index: 100;
+  .StepBack {
+    position: relative;
+    .IconBack {
+      width: em(30px);
+      height: em(30px);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include ifmobile {
+        width: em(25px);
+      }
+
+      i {
+        border: solid $white;
+        border-width: 0 2.7px 2.7px 0;
+        display: flex;
+        padding: em(6px);
+        transform: rotate(-225deg);
+        @include ifmobile {
+          padding: em(5px);
+        }
+      }
+    }
+
+    &_Btn {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+
+.Info {
+  display: grid;
+  grid-template-columns: 1fr em(318px);
+  margin-bottom: em(123px);
+  gap: 0 em(106px);
+  position: relative;
+  z-index: 100;
+
+  @include iftablet {
+    grid-template-columns: 1fr em(310px);
+    gap: 0 em(79px);
+  }
+
+  @include ifmobile {
+    grid-template-columns: 1fr;
+    gap: em(64px) 0;
+    margin-bottom: em(80px);
+  }
+
+  .Parameters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 em(40px);
+    padding-top: em(108px);
+    @include iftablet {
+      grid-template-columns: 1fr;
+      gap: em(16px) 0;
+      padding-top: em(90px);
+    }
+
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(16px) 0;
+      order: 1;
+      padding-top: 0;
+    }
+
+    &_Col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &_Row {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: em(8px);
+      border-bottom: 1px solid #2e3d8d;
+      margin-bottom: em(26px);
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &_Name,
+      &_Value {
+        font-size: em(14px);
+        font-weight: 400;
+        line-height: 144%;
+        color: $white;
+        width: 50%;
+      }
+
+      &_Value {
+        text-align: right;
+      }
+    }
+  }
+
+  .Description {
+    .Logo {
+      display: flex;
+      position: relative;
+      margin-bottom: em(57px);
+      @include ifmobile {
+        margin-bottom: em(32px);
+      }
+
+      .spacefex {
+        width: em(258px);
+        height: em(35px);
+        @include ifmobile {
+          width: em(210px);
+          height: em(28px);
+        }
+      }
+      .teido {
+        width: em(151px);
+        height: em(50px);
+      }
+      .aqatin {
+        width: em(209px);
+        height: em(56px);
+        @include ifmobile {
+          width: em(186.61px);
+          height: em(50px);
+        }
+      }
+      .esoque {
+        width: em(213px);
+        height: em(44px);
+        @include ifmobile {
+          width: em(174.27px);
+          height: em(36px);
+        }
+      }
+      .halalcash {
+        width: em(234px);
+        height: em(42px);
+        position: relative;
+        @include ifmobile {
+          width: em(214px);
+          height: em(38.21px);
+        }
+      }
+      .pridepay {
+        width: em(234px);
+        height: em(51px);
+        position: relative;
+        @include ifmobile {
+          width: em(206px);
+          height: em(44.3px);
+        }
+      }
+      .blvc {
+        width: em(115px);
+        height: em(50px);
+        position: relative;
+        @include ifmobile {
+          width: em(110px);
+          height: em(44.3px);
+        }
+      }
+      .tyncofex {
+        width: em(215px);
+        height: em(56px);
+        position: relative;
+        @include ifmobile {
+          width: em(215px);
+          height: em(56px);
+        }
+      }
+      .cnda {
+        width: em(250px);
+        height: em(67px);
+        position: relative;
+        @include ifmobile {
+          width: em(186px);
+          height: em(50px);
+        }
+      }
+      .cospay {
+        width: em(215px);
+        height: em(56px);
+        position: relative;
+        @include ifmobile {
+          width: em(172px);
+          height: em(45px);
+        }
+      }
+    }
+
+    .Title {
+      color: $white;
+      font-weight: 400;
+      font-size: em(16px);
+      line-height: 100%;
+      margin-bottom: em(16px);
+    }
+
+    .FoundedDate {
+      font-weight: 400;
+      font-size: em(14px);
+      line-height: 100%;
+      color: #e0e6ff;
+      opacity: 0.5;
+      margin-bottom: em(57px);
+
+      @include ifmobile {
+        margin-bottom: em(24px);
+      }
+    }
+
+    .Text {
+      font-weight: 400;
+      font-size: em(14px);
+      line-height: 143%;
+      color: $white;
+      margin-bottom: em(25px);
+    }
+
+    .DownloadFile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: em(27px);
+      cursor: pointer;
+
+      &_Icon {
+        width: em(25.52px);
+        height: em(34.29px);
+        margin-right: em(16px);
+      }
+
+      &_Title {
+        font-weight: 400;
+        font-size: em(14px);
+        line-height: 143%;
+        color: $white;
+      }
+    }
+
+    .Tags {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: em(54px);
+      @include ifmobile {
+        margin-bottom: em(24px);
+      }
+
+      .TagsItem {
+        display: flex;
+        align-items: center;
+        height: em(26px);
+        padding: em(5px) em(16px);
+        margin: em(3px) em(6px) em(3px) 0;
+        border-radius: 2px;
+        background: rgba(29, 39, 71, 0.3);
+        @include ifmobile {
+        }
+
+        &:first-child {
+          background: $dirty_blue;
+        }
+        span {
+          font-weight: 400;
+          font-size: em(12px);
+          line-height: 100%;
+          color: $white;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .Button {
+      width: 100%;
+      height: em(44px);
+    }
+  }
+}
+
+.Slider {
+  width: 100%;
+  max-width: em(1440px);
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  z-index: 1000;
+  min-height: em(400px);
+  @include ifmobile {
+    margin: 0;
+  }
+  z-index: inherit;
+
+  &_Navbar {
+    position: absolute;
+    right: em(85px);
+    top: em(20px);
+    display: flex;
+    justify-content: space-between;
+    max-width: em(162px);
+    width: 100%;
+
+    @include iftablet {
+      right: em(32px);
+    }
+
+    @include ifmobile {
+      top: auto;
+      right: auto;
+      position: relative;
+      margin-left: auto;
+      margin-right: em(12px);
+      margin-bottom: em(24px);
+      max-width: em(111px);
+    }
+
+    .PrevSlide,
+    .NextSlide {
+      width: em(45px);
+      height: em(45px);
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background: rgba(46, 61, 141, 0.25);
+      }
+
+      .Arrow {
+        border: solid $blue30;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: em(10px);
+        transform: rotate(-225deg);
+        position: absolute;
+        @include ifmobile {
+          padding: em(8px);
+        }
+      }
+    }
+    .PrevSlide {
+      .Arrow {
+        right: 13%;
+        @include ifmobile {
+          right: 22%;
+        }
+      }
+    }
+
+    .NextSlide {
+      .Arrow {
+        left: 13%;
+        transform: rotate(-45deg);
+        @include ifmobile {
+          left: 22%;
+        }
+      }
+    }
+  }
+
+  &_Slider {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: em(934px) em(508px);
+    @include iftablet {
+      grid-template-columns: em(656px) em(368px);
+    }
+
+    @include ifmobile {
+      display: block;
+    }
+
+    .Slider1 {
+      width: em(934px);
+      height: em(560px);
+      @extend %background-cover;
+
+      @include iftablet {
+        width: em(656px);
+        height: em(480px);
+      }
+
+      @include ifmobile {
+        width: 100%;
+        height: em(480px);
+      }
+    }
+
+    .Slider2 {
+      width: em(508px);
+      height: em(267px);
+      margin-top: auto;
+      @extend %background-cover;
+
+      @include iftablet {
+        width: em(368px);
+        height: em(240px);
+      }
+
+      @include ifmobile {
+        display: none;
+      }
+    }
+  }
+}

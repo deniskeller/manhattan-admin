@@ -1,0 +1,62 @@
+.BaseInput {
+  font-size: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Input {
+  $size: 16px;
+  line-height: 100%;
+  font-size: em($size);
+  font-weight: 400;
+  width: 100%;
+  height: em(38px);
+  background: none;
+  outline: none;
+  border: none;
+  position: relative;
+  box-shadow: none;
+  border-radius: 0;
+  color: #f8f8fa;
+  border-bottom: em(2px) solid $white;
+  @include placeholder-color(#aaafbd);
+  padding: em(12px, $size) em(12px, $size);
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  font-family: $font-Avenir;
+
+  &:hover {
+    border-color: #91a7fc;
+  }
+
+  &:focus {
+    border-color: #2e3d8d;
+  }
+}
+
+.Error {
+  border-bottom: em(2px) solid #a11515;
+}
+
+.ErrorText {
+  font-family: $font-Avenir;
+  font-size: em(13px);
+  line-height: 100%;
+  color: #a11515;
+  display: block;
+  margin-top: em(10px);
+  font-weight: 400;
+}
+
+.Label {
+  font-family: $font-Avenir;
+  font-size: em(16px);
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  color: $white;
+  position: relative;
+  margin-bottom: em(10px);
+}

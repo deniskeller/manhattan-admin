@@ -1,0 +1,124 @@
+.Info {
+  padding-bottom: em(127px);
+  @include ifmobile {
+    padding-bottom: em(80px);
+  }
+
+  &_AboutUs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: em(40px);
+    max-width: em(1057px);
+    margin-bottom: em(60px);
+
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(24px);
+      margin-bottom: em(56px);
+    }
+  }
+
+  &_Title {
+    max-width: em(636px);
+    margin-bottom: em(48px);
+  }
+
+  &_AccordionSlider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    min-height: em(480px);
+    margin-bottom: em(80px);
+
+    @include ifmobile {
+      flex-wrap: wrap;
+    }
+
+    @include ifmobile {
+      min-height: em(725px);
+      margin-bottom: em(56px);
+    }
+
+    & li:hover {
+      width: 50%;
+      @include iftablet {
+        width: 100%;
+      }
+      @include ifmobile {
+        width: 100%;
+        height: em(310px);
+      }
+
+      .SlideTitle {
+        opacity: 0;
+      }
+      .Active {
+        opacity: 1;
+      }
+    }
+
+    li {
+      position: relative;
+      display: flex;
+      width: calc(100% / 6);
+      height: em(480px);
+      transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include ifmobile {
+        width: 100%;
+        height: calc(em(725px) / 6);
+      }
+    }
+
+    .SlideTitle,
+    .Active {
+      display: flex;
+      position: absolute;
+      left: em(28px);
+      bottom: em(15px);
+      transition: all 1s;
+      -webkit-transition: all 1s;
+      -moz-transition: all 1s;
+      transform-origin: left top;
+      transform: rotate(-90deg);
+      opacity: 1;
+      @include ifmobile {
+        transform: none;
+        left: em(24px);
+        bottom: em(16px);
+      }
+
+      span {
+        font-weight: 500;
+        font-size: em(24px);
+        line-height: 100%;
+        color: $white;
+        white-space: nowrap;
+        width: max-content;
+        @include ifmobile {
+          font-size: em(16px);
+        }
+      }
+    }
+
+    .Active {
+      transform-origin: left top;
+      transform: rotate(0deg);
+      opacity: 0;
+      left: em(35px);
+      bottom: em(50px);
+      span {
+        font-size: em(32px);
+      }
+    }
+  }
+
+  &_Description {
+    max-width: em(848px);
+  }
+}

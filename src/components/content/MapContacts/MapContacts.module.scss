@@ -1,0 +1,16 @@
+.Marker {
+  // position: absolute;
+  // right: em(-12px);
+  // bottom: em(-12px);
+  cursor: pointer;
+  width: em(35px);
+  height: em(35px);
+  font-size: initial;
+
+  @include ifmobile {
+    width: em(35px);
+    height: em(35px);
+    right: em(-12px);
+    bottom: em(-12px);
+  }
+}

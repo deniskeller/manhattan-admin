@@ -1,0 +1,94 @@
+.ContactUsMap {
+  display: flex;
+  flex-direction: row;
+  @include ifmobile {
+    flex-direction: column;
+  }
+
+  &_Address {
+    width: 40%;
+    background: $blue;
+    padding: em(56px) em(126px) em(112px) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @include iftablet {
+      padding: em(56px) em(40px) em(64px) 0;
+    }
+    @include ifmobile {
+      width: 100%;
+      padding: em(32px) em(12px);
+    }
+
+    .Info {
+      width: 100%;
+      max-width: em(318px);
+      margin-bottom: em(168px);
+      @include iftablet {
+        margin-bottom: em(136px);
+      }
+      @include ifmobile {
+        margin-bottom: em(31px);
+      }
+
+      &_Name {
+        font-weight: 500;
+        font-size: em(24px);
+        line-height: 133%;
+        margin-bottom: em(24px);
+        color: $white;
+        @include ifmobile {
+          font-size: em(18px);
+          margin-bottom: em(16px);
+        }
+      }
+
+      &_EIN {
+        font-weight: 400;
+        font-size: em(16px);
+        line-height: 133%;
+        color: $white;
+        @include ifmobile {
+          font-size: em(12px);
+        }
+      }
+    }
+
+    .Address {
+      width: 100%;
+      max-width: em(318px);
+
+      &_Name,
+      &_WorkingHours {
+        color: $white;
+        font-weight: 400;
+        font-size: em(16px);
+        line-height: 150%;
+        @include ifmobile {
+          font-size: em(13px);
+        }
+        span {
+          font-weight: 500;
+        }
+      }
+
+      &_Name {
+        margin-bottom: em(24px);
+        @include ifmobile {
+          margin-bottom: em(16px);
+        }
+      }
+    }
+  }
+
+  &_Map {
+    display: flex;
+    width: 60%;
+    background: $grey;
+    @include ifmobile {
+      width: 100%;
+      height: em(455px);
+    }
+  }
+}

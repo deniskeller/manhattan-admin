@@ -1,0 +1,122 @@
+//general
+.Button {
+  font-size: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 1px;
+  @extend %button;
+
+  .Title {
+    display: flex;
+    font-size: em(18px);
+    letter-spacing: 2px;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: $white;
+    padding: em(10px) em(30px);
+  }
+}
+
+//disabled style
+.Button:disabled,
+.Button:disabled:hover,
+.Button:disabled:active {
+  color: #00000040;
+  border-color: #d9d9d9;
+  background: #f5f5f5;
+  text-shadow: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.Button_transparent{
+  background: transparent;
+  .Title {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+  &.Button_dark{
+
+  }
+}
+.Button_Error{
+  &.Button_transparent{
+    & .Title {
+      padding: 0;
+    }
+  }
+  .Title{
+    color: #FD6B6B!important;
+  }
+  &.Button_dark{
+    & .Title{
+      font-weight: 400;
+      font-size: em(16px);
+      line-height: 24px;
+    }
+  }
+}
+.Button_outlined{
+  background: transparent;
+  &.Button_dark{
+    border: 1px solid #2E3C8D;
+    border-radius: 1px;
+    color: white;
+    &:hover{
+      border-color:  #32429A;
+      cursor: pointer;
+    }
+  }
+}
+.Button_dark{
+  .Title{
+    text-transform: none;
+    color: white;
+    font-weight: 600;
+    /*font-size: 18px;*/
+    font-size: em(20px);
+    font-family: "Avenir Next", sans-serif;
+    letter-spacing: unset;
+    padding: em(15px) em(24px);
+    display: flex;
+    align-items: center;
+  }
+  .ArrowRight{
+    margin-left: 16px;
+  }
+  .ArrowLeft{
+    margin-right: 16px;
+  }
+  .ArrowAlone{
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+//default
+.Button_default {
+  background: $blue;
+
+  &:hover {
+    background: #374aab;
+  }
+
+  &:active {
+    background: #253273;
+  }
+}
+
+//empty
+.Button_empty {
+  background: none;
+  border: 1px solid $blue;
+
+  &:hover {
+    border: 1px solid #374aab;
+    background: rgba(46, 61, 141, 0.1);
+  }
+
+  &:active {
+    border: 1px solid #253273;
+    background: rgba(46, 61, 141, 0.25);
+  }
+}

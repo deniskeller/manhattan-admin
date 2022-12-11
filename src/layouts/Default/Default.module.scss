@@ -1,0 +1,104 @@
+.Wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(6, 8, 18, 1);
+  z-index: 100;
+}
+
+.WrapperForSlicky {
+  position: relative;
+  z-index: 1000;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  position: relative;
+}
+
+.Line {
+  width: em(40px);
+  height: 100%;
+  display: flex;
+  position: absolute;
+  right: em(64px);
+  bottom: em(64px);
+  @include iftablet {
+    right: em(32px);
+    bottom: em(32px);
+  }
+  @include ifmobile {
+    right: em(12px);
+    bottom: em(12px);
+  }
+
+  .ScrollToTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    width: em(40px);
+    height: em(40px);
+    font-size: 100%;
+    border: none;
+    outline: none;
+    background: rgba(46, 61, 141, 0.5);
+    cursor: pointer;
+    border-radius: em(2px);
+    transform: rotateZ(-90deg);
+    transition: box-shadow $speed;
+    scroll-behavior: smooth;
+
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 9900;
+    bottom: em(100px);
+    @include ifmobile {
+      bottom: em(80px);
+    }
+
+    &:hover {
+      background: rgba(46, 61, 141, 0.8);
+    }
+
+    &:active {
+      background: rgb(46, 61, 141);
+    }
+
+    i {
+      border: solid $blue30;
+      border-width: 0 0.696429px 0.696429px 0;
+      display: inline-block;
+      padding: em(8px);
+      transform: rotate(-45deg);
+      position: absolute;
+      left: em(8px);
+    }
+  }
+}
+
+.Image {
+  position: absolute;
+  top: em(224px);
+  right: em(-248px);
+  // z-index: -10;
+  // z-index: auto;
+  @include ifmobile {
+    top: em(164px);
+    right: em(-153px);
+  }
+  .Img {
+    position: relative;
+    width: em(798px);
+    height: em(798px);
+    @include ifmobile {
+      width: em(402px);
+      height: em(402px);
+    }
+  }
+}

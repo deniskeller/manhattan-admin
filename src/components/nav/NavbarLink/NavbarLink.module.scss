@@ -1,0 +1,23 @@
+.Li {
+  line-height: 100%;
+  list-style: none;
+  margin-bottom: em(54px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.Link {
+  font-size: em(24px);
+  font-weight: 400;
+  line-height: 100%;
+  white-space: nowrap;
+  font-style: normal;
+  color: $white;
+  text-transform: uppercase;
+  position: relative;
+  &:hover {
+    color: rgba(145, 167, 252, 1);
+  }
+}

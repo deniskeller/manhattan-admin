@@ -1,0 +1,70 @@
+.Popup {
+  .Title {
+    margin-bottom: em(40px);
+    @include ifmobile {
+      margin-bottom: em(30px);
+    }
+    h1 {
+      font-weight: 600;
+      font-size: em(40px);
+      line-height: 100%;
+      color: $white;
+      @include ifmobile {
+        font-size: em(32px);
+      }
+    }
+  }
+
+  .Header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: em(511px);
+    margin-bottom: em(42px);
+    @include ifmobile {
+      flex-direction: column;
+      min-width: 100%;
+    }
+
+    &_Item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-right: em(43px);
+      @include ifmobile {
+        margin-right: 0;
+        margin-bottom: em(20px);
+        justify-content: space-between;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .Name {
+        margin-right: em(20px);
+        @include ifmobile {
+          margin-right: 0;
+        }
+        span {
+          font-weight: 400;
+          font-size: em(16px);
+          line-height: 100%;
+          color: #f8f8fa;
+          @include ifmobile {
+          }
+        }
+      }
+
+      .Value {
+        font-weight: 500;
+        font-size: em(24px);
+        line-height: 100%;
+        color: #f0f3ff;
+        @include ifmobile {
+          font-size: em(18px);
+        }
+      }
+    }
+  }
+}

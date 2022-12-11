@@ -1,0 +1,194 @@
+.Container {
+  width: 100%;
+  position: absolute;
+  z-index: 1001;
+
+  .Navbar {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: em(50px) em(83px) 0;
+    position: relative;
+
+    @include iftablet {
+      padding: em(50px) em(32px) 0;
+    }
+
+    @include ifmobile {
+      padding: em(33px) em(12px) 0;
+    }
+  }
+  .Drawer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Burger {
+    width: em(36px);
+    cursor: pointer;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: em(59px);
+    right: em(83px);
+    z-index: 10000;
+
+    @include iftablet {
+      right: em(32px);
+    }
+    @include ifmobile {
+      width: em(30px);
+      right: em(20px);
+      top: em(40px);
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+      border-radius: em(3px);
+      height: em(2px);
+      background: $white;
+      transition: all 0.3s;
+      position: relative;
+      &:nth-child(3) {
+        width: 65%;
+      }
+    }
+
+    span + span {
+      margin-top: em(8px);
+    }
+  }
+
+  .Active span:nth-child(1) {
+    animation: ease 0.7s top forwards;
+  }
+
+  .NotActive span:nth-child(1) {
+    animation: ease 0.7s top-2 forwards;
+  }
+
+  .Active span:nth-child(2) {
+    animation: ease 0.7s scaled forwards;
+  }
+
+  .NotActive span:nth-child(2) {
+    animation: ease 0.7s scaled-2 forwards;
+  }
+
+  .Active span:nth-child(3) {
+    width: 100%;
+    animation: ease 0.7s bottom forwards;
+  }
+
+  .NotActive span:nth-child(3) {
+    animation: ease 0.7s bottom-2 forwards;
+  }
+
+  .NavbarNav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $dark4;
+    padding: 0;
+    z-index: 1000;
+    width: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    transition: 0.6s ease padding, 0.6s ease width;
+  }
+
+  .NavbarNav_Visible {
+    width: em(508px);
+    padding: em(196px) em(208px) em(100px) em(106px);
+    @include ifmobile {
+      width: 100vw;
+      padding: em(100px) em(106px) em(30px) em(60px);
+    }
+  }
+}
+
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: em(10px);
+    transform: rotate(0);
+  }
+  100% {
+    top: em(10px);
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes top-2 {
+  0% {
+    top: em(10px);
+    transform: rotate(45deg);
+  }
+  50% {
+    top: em(10px);
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: em(10px);
+    transform: rotate(0);
+  }
+  100% {
+    bottom: em(10px);
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes bottom-2 {
+  0% {
+    bottom: em(10px);
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: em(10px);
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

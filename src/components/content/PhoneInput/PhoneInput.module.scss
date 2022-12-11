@@ -1,0 +1,33 @@
+.BaseInput {
+  font-size: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  & .Error {
+    border-bottom: 1px solid #a11515!important;
+  }
+}
+
+.Label {
+  font-family: $font-Avenir;
+  font-style: normal;
+  font-weight: 500;
+  font-size: em(16px);
+  line-height: 100%;
+  color: $white;
+  margin-bottom: em(9px);
+}
+
+.Error {
+  border-bottom: 2px solid #a11515;
+}
+
+.ErrorText {
+  font-size: em(13px);
+  line-height: 100%;
+  color: #a11515;
+  display: block;
+  font-family: $font-Avenir;
+  margin-top: em(10px);
+  font-weight: 400;
+}

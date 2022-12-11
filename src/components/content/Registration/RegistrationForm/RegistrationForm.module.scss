@@ -1,0 +1,22 @@
+.ContainerForm {
+  width: em(485px);
+  margin: 0 auto;
+}
+.Form {
+  background-color: $darkBlue;
+  border-radius: 4px;
+  padding: em(30px);
+}
+.TitleForm {
+  font-weight: 500;
+  font-size: em(24px);
+  line-height: em(34px);
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.spacer{
+  width: 100%;
+  height: 30px;
+}

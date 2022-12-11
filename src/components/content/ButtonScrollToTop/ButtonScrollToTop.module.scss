@@ -1,0 +1,50 @@
+.ScrollToTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: em(40px);
+  height: em(40px);
+  font-size: 100%;
+  position: fixed;
+  // bottom: em(100px);
+  // right: em(62px);
+  z-index: 9900;
+  border: none;
+  outline: none;
+  background: rgba(46, 61, 141, 0.5);
+  cursor: pointer;
+  border-radius: em(2px);
+  transform: rotateZ(-90deg);
+  transition: box-shadow $speed;
+  scroll-behavior: smooth;
+
+  position: sticky;
+  position: -webkit-sticky;
+  margin-left: auto;
+  margin-right: em(62px);
+
+  @include iftablet {
+    right: em(32px);
+  }
+
+  @include ifmobile {
+    right: em(12px);
+  }
+  &:hover {
+    background: rgba(46, 61, 141, 0.8);
+  }
+
+  &:active {
+    background: rgb(46, 61, 141);
+  }
+
+  i {
+    border: solid $blue30;
+    border-width: 0 0.696429px 0.696429px 0;
+    display: inline-block;
+    padding: em(8px);
+    transform: rotate(-45deg);
+    position: absolute;
+    left: em(8px);
+  }
+}

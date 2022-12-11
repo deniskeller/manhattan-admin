@@ -1,0 +1,37 @@
+.Description {
+  max-width: em(424px);
+  margin-bottom: em(64px);
+  @include ifmobile {
+    margin-bottom: em(32px);
+  }
+}
+
+.News {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: em(40px) em(40px);
+  margin-bottom: em(56px);
+
+  @include ifmobile {
+    grid-template-columns: 1fr;
+    gap: em(16px) 0;
+    margin-bottom: em(48px);
+  }
+}
+
+.Button {
+  width: em(424px);
+  height: em(56px);
+  margin: 0 auto;
+  margin-bottom: em(120px);
+
+  @include iftablet {
+    margin-bottom: em(100px);
+  }
+
+  @include ifmobile {
+    width: 100%;
+    height: em(44px);
+    margin-bottom: em(137px);
+  }
+}

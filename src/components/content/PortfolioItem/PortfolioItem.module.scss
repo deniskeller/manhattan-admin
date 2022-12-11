@@ -1,0 +1,318 @@
+.PortfolioItem {
+  width: 100%;
+  min-height: em(392px);
+  background: $dark4;
+  border-radius: 2px;
+  padding: em(56px);
+  display: grid;
+  grid-template-columns: em(352px) 1fr;
+  gap: 0 em(90px);
+  overflow: hidden;
+
+  @include iftablet {
+    gap: 0;
+  }
+  @include ifmobile {
+    display: flex;
+    flex-direction: column;
+    padding: em(32px) 0;
+  }
+
+  &_Description {
+    display: inline-block;
+    max-width: em(352px);
+    @include ifmobile {
+      margin-bottom: em(24px);
+      padding: em(32px) em(20px);
+    }
+
+    .Logo {
+      display: flex;
+      position: relative;
+      margin-bottom: em(20px);
+      .spacefex {
+        width: em(258px);
+        height: em(35px);
+        @include ifmobile {
+          width: em(210px);
+          height: em(28px);
+        }
+      }
+      .teido {
+        width: em(151px);
+        height: em(50px);
+      }
+      .aqatin {
+        width: em(209px);
+        height: em(56px);
+        @include ifmobile {
+          width: em(186.61px);
+          height: em(50px);
+        }
+      }
+      .esoque {
+        width: em(213px);
+        height: em(44px);
+        @include ifmobile {
+          width: em(174.27px);
+          height: em(36px);
+        }
+      }
+      .halalcash {
+        width: em(234px);
+        height: em(42px);
+        position: relative;
+        @include ifmobile {
+          width: em(214px);
+          height: em(38.21px);
+        }
+      }
+      .pridepay {
+        width: em(234px);
+        height: em(51px);
+        position: relative;
+        @include ifmobile {
+          width: em(206px);
+          height: em(44.3px);
+        }
+      }
+      .blvc {
+        width: em(115px);
+        height: em(50px);
+        position: relative;
+        @include ifmobile {
+          width: em(110px);
+          height: em(44.3px);
+        }
+      }
+      .tyncofex {
+        width: em(215px);
+        height: em(56px);
+        position: relative;
+        @include ifmobile {
+          width: em(215px);
+          height: em(56px);
+        }
+      }
+      .cnda {
+        width: em(250px);
+        height: em(67px);
+        position: relative;
+        @include ifmobile {
+          width: em(186px);
+          height: em(50px);
+        }
+      }
+      .cospay {
+        width: em(215px);
+        height: em(56px);
+        position: relative;
+        @include ifmobile {
+          width: em(172px);
+          height: em(45px);
+        }
+      }
+    }
+
+    .Title {
+      font-size: em(18px);
+      font-weight: 500;
+      line-height: 133%;
+      color: $white;
+      margin-bottom: em(8px);
+      @include ifmobile {
+        font-size: em(16px);
+      }
+    }
+
+    .FoundingDate,
+    .FoundingPlace {
+      font-weight: 400;
+      font-size: em(14px);
+      line-height: 143%;
+      color: #e0e6ff;
+      opacity: 0.5;
+    }
+    .FoundingDate {
+      margin-bottom: em(4px);
+    }
+  }
+
+  &_Tabs {
+    display: grid;
+    grid-template-columns: em(280px) 1fr;
+    grid-row-start: 1;
+    grid-column-start: 2;
+    grid-row-end: 3;
+    gap: em(40px);
+
+    @include iftablet {
+      grid-template-columns: 1fr;
+    }
+
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      grid-row-start: auto;
+      grid-column-start: auto;
+      grid-row-end: auto;
+      margin-bottom: em(40px);
+    }
+
+    &_Info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: em(38px) 0;
+
+      @include iftablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: em(20px) 0;
+        margin-right: 0;
+        max-width: 100%;
+        margin-bottom: em(40px);
+      }
+
+      @include ifmobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: em(24px) em(20px);
+        background: #0a0e1f;
+        border-radius: 1px;
+        padding: em(16px);
+        margin-right: 0;
+      }
+
+      .InfoItem {
+        @include iftablet {
+          &:nth-child(2) {
+            order: 1;
+          }
+          &:nth-child(4) {
+            order: 2;
+          }
+        }
+
+        @include ifmobile {
+          align-self: end;
+          margin-bottom: em(10px);
+
+          &:nth-child(2) {
+            order: 1;
+          }
+          &:nth-child(4) {
+            order: 2;
+          }
+        }
+
+        &_Title {
+          font-weight: 400;
+          font-size: em(12px);
+          line-height: 133%;
+          color: #f0f3ff;
+          opacity: 0.8;
+          @include ifmobile {
+            font-size: em(11px);
+          }
+        }
+        &_Value {
+          font-weight: 400;
+          font-size: em(18px);
+          line-height: 133%;
+          color: #e0e6ff;
+          @include ifmobile {
+            font-size: em(15px);
+          }
+        }
+      }
+    }
+
+    &_Grapth {
+      @include ifmobile {
+        background: #0a0e1f;
+        border-radius: 1px;
+        padding: em(16px);
+      }
+
+      .GrapthTitle {
+        font-weight: 400;
+        font-size: em(12px);
+        line-height: 133%;
+        color: #f0f3ff;
+        opacity: 0.8;
+        margin-bottom: em(6px);
+      }
+
+      .Grapth {
+        max-width: em(465px);
+        height: auto;
+      }
+    }
+  }
+
+  &_Actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: em(352px);
+
+    @include ifmobile {
+      padding-right: em(20px);
+      padding-left: em(20px);
+    }
+
+    .Tags {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: em(15px);
+
+      .TagsItem {
+        display: flex;
+        align-items: center;
+        height: em(26px);
+        padding: em(5px) em(16px);
+        margin: em(3px) em(6px) em(3px) 0;
+        border-radius: 2px;
+        background: rgba(29, 39, 71, 0.3);
+        @include ifmobile {
+        }
+
+        &:first-child {
+          background: $dirty_blue;
+        }
+        span {
+          font-weight: 400;
+          font-size: em(11px);
+          line-height: 100%;
+          color: $white;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .Button {
+      width: em(263px);
+      height: em(44px);
+      @include ifmobile {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.Desktop {
+  @include ifmobile {
+    display: none;
+  }
+}
+
+.Mobile {
+  display: block;
+  margin-bottom: em(24px);
+  @include ifdesktop {
+    display: none;
+  }
+  @include iftablet {
+    display: none;
+  }
+}

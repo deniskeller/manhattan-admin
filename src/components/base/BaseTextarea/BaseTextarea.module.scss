@@ -1,0 +1,64 @@
+.BaseTextarea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Textarea {
+  $size: 16px;
+  font-family: $font-Avenir;
+  line-height: 100%;
+  font-size: em($size);
+  width: 100%;
+  height: em(90px);
+  background: none;
+  outline: none;
+  border: none;
+  position: relative;
+  box-shadow: none;
+  border-radius: 0;
+  color: #f8f8fa;
+  border-bottom: em(2px) solid $white;
+  @include placeholder-color(#aaafbd);
+  padding: em(12px, $size) em(12px, $size);
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  resize: none;
+
+  &:hover {
+    border-color: #91a7fc;
+  }
+
+  &:focus {
+    border-color: #2e3d8d;
+  }
+
+  &::-webkit-scrollbar {
+    width: em(4px);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+  }
+}
+
+.Error {
+  border-bottom: em(2px) solid #a11515;
+}
+
+.ErrorText {
+  display: block;
+  font-size: em(13px);
+  line-height: 100%;
+  color: #a11515;
+  margin-top: em(10px);
+}
+
+.Label {
+  font-size: em(16px);
+  line-height: 120%;
+  color: $white;
+  margin-bottom: em(10px);
+}

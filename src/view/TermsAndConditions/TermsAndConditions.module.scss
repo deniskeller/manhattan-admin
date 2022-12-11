@@ -1,0 +1,182 @@
+.HeaderOverlay {
+  width: 100%;
+  background: $dirty_blue;
+}
+
+.Header {
+  position: relative;
+
+  &_Image {
+    position: absolute;
+    top: em(74px);
+    right: 0;
+    z-index: -100;
+
+    @include iftablet {
+      top: em(144px);
+      right: em(110px);
+    }
+    @include ifmobile {
+      top: em(70px);
+      right: em(-150px);
+    }
+    .Img {
+      position: relative;
+      width: em(636px);
+      height: em(636px);
+
+      @include iftablet {
+        width: em(496px);
+        height: em(496px);
+      }
+
+      @include ifmobile {
+        width: em(387px);
+        height: em(387px);
+      }
+    }
+  }
+}
+
+.Wrapper {
+  background: $white;
+  padding: em(57px) 0 em(120px);
+
+  @include iftablet {
+    padding: em(88px) 0 em(100px);
+  }
+  @include ifmobile {
+    padding: em(40px) 0 em(80px);
+  }
+}
+
+.Content {
+  display: grid;
+  grid-template-columns: em(318px) 1fr;
+  gap: em(106px);
+  @include iftablet {
+    grid-template-columns: 1fr;
+    gap: em(72px);
+  }
+  @include ifmobile {
+    grid-template-columns: 1fr;
+    gap: em(30px);
+  }
+
+  &_Terms {
+    padding-top: em(55px);
+
+    @include iftablet {
+      padding-top: 0;
+    }
+    @include ifmobile {
+      padding-top: 0;
+    }
+
+    .Terms_Item {
+      margin-bottom: em(32px);
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &_Title {
+        font-weight: 600;
+        font-size: em(18px);
+        line-height: 133%;
+        margin-bottom: em(12px);
+        @include ifmobile {
+          font-size: em(14px);
+        }
+      }
+
+      &_Description {
+        font-weight: 400;
+        font-size: em(16px);
+        line-height: 150%;
+        margin-bottom: em(12px);
+        @include ifmobile {
+          font-size: em(13px);
+        }
+        &List {
+          margin-bottom: em(8px);
+          &last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &_Condition {
+          .Condition_List {
+            &_Item {
+              margin-bottom: em(16px);
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              &_Title {
+                font-weight: 500;
+                font-size: em(16px);
+                line-height: 150%;
+                margin-bottom: em(12px);
+                @include ifmobile {
+                  font-size: em(14px);
+                }
+              }
+
+              &_List {
+                list-style: disc;
+                padding-left: em(27px);
+                &_Item {
+                  font-weight: 400;
+                  font-size: em(16px);
+                  line-height: 150%;
+                  margin-bottom: em(8px);
+                  @include ifmobile {
+                    font-size: em(13px);
+                  }
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+
+                  .List {
+                    list-style: disc;
+                    padding-left: em(27px);
+
+                    .Item {
+                      font-weight: 400;
+                      font-size: em(16px);
+                      line-height: 150%;
+                      margin-bottom: em(8px);
+                      &:last-child {
+                        margin-bottom: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &_DescriptionList {
+        list-style: disc;
+        padding-left: em(27px);
+        .List_Item {
+          font-weight: 400;
+          font-size: em(16px);
+          line-height: 150%;
+          margin-bottom: em(8px);
+          @include ifmobile {
+            font-size: em(13px);
+          }
+          &_Title {
+            margin-bottom: em(12px);
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

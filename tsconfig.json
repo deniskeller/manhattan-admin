@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+		"baseUrl": "src",
+    "paths": {
+      "@layouts/*": ["layouts/*"],
+      "@base/*": ["components/base/*"],
+      "@nav/*": ["components/nav/*"],
+      "@admin/*": ["components/admin/*"],
+      "@constants/*": ["constants/*"],
+      "@view/*": ["view/*"],
+      "@content/*": ["components/content/*"],
+      "@hooks/*": ["hooks/*"],
+      "@store/*": ["store/*"],
+      "@utils/*": ["utils/*"],
+      "@api/*": ["api/*"],
+      "@services/*": ["services/*"],
+      "@type/*": ["types/*"],
+      "@tw/components/*": ["components/baseTailwind/*"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js", "pages/api/index.js", "src/services/index.ts"],
+  "exclude": ["node_modules"],
+  "types": ["types"]
+}

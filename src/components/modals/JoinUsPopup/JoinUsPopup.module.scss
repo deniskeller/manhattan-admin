@@ -1,0 +1,17 @@
+.Popup {
+  .Title {
+    margin-bottom: em(40px);
+    @include ifmobile {
+      margin-bottom: em(30px);
+    }
+    h1 {
+      font-weight: 600;
+      font-size: em(40px);
+      line-height: 100%;
+      color: $white;
+      @include ifmobile {
+        font-size: em(32px);
+      }
+    }
+  }
+}

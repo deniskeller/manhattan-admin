@@ -1,0 +1,89 @@
+.Wrapper {
+  display: none;
+  background: #060812;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  min-height: 100%;
+  overflow: auto;
+  overflow-y: scroll;
+}
+.Popup {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  padding: em(110px) em(24px);
+
+  @include ifmobile {
+    padding: em(80px) em(12px) em(58px);
+  }
+
+  &_Close {
+    position: absolute;
+    top: em(72px);
+    right: em(72px);
+    width: em(36px);
+    height: em(36px);
+    cursor: pointer;
+    transition: all 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include ifmobile {
+      top: em(27px);
+      right: em(27px);
+    }
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  &_Close::before,
+  &_Close::after {
+    content: '';
+    position: absolute;
+    top: em(15px);
+    display: block;
+    width: em(36px);
+    height: 2px;
+    background: $white;
+  }
+
+  &_Close::before {
+    transform: rotate(45deg);
+  }
+
+  &_Close::after {
+    transform: rotate(-45deg);
+  }
+
+  &_Image {
+    position: absolute;
+    bottom: em(-167px);
+    left: em(-227px);
+    width: em(639px);
+    height: em(639px);
+    z-index: -10;
+    @include ifmobile {
+      left: em(-240px);
+      bottom: em(-167px);
+    }
+    .Img {
+      position: relative;
+      width: em(639px);
+      height: em(639px);
+    }
+  }
+}
+
+.Visible {
+  display: block;
+}

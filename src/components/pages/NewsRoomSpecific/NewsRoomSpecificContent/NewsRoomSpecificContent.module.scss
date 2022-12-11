@@ -1,0 +1,196 @@
+.News {
+  padding-bottom: em(120px);
+  @include iftablet {
+    padding-bottom: em(60px);
+  }
+  @include ifmobile {
+    padding-bottom: em(80px);
+  }
+
+  &_Title {
+    margin-bottom: em(24px);
+  }
+
+  &_Date {
+    font-size: em(16px);
+    font-weight: 400;
+    line-height: 133%;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: em(24px);
+
+    @include ifmobile {
+      font-size: em(12px);
+    }
+  }
+
+  &_Image {
+    height: em(503px);
+    margin-bottom: em(48px);
+    background: $grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include ifmobile {
+      height: em(180px);
+      margin-bottom: em(32px);
+    }
+  }
+
+  &_Description {
+    max-width: em(848px);
+    margin-bottom: em(48px);
+    @include ifmobile {
+      margin-bottom: em(32px);
+    }
+  }
+
+  &_Quote {
+    max-width: em(848px);
+    padding-left: em(24px);
+    margin-bottom: em(48px);
+    @include ifmobile {
+      margin-bottom: em(32px);
+      padding-right: em(24px);
+    }
+    p {
+      font-size: em(24px);
+      font-weight: 500;
+      line-height: 133%;
+      color: $white;
+      @include ifmobile {
+        font-size: em(16px);
+      }
+    }
+    span {
+      font-size: em(18px);
+      font-weight: 500;
+      line-height: 133%;
+      color: rgba(255, 255, 255, 0.7);
+      @include ifmobile {
+        font-size: em(14px);
+      }
+    }
+  }
+
+  &_List {
+    max-width: em(636px);
+    margin-bottom: em(48px);
+    @include ifmobile {
+      margin-bottom: em(32px);
+    }
+
+    &_Title {
+      font-size: em(18px);
+      font-weight: 600;
+      line-height: 133%;
+      color: $white;
+      margin-bottom: em(24px);
+      @include ifmobile {
+        font-size: em(16px);
+      }
+    }
+
+    &_Items {
+      font-size: em(16px);
+      font-weight: 400;
+      line-height: 150%;
+      color: $white;
+      padding-left: em(10px);
+      @include ifmobile {
+        font-size: em(14px);
+      }
+      li {
+        margin-bottom: em(5px);
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &_Author {
+    font-weight: 400;
+    font-size: em(16px);
+    line-height: 133%;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: em(48px);
+    @include ifmobile {
+      font-size: em(14px);
+      margin-bottom: em(32px);
+    }
+  }
+
+  &_Navbar {
+    border-top: 1px solid #2e3d8d;
+    padding-top: em(48px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    @include ifmobile {
+      padding-top: em(32px);
+    }
+
+    &_Prev,
+    &_Next {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: em(12px) em(20px);
+      transition: ease 0.5s;
+      background: rgba(33, 43, 84, 0.1);
+
+      border-radius: 2px;
+      &:hover {
+        background: rgba(33, 43, 84, 1);
+      }
+      .IconArrow {
+        border: solid $white;
+        border-width: 0 2.5px 2.5px 0;
+        display: inline-block;
+        padding: em(5px);
+        transform: rotate(-45deg);
+        position: absolute;
+      }
+      .Name {
+        max-width: em(249px);
+        @include ifmobile {
+          max-width: em(120px);
+        }
+        span {
+          font-size: em(18px);
+          font-weight: 500;
+          line-height: 133%;
+          color: $white;
+          @include ifmobile {
+            font-size: em(12px);
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    &_Prev {
+      padding-left: em(56px);
+      @include ifmobile {
+        padding-left: em(40px);
+      }
+      .IconArrow {
+        transform: rotate(-225deg);
+        left: em(20px);
+      }
+    }
+    &_Next {
+      padding-right: em(56px);
+      text-align: right;
+      @include ifmobile {
+        padding-right: em(40px);
+      }
+      .IconArrow {
+        right: em(20px);
+      }
+    }
+  }
+}

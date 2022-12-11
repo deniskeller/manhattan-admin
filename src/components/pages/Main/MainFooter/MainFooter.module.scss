@@ -1,0 +1,79 @@
+.Container {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding: em(282px) 0;
+  position: relative;
+  min-height: em(735px);
+
+  @include iftablet {
+    background-size: cover;
+    padding: em(222px) 0;
+    min-height: em(630px);
+  }
+  @include ifmobile {
+    background-size: cover;
+    padding: em(202px) 0;
+    min-height: em(560px);
+  }
+}
+
+.Gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: em(360px);
+  background: linear-gradient(0deg, #1d2747 0%, rgba(29, 39, 71, 0) 100%);
+  @include iftablet {
+    height: em(288px);
+  }
+  @include ifmobile {
+    height: em(206px);
+  }
+}
+
+.MainFooter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+
+  &_Title {
+    max-width: em(417px);
+    margin-bottom: em(35px);
+    @include iftablet {
+      margin-bottom: em(30px);
+    }
+    @include ifmobile {
+      margin-bottom: em(24px);
+    }
+    h1 {
+      font-weight: 700;
+      font-size: em(40px);
+      line-height: 133%;
+      text-align: center;
+      color: #fffcfc;
+      text-align: center;
+      @include ifmobile {
+        font-size: em(30px);
+      }
+    }
+  }
+
+  &_Button {
+    width: em(424px);
+    height: em(56px);
+    margin: 0 auto;
+    @include iftablet {
+      width: em(315px);
+      height: em(44px);
+    }
+    @include ifmobile {
+      width: 100% !important;
+      height: em(44px);
+    }
+  }
+}

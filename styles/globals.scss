@@ -1,0 +1,396 @@
+@import './../src/assets/scss/core.scss';
+@import '~react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --animate-delay: 0.5s !important;
+}
+
+//стили карты
+.leaflet-marker-icon.leaflet-interactive {
+  border: none;
+  background: none;
+}
+
+//style for input phone
+//star
+.react-tel-input {
+  font-family: 'Avenir Next', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 100% !important;
+  line-height: 100% !important;
+}
+
+.react-tel-input .form-control {
+  $size: 16px;
+  font-family: 'Avenir Next', sans-serif !important;
+  line-height: 100% !important;
+  font-size: em($size) !important;
+  width: 100% !important;
+  height: em(39px) !important;
+  padding-left: em(55px) !important;
+  background: none !important;
+  outline: none !important;
+  border: none !important;
+  position: relative !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: #f8f8fa !important;
+  border-bottom: em(2px) solid $white !important;
+  @include placeholder-color(#aaafbd);
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+
+  &:hover {
+    border-color: #91a7fc !important;
+  }
+
+  &:focus {
+    border-color: #2e3d8d !important;
+  }
+}
+
+.react-tel-input .flag-dropdown {
+  background: none !important;
+  border: none !important;
+}
+.react-tel-input .selected-flag {
+  padding-left: em(12px) !important;
+  &:hover {
+    background: none !important;
+  }
+}
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background: none !important;
+}
+
+.react-tel-input .country-list {
+  width: max-content !important;
+  max-width: em(280px) !important;
+  padding: em(5px) 0 !important;
+  background: #1d2747 !important;
+  border-radius: em(2px) !important;
+  &::-webkit-scrollbar {
+    width: em(4px) !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 100px !important;
+  }
+}
+
+.react-tel-input .country-list .country-name,
+.react-tel-input .country-list .country .dial-code {
+  font-size: em(16px) !important;
+  font-family: 'Avenir Next' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  color: $white !important;
+}
+
+.react-tel-input .country-list .country:hover {
+  background-color: #2e3d8d !important;
+}
+
+.react-tel-input .country-list .country.highlight {
+  background-color: #2e3d8d !important;
+}
+
+.react-tel-input .selected-flag .arrow {
+  border-top: 4px solid #fff !important;
+}
+//end
+
+//slider tab portfolio modile
+.carousel-container {
+  padding-bottom: em(20px) !important;
+}
+
+.slide-item {
+  @include ifmobile {
+    padding: 0 em(20px) 0 em(20px) !important;
+  }
+}
+
+.custom-dot-list-style {
+  height: 3px !important;
+}
+
+.react-multi-carousel-dot {
+  button {
+    display: flex !important;
+    width: 49px !important;
+    height: 3px !important;
+    background: rgba(29, 39, 71, 0.7) !important;
+    border-radius: em(15px) !important;
+    outline: none !important;
+    border: none !important;
+  }
+}
+
+.custom-dot-list-style .react-multi-carousel-dot--active {
+  button {
+    background: #2e3d8d !important;
+  }
+}
+
+//PortfolioSpecific Slider
+.portfolio-specific-slider .slick-track {
+  display: flex;
+  align-items: baseline;
+}
+.portfolio-specific-slider .slick-slide {
+  display: flex !important;
+  position: relative !important;
+  width: em(934px) !important;
+  height: em(560px) !important;
+
+  @include iftablet {
+    width: em(656px) !important;
+    height: em(480px) !important;
+  }
+
+  @include ifmobile {
+    width: 100% !important;
+    height: em(480px) !important;
+  }
+
+  div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.portfolio-specific-slider2 .slick-slide {
+  display: flex !important;
+  position: relative !important;
+  width: em(508px) !important;
+  height: em(267px) !important;
+
+  @include iftablet {
+    width: em(368px) !important;
+    height: em(240px) !important;
+  }
+
+  @include ifmobile {
+    display: none;
+  }
+
+  div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+//our-portfolio-slider Slider
+.our-portfolio-slider .slick-track {
+  display: flex;
+  align-items: baseline;
+}
+
+//style of terms table
+.Table_Wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: em(32px);
+}
+
+.Table {
+  display: grid;
+  @include ifmobile {
+    width: 100%;
+    max-width: em(336px);
+    margin: 0 auto;
+  }
+
+  &__head {
+    padding: em(10px);
+    border-bottom: 1px solid #91a7fc;
+    span {
+      font-weight: 500;
+      font-size: em(12px);
+      line-height: em(20px);
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      color: rgba(26, 26, 26, 0.8);
+    }
+  }
+
+  &__col {
+    padding: em(10px);
+    border-bottom: 1px solid #e0e6ff;
+    @include ifmobile {
+      border-bottom: 1px solid #91a7fc;
+    }
+    span {
+      font-weight: 400;
+      font-size: em(13px);
+      line-height: em(20px);
+      color: rgba(26, 26, 26, 0.8);
+    }
+  }
+
+  @include ifmobile {
+    overflow-x: scroll;
+  }
+}
+
+.CookiePolicyTable {
+  grid-template-columns: repeat(4, auto);
+  .Table__head,
+  .Table__col {
+    @include ifmobile {
+      min-width: em(200px);
+    }
+  }
+  @media (min-width: 768px) {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: inherit;
+  }
+}
+
+.PrivacyPolicyTable {
+  grid-template-columns: repeat(10, auto);
+  .Table__head,
+  .Table__col {
+    @include ifmobile {
+      min-width: em(300px);
+    }
+  }
+  @media (min-width: 768px) {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(10, auto);
+    grid-template-columns: inherit;
+  }
+}
+
+//animation
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.Benefit_Description {
+  animation-delay: initial;
+  @include ifmobile {
+    animation-delay: calc(var(--animate-delay) * 1) !important;
+  }
+}
+
+.Benefit_Datas {
+  @include ifmobile {
+    animation-delay: calc(var(--animate-delay) * 2);
+  }
+}
+
+.MainAboutUs_Bg {
+  @include ifmobile {
+    animation-delay: calc(var(--animate-delay) * 2);
+  }
+}
+
+.Header_Description {
+  position: inherit;
+  z-index: 1000;
+  --animate-delay: 2.2s !important;
+  animation-delay: calc(var(--animate-delay) * 2) !important;
+}
+
+.InvestForm {
+  position: inherit;
+  z-index: 1000;
+  --animate-delay: 2s !important;
+  animation-delay: calc(var(--animate-delay) * 2.3) !important;
+}
+
+.MainFooter_Button {
+  @include ifmobile {
+    width: 100%;
+  }
+}
+
+.paragraph_animated {
+  font-size: em(16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 133%;
+  color: $white;
+  @include ifmobile {
+    font-size: em(14px);
+  }
+}
+
+.paragraph_animated span {
+  animation: letter-glow 0.7s 0s ease both;
+  @include nth-ani-delay(500, 0.005s);
+}
+
+@keyframes letter-glow {
+  0% {
+    opacity: 0;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.1);
+  }
+  66% {
+    opacity: 1;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+  }
+  77% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0);
+  }
+}
+
+
+
+//Editor
+.MuiPaper-root{
+  z-index: 1200!important;
+}
+#editor p:empty, #editor p.empty{
+  margin-bottom: 10px;
+  height: 1px;
+}
+.DraftEditor-editorContainer a{
+  color: #2e3d8d
+}
+
+.rdw-link-modal{
+  height: 222px!important;
+}
+
+.MuiPaper-root button{
+  //background-color: #2e3d8d!important;
+}

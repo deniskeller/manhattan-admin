@@ -1,0 +1,391 @@
+.Wrapper {
+  background: $blue;
+  position: relative;
+}
+
+.MainAboutUs {
+  padding-top: em(168px);
+  position: relative;
+
+  @include ifmobile {
+    padding-top: em(340px);
+  }
+
+  &_GearImage,
+  &_SityImage,
+  &_Bg {
+    position: absolute;
+  }
+
+  &_GearImage {
+    z-index: 1;
+    left: em(-328px);
+    bottom: em(400px);
+    width: em(1020px);
+    height: em(1020px);
+    @include iftablet {
+      left: em(-270px);
+      bottom: em(479px);
+      width: em(615px);
+      height: em(615px);
+    }
+    @include ifmobile {
+      display: none;
+    }
+  }
+
+  &_SityImage {
+    display: flex;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: em(729px);
+    z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include iftablet {
+      height: em(718px);
+    }
+    @include ifmobile {
+      height: 100%;
+      background-position: center;
+    }
+  }
+
+  &_Bg {
+    display: flex;
+    background: #050405;
+    opacity: 0.6;
+    right: 0;
+    bottom: 0;
+    width: 57%;
+    min-height: em(448px);
+    z-index: 2;
+    @include iftablet {
+      width: 50%;
+      min-height: em(480px);
+    }
+    @include ifmobile {
+      width: 100%;
+      min-height: em(480px);
+    }
+  }
+
+  &_Description {
+    position: relative;
+    max-width: em(424px);
+    padding-top: em(34px);
+    margin-bottom: em(200px);
+
+    @include iftablet {
+      max-width: em(312px);
+      margin-bottom: em(126px);
+    }
+    @include ifmobile {
+      max-width: em(292px);
+      margin-bottom: em(67px);
+      padding-left: em(60px);
+    }
+
+    span {
+      display: block;
+      width: em(106px);
+      height: 1px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include ifmobile {
+        display: none;
+      }
+
+      .FullWidth {
+        display: none;
+        background: $white;
+        height: 1px;
+        animation: fullWidth 0.5s linear forwards;
+      }
+    }
+
+    .IconGear {
+      display: none;
+      width: em(32px);
+      height: em(32px);
+      position: absolute;
+      left: em(12px);
+      top: em(20px);
+      @include ifmobile {
+        display: block;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: em(24px);
+      line-height: 167%;
+      color: $white;
+      @include iftablet {
+        font-size: em(18px);
+      }
+      @include ifmobile {
+        font-size: em(16px);
+      }
+    }
+  }
+
+  .Container {
+    max-width: em(1070px);
+    margin: 0 auto;
+    @include iftablet {
+    }
+    @include ifmobile {
+    }
+  }
+
+  .Statistics {
+    margin-bottom: em(280px);
+    @include iftablet {
+      margin-bottom: em(240px);
+    }
+    @include ifmobile {
+      margin-bottom: em(120px);
+    }
+
+    &_Title {
+      margin-bottom: em(24px);
+      @include iftablet {
+        margin-bottom: em(16px);
+      }
+      @include ifmobile {
+        margin-bottom: em(16px);
+      }
+      h1 {
+        font-weight: 500;
+        font-size: em(40px);
+        line-height: 133%;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $white;
+        @include iftablet {
+          font-size: em(32px);
+        }
+        @include ifmobile {
+          font-size: em(23px);
+        }
+      }
+    }
+
+    &_Subtitle {
+      margin-bottom: em(57px);
+      @include iftablet {
+        margin-bottom: em(50px);
+      }
+      @include ifmobile {
+        margin-bottom: em(54px);
+      }
+      h3 {
+        font-weight: 400;
+        font-size: em(24px);
+        line-height: 133%;
+        color: $white;
+        @include iftablet {
+          font-size: em(18px);
+        }
+        @include ifmobile {
+          font-size: em(16px);
+        }
+      }
+    }
+
+    &_Parameters {
+      width: 100%;
+      min-height: em(616px);
+      display: grid;
+      grid-template-columns: 1fr em(351px);
+      @include iftablet {
+        grid-template-columns: 1fr em(312px);
+        min-height: em(576px);
+      }
+      @include ifmobile {
+        grid-template-columns: 1fr;
+        min-height: em(576px);
+      }
+
+      &_ParametersBlock {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px 1px;
+
+        @include ifmobile {
+          margin-bottom: 1px;
+        }
+
+        .ParametersItem {
+          background: #1d2747;
+          padding: em(50px) em(48px);
+          @include ifmobile {
+            padding: em(24px) em(18px);
+          }
+
+          &_Name {
+            margin-bottom: em(5px);
+            span {
+              font-weight: 500;
+              font-size: em(16px);
+              line-height: 133%;
+              color: #f0f3ff;
+              opacity: 0.8;
+              @include ifmobile {
+                font-size: em(11px);
+              }
+            }
+          }
+
+          &_Value {
+            font-weight: 400;
+            font-size: em(48px);
+            line-height: 133%;
+            color: #e0e6ff;
+            @include ifmobile {
+              font-size: em(28px);
+            }
+          }
+        }
+      }
+
+      &_ImageBlock {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: em(80px) 0 em(60px) em(30px);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include iftablet {
+        }
+        @include ifmobile {
+          padding: em(40px) 0 em(24px) em(20px);
+          background-position: 100% 38%;
+          height: em(319px);
+        }
+        .ImageBlock_Logo {
+          cursor: default;
+          pointer-events: none;
+        }
+
+        .ImageBlock_Text {
+          width: 100%;
+          max-width: em(256px);
+          @include iftablet {
+            max-width: em(239px);
+          }
+          @include ifmobile {
+          }
+          p {
+            font-weight: 400;
+            font-size: em(24px);
+            line-height: 133%;
+            color: $white;
+            @include iftablet {
+              font-size: em(18px);
+              line-height: 178%;
+            }
+            @include ifmobile {
+              font-size: em(16px);
+              line-height: 157%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.BenefitWrapper {
+  position: relative;
+  .Benefit {
+    display: grid;
+    grid-template-columns: em(318px) 1fr;
+    gap: 0 em(106px);
+    position: relative;
+    z-index: 100;
+    @include iftablet {
+      grid-template-columns: em(389px) 1fr;
+      gap: 0 em(78px);
+    }
+    @include ifmobile {
+      grid-template-columns: 100%;
+      gap: em(56px) 0;
+    }
+
+    &_Data {
+      display: grid;
+      justify-content: end;
+      grid-template-columns: em(335px) em(186px);
+      gap: em(42px) em(70px);
+      padding: em(113px) 0 em(119px);
+      margin-top: em(168px);
+      min-height: em(448px);
+
+      @include iftablet {
+        grid-template-columns: 1fr;
+        gap: em(26px) 0;
+        padding: em(48px) 0 em(66px) em(78px);
+        margin-top: em(144px);
+        min-height: em(480px);
+      }
+      @include ifmobile {
+        grid-template-columns: 1fr;
+        gap: em(26px) 0;
+        padding: em(45px) 0 em(80px) em(46px);
+        margin-top: 0;
+        min-height: em(480px);
+      }
+
+      .DataItem {
+        &_Value {
+          margin-bottom: em(16px);
+          @include iftablet {
+            margin-bottom: em(10px);
+          }
+          @include ifmobile {
+            margin-bottom: em(10px);
+          }
+          span {
+            font-weight: 600;
+            font-size: em(40px);
+            line-height: 100%;
+            color: $white;
+            @include iftablet {
+              font-size: em(32px);
+            }
+            @include ifmobile {
+              font-size: em(28px);
+            }
+          }
+        }
+
+        &_Title {
+          font-weight: 600;
+          font-size: em(16px);
+          line-height: 133%;
+          color: $white;
+          @include iftablet {
+            font-size: em(14px);
+          }
+          @include ifmobile {
+            font-size: em(14px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fullWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

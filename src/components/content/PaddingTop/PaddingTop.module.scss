@@ -1,0 +1,6 @@
+.Padding_Top {
+  padding-top: em($top-padding);
+  @include ifmobile {
+    padding-top: em(106px);
+  }
+}

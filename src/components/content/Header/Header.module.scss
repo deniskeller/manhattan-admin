@@ -1,0 +1,12 @@
+.Header {
+  min-height: em(392px);
+  padding-bottom: em(72px);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+
+  @include ifmobile {
+    min-height: em(240px);
+    padding-bottom: em(47px);
+  }
+}
