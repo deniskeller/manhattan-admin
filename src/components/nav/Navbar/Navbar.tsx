@@ -32,6 +32,14 @@ const links: Links[] = [
     href: '/coming_soon',
     title: 'Financial Data',
   },
+  {
+    href: '/app/admin/forms',
+    title: 'Admin',
+  },
+  {
+    href: '/app/user/profile',
+    title: 'User',
+  },
 ];
 
 const Navbar: React.FC<Props> = () => {

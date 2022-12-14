@@ -46,22 +46,18 @@
       height: em(12px);
     }
   }
-  &.LogoSmall{
+  &.LogoSmall {
     .Icon {
-      width: 112px;
-      height: 53px;
-
-      @include iftablet {
-
-      }
+      width: em(112px);
+      height: em(53px);
     }
 
     .Gear {
       position: absolute;
-      right: -15px;
-      top: -6px;
-      width: 13px;
-      height: 13px;
+      right: em(-15px);
+      top: em(-6px);
+      width: em(13px);
+      height: em(13px);
       transition: 0.5s;
       &:hover {
         transform: none;

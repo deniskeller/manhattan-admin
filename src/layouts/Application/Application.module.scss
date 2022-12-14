@@ -1,0 +1,27 @@
+.AppLayout {
+  height: 100vh;
+  background: #f1f5f9;
+  height: 100vh;
+  overflow: hidden;
+  padding-bottom: em(88px);
+  @include iftablet {
+    padding-bottom: em(64px);
+  }
+  @include ifmobile {
+    padding-bottom: em(56px);
+  }
+  &_Content {
+    height: 100%;
+    overflow: auto;
+    margin-left: em(200px);
+    padding: em(30px) em(56px);
+
+    @include iftablet {
+      margin-left: 0;
+    }
+    @include ifmobile {
+      margin-left: 0;
+      padding: em(30px) 0;
+    }
+  }
+}

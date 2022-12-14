@@ -1,0 +1,8 @@
+.HeaderApp {
+  margin-left: em(200px);
+  &_Header {
+    position: sticky;
+    top: 0;
+    padding: em(28px) em(64px);
+  }
+}
