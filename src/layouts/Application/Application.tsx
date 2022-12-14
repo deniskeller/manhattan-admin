@@ -69,8 +69,6 @@ const Application: React.FC<Props> = ({ children }) => {
     if (router.pathname.split('/')[2] === 'user') {
       setPages(user_pages);
     }
-
-    console.log('router.pathname: ', router.pathname);
   }, [router.pathname]);
 
   return (
