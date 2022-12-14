@@ -1,9 +1,0 @@
-export { Button } from "./Button/index";
-export { Input } from "./Input/index";
-export { Checkbox } from "./Checkbox/Checkbox";
-export { Space } from "./Space/Space";
-export { Typography } from "./Typography/index";
-export { Stepper } from "./Stepper/Stepper";
-export { Calendar } from "./Calendar/Calendar";
-export { Select } from "./Select/select";
-export { FileDrop } from "./file-drop/file-drop";
