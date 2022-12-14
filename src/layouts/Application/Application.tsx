@@ -62,6 +62,7 @@ const Application: React.FC<Props> = ({ children }) => {
   const router = useRouter();
   const [pages, setPages] = useState(admin_pages);
 
+  //моковая авторизация
   useEffect(() => {
     if (router.pathname.split('/')[2] === 'admin') {
       setPages(admin_pages);
