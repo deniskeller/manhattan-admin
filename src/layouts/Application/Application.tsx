@@ -3,6 +3,7 @@ import styles from './Application.module.scss';
 import { HeaderApp, Sidebar } from 'components/app';
 
 import { useRouter } from 'next/router';
+import { DeleteAllNotificationsPopup } from 'components/modals';
 
 const admin_pages = [
   {
@@ -73,13 +74,17 @@ const Application: React.FC<Props> = ({ children }) => {
   }, [router.pathname]);
 
   return (
-    <div className={styles.AppLayout}>
-      <HeaderApp />
+    <>
+      <div className={styles.AppLayout}>
+        <HeaderApp />
 
-      <Sidebar pages={pages} />
+        <Sidebar pages={pages} />
 
-      <div className={styles.AppLayout_Content}>{children}</div>
-    </div>
+        <div className={styles.AppLayout_Content}>{children}</div>
+      </div>
+
+      <DeleteAllNotificationsPopup className="DeleteAllNotificationsPopup" />
+    </>
   );
 };
 

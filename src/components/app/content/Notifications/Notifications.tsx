@@ -5,6 +5,8 @@ import React from 'react';
 import styles from './Notifications.module.scss';
 import { NotificationItem } from '../';
 import { mock_notifications } from '@services/index';
+import { useAppDispatch } from '@hooks/redux';
+import { modalSlice } from '@store/modals/reducer';
 
 type Props = {
   isNotifications: boolean;
@@ -22,6 +24,9 @@ const Notifications: React.FC<Props> = ({
   };
   useOnClickOutside(thisNotifications, clickOutsideHandler);
 
+  const { setPopup } = modalSlice.actions;
+  const dispatch = useAppDispatch();
+
   return (
     <div
       className={styles.Notifications}
@@ -33,7 +38,14 @@ const Notifications: React.FC<Props> = ({
       <div className={styles.Notifications_Header}>
         <div className={styles.Notifications_Header_Title}>Notifications</div>
 
-        <div className={styles.Notifications_Header_ClearAll}>Clear all</div>
+        <div
+          className={styles.Notifications_Header_ClearAll}
+          onClick={() =>
+            dispatch(setPopup({ popup: 'DeleteAllNotificationsPopup' }))
+          }
+        >
+          Clear all
+        </div>
 
         <BaseIcon
           icon={ALL_ICONS.APP_MODAL_CLOSE}

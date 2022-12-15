@@ -16,15 +16,16 @@ const BaseTitle: React.FC<Props> = ({
   className = '',
   color = '#ffffff',
   isHtml,
-  html
+  html,
 }) => {
-  if (isHtml){
+  if (isHtml) {
     if (type == 'h1') {
       return (
         <div className={`${className}`}>
           <h1
             className={`${styles.Title} ${styles['Title_' + type]}`}
-            style={{ color: color }} dangerouslySetInnerHTML={{__html: html || ""}}
+            style={{ color: color }}
+            dangerouslySetInnerHTML={{ __html: html || '' }}
           />
         </div>
       );
@@ -33,7 +34,8 @@ const BaseTitle: React.FC<Props> = ({
         <div className={`${className}`}>
           <h2
             className={`${styles.Title} ${styles['Title_' + type]}`}
-            style={{ color: color }}  dangerouslySetInnerHTML={{__html: html || ""}}
+            style={{ color: color }}
+            dangerouslySetInnerHTML={{ __html: html || '' }}
           />
         </div>
       );
@@ -41,6 +43,7 @@ const BaseTitle: React.FC<Props> = ({
       return null;
     }
   }
+
   if (type == 'h1') {
     return (
       <div className={`${className}`}>
@@ -53,6 +56,17 @@ const BaseTitle: React.FC<Props> = ({
       </div>
     );
   } else if (type == 'h2') {
+    return (
+      <div className={`${className}`}>
+        <h2
+          className={`${styles.Title} ${styles['Title_' + type]}`}
+          style={{ color: color }}
+        >
+          {children}
+        </h2>
+      </div>
+    );
+  } else if (type == 'app') {
     return (
       <div className={`${className}`}>
         <h2

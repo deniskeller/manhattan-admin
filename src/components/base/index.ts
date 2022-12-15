@@ -8,3 +8,4 @@ export { default as BaseTextarea } from "./BaseTextarea/BaseTextarea";
 export { default as BaseSelect } from "./BaseSelect/BaseSelect";
 export { default as BasePopup } from "./BasePopup/BasePopup";
 export { default as BaseLink } from "./BaseLink/BaseLink";
+export { default as BasePopupApp } from "./BasePopupApp/BasePopupApp";

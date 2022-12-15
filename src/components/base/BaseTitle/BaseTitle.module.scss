@@ -17,4 +17,11 @@
       font-size: em(18px);
     }
   }
+
+  &_app {
+    font-size: em(20px);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #1a1a1a !important;
+  }
 }
