@@ -1,50 +1,15 @@
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { sidebarSlice } from '@store/sidebar/reducer';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './HeaderApp.module.scss';
 
 type Props = {};
 
 const HeaderApp = () => {
-  const [visible, setVisible] = React.useState(false);
-
-  // useEffect(() => {
-  //Закрываем меню по нажатию Esc
-  //   function onKeyDown(event: any) {
-  //     if (event.keyCode === 27) {
-  //       setVisible(false);
-  //     }
-  //   }
-
-  //   const documentWidth = document.documentElement.clientWidth;
-  //   const windowsWidth = window.innerWidth;
-  //   const scrollbarWidth = windowsWidth - documentWidth;
-
-  //   if (visible) {
-  //     document.body.style.overflow = 'hidden';
-  //     document.body.style.height = '100%';
-  //     document.body.style.position = 'fixed';
-
-  //     //добавляем ширину скрола
-  //     document.body.style.paddingRight = scrollbarWidth + 'px';
-  //     document.addEventListener('keydown', onKeyDown);
-  //   }
-
-  //   return () => {
-  //     document.body.style.overflow = '';
-  //     document.body.style.height = '';
-  //     document.body.style.position = 'relative';
-  //     //убираем ширину скрола
-  //     document.body.style.paddingRight = '0px';
-  //     document.removeEventListener('keydown', onKeyDown);
-  //   };
-  // }, [visible]);
-
   const dispatch = useAppDispatch();
   const isVisible = useAppSelector((state) => state.sidebar.visible);
   console.log('HeaderApp isVisible: ', isVisible);
   const { setVisibleSidebar } = sidebarSlice.actions;
-  // const isVisible = dispatch(setVisibleSidebar({ popup: '' }));
 
   return (
     <div className={styles.HeaderApp}>

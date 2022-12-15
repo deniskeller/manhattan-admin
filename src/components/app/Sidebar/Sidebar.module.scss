@@ -31,7 +31,7 @@
     &_Logo {
       margin: em(47px) em(24px) em(118px);
       @include ifmobile {
-        margin: em(32px) em(24px) em(32px);
+        margin: em(30px) em(24px) em(30px);
       }
     }
 
@@ -39,7 +39,7 @@
       display: none;
       flex-direction: column;
       margin-left: em(24px);
-      margin-bottom: em(24px);
+      margin-bottom: em(20px);
       @include ifmobile {
         display: flex;
       }
@@ -75,10 +75,10 @@
     }
 
     &_Navbar {
-      margin-bottom: em(43px);
+      margin-bottom: em(22px);
 
       &_Item {
-        padding: em(13px) em(26px);
+        padding: em(8px) em(26px);
         display: flex;
         flex-direction: row;
         align-items: center;

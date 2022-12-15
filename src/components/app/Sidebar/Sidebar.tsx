@@ -7,6 +7,7 @@ import styles from './Sidebar.module.scss';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { sidebarSlice } from '@store/sidebar/reducer';
+import useOnClickOutside from '@hooks/useOnClickOutside';
 
 type Props = {
   pages?: {
@@ -17,12 +18,20 @@ type Props = {
 
 const Sidebar: React.FC<Props> = ({ pages }) => {
   const router = useRouter();
-
+  const dispatch = useAppDispatch();
   const isVisible = useAppSelector((state) => state.sidebar.visible);
-  console.log('Sidebar isVisible: ', isVisible);
+  const { setVisibleSidebar } = sidebarSlice.actions;
+  const thisSidebar = React.useRef<HTMLDivElement>(null);
+  const clickOutsideHandler = () => {
+    dispatch(setVisibleSidebar({ visible: false }));
+  };
+  useOnClickOutside(thisSidebar, clickOutsideHandler);
 
   return (
-    <div className={`${styles.SidebarApp} ${isVisible ? styles.Visible : ''}`}>
+    <div
+      className={`${styles.SidebarApp} ${isVisible ? styles.Visible : ''}`}
+      ref={thisSidebar}
+    >
       <div className={styles.SidebarApp_Sidebar}>
         <Logo className={styles.SidebarApp_Sidebar_Logo} small />
 
