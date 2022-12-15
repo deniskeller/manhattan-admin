@@ -690,3 +690,98 @@ export const portfolioItems = [
 	},
 
 ];
+
+
+export const mock_notifications = [
+  {
+    type: 'add',
+    description: 'John Doe joined team Teido.',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: true,
+  },
+  {
+    type: 'add',
+    description: 'New application been received. Type: Merchant, Name: Google',
+    time: '',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'New application been received. Type: Merchant, Name: Google',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: true,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+  {
+    type: 'add',
+    description: 'T-01: New customer Case has been received',
+    time: '10:05',
+    date: '20.09.2022',
+    new_notification: false,
+  },
+];

@@ -4,100 +4,7 @@ import useOnClickOutside from '@hooks/useOnClickOutside';
 import React from 'react';
 import styles from './Notifications.module.scss';
 import { NotificationItem } from '../';
-
-const mock_notifications = [
-  {
-    type: 'add',
-    description: 'John Doe joined team Teido.',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: true,
-  },
-  {
-    type: 'add',
-    description: 'New application been received. Type: Merchant, Name: Google',
-    time: '',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'New application been received. Type: Merchant, Name: Google',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: true,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-  {
-    type: 'add',
-    description: 'T-01: New customer Case has been received',
-    time: '10:05',
-    date: '20.09.2022',
-    new_notification: false,
-  },
-];
+import { mock_notifications } from '@services/index';
 
 type Props = {
   isNotifications: boolean;
@@ -108,7 +15,6 @@ const Notifications: React.FC<Props> = ({
   isNotifications,
   setIsNotifications,
 }) => {
-  console.log('setIsNotifications: ', setIsNotifications);
   const thisNotifications = React.useRef<HTMLDivElement>(null);
 
   const clickOutsideHandler = () => {
