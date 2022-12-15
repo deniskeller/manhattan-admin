@@ -5,6 +5,8 @@ import Link from 'next/link';
 import React from 'react';
 import styles from './Sidebar.module.scss';
 import { useRouter } from 'next/router';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { sidebarSlice } from '@store/sidebar/reducer';
 
 type Props = {
   pages?: {
@@ -16,8 +18,11 @@ type Props = {
 const Sidebar: React.FC<Props> = ({ pages }) => {
   const router = useRouter();
 
+  const isVisible = useAppSelector((state) => state.sidebar.visible);
+  console.log('Sidebar isVisible: ', isVisible);
+
   return (
-    <div className={styles.SidebarApp}>
+    <div className={`${styles.SidebarApp} ${isVisible ? styles.Visible : ''}`}>
       <div className={styles.SidebarApp_Sidebar}>
         <Logo className={styles.SidebarApp_Sidebar_Logo} small />
 

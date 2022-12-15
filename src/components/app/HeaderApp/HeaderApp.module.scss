@@ -1,8 +1,265 @@
 .HeaderApp {
   margin-left: em(200px);
+
+  @include iftablet {
+    margin-left: 0;
+  }
+  @include ifmobile {
+    margin-left: 0;
+  }
+
   &_Header {
     position: sticky;
     top: 0;
-    padding: em(28px) em(64px);
+    min-height: em(88px);
+    padding: 0 em(56px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include iftablet {
+      min-height: em(64px);
+      padding: 0 em(32px);
+    }
+    @include ifmobile {
+      min-height: em(56px);
+      padding: 0 em(16px);
+    }
+
+    &_Title {
+      font-weight: 500;
+      font-size: em(20px);
+      color: $blue50;
+      text-transform: uppercase;
+    }
+
+    &_Actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &_CompanyBalance {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        margin-right: em(40px);
+
+        @include ifmobile {
+          display: none;
+        }
+
+        &_Value {
+          margin-right: em(8px);
+          span {
+            font-weight: 600;
+            font-size: em(16px);
+            color: $blue900;
+          }
+        }
+
+        &_Button {
+          width: em(20px);
+          height: em(20px);
+        }
+      }
+
+      &_Logout {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+
+        @include ifmobile {
+          display: none;
+        }
+
+        &_Name {
+          margin-right: em(8px);
+          span {
+            font-size: em(16px);
+            color: $blue900;
+          }
+        }
+        &_Button {
+          width: em(20px);
+          height: em(18px);
+        }
+      }
+
+      &_Notifications {
+        position: relative;
+        width: em(18px);
+        height: em(20px);
+        margin-right: em(44px);
+        cursor: pointer;
+
+        @include iftablet {
+          margin-right: em(44px);
+        }
+        @include ifmobile {
+          margin-right: 0;
+        }
+
+        &_Icon {
+          width: inherit;
+          height: inherit;
+        }
+
+        &_Counter {
+          position: absolute;
+          top: em(-1px);
+          left: em(9px);
+          background: $blue50;
+          border: 1px solid #eceef9;
+          border-radius: em(26px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: em(12px);
+          height: em(12px);
+
+          span {
+            display: flex;
+            font-size: em(9px);
+            font-weight: 500;
+            color: $white;
+            padding: 0 em(6px);
+          }
+        }
+      }
+
+      &_Burger {
+        width: em(20px);
+        cursor: pointer;
+        margin-left: em(40px);
+        @include ifdesktop {
+          display: none;
+        }
+
+        span {
+          display: block;
+          width: 100%;
+          height: em(1px);
+          background: #19214d;
+          transition: all 0.3s;
+          position: relative;
+          &:nth-child(3) {
+            width: 50%;
+          }
+        }
+
+        span + span {
+          margin-top: em(6px);
+        }
+      }
+
+      .Active span:nth-child(1) {
+        animation: ease 0.7s top forwards;
+      }
+
+      .NotActive span:nth-child(1) {
+        animation: ease 0.7s top-2 forwards;
+      }
+
+      .Active span:nth-child(2) {
+        animation: ease 0.7s scaled forwards;
+      }
+
+      .NotActive span:nth-child(2) {
+        animation: ease 0.7s scaled-2 forwards;
+      }
+
+      .Active span:nth-child(3) {
+        width: 100%;
+        animation: ease 0.7s bottom forwards;
+      }
+
+      .NotActive span:nth-child(3) {
+        animation: ease 0.7s bottom-2 forwards;
+      }
+    }
+  }
+}
+
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: em(7px);
+    transform: rotate(0);
+  }
+  100% {
+    top: em(7px);
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes top-2 {
+  0% {
+    top: em(7px);
+    transform: rotate(45deg);
+  }
+  50% {
+    top: em(7px);
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: em(7px);
+    transform: rotate(0);
+  }
+  100% {
+    bottom: em(7px);
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes bottom-2 {
+  0% {
+    bottom: em(7px);
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: em(7px);
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }

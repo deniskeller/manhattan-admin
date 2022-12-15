@@ -2,7 +2,14 @@
   position: fixed;
   z-index: 2;
   top: 0px;
-  margin-left: 0px;
+  transition: all 0.5s ease 0s;
+
+  @include iftablet {
+    margin-left: em(-200px);
+  }
+  @include ifmobile {
+    margin-left: em(-300px);
+  }
 
   &_Sidebar {
     min-width: em(200px);
@@ -183,4 +190,8 @@
       margin-top: auto;
     }
   }
+}
+
+.Visible {
+  margin-left: 0;
 }

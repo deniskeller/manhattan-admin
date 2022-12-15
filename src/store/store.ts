@@ -6,6 +6,7 @@ import {apiSlice} from "@store/api/reducer";
 import {cmsEnhanced} from "@store/editor/reducerEnhansed";
 import {formsSlice} from "@store/forms/reducer";
 import {formsEnhansed} from "@store/forms/endpointsEnhansed";
+import { sidebarSlice } from './sidebar/reducer';
 
 /*const rootReducer = combineReducers ({
   modals: modalSlice.reducer,
@@ -16,6 +17,7 @@ export const setupStore = () => {
 	return configureStore({
 		reducer: {
 			modals: modalSlice.reducer,
+			sidebar: sidebarSlice.reducer,
 			forms: formsSlice.reducer,
 			auth: authSlice.reducer,
 			[cmsEnhanced.reducerPath]: cmsEnhanced.reducer,
