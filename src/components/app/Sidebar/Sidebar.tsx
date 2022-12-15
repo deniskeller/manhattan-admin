@@ -28,7 +28,6 @@ const Sidebar: React.FC<Props> = ({ pages }) => {
     } else {
       setVisible(false);
     }
-    console.log('isVisible: ', isVisible);
   }, [isVisible]);
 
   return (

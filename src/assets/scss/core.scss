@@ -33,7 +33,7 @@ html {
   }
 
   @include ifmobile {
-    font-size: math.div(16, 377) * 100vw;
+    font-size: math.div(16, 360) * 100vw;
   }
 }
 

@@ -38,7 +38,7 @@
     justify-content: center;
     @include ifmobile {
       top: em(27px);
-      right: em(27px);
+      right: em(20px);
     }
 
     &:hover {

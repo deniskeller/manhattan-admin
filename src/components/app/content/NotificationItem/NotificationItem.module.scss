@@ -1,0 +1,57 @@
+.NotificationItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: em(10px);
+  &_Icon {
+    position: absolute;
+    top: 5%;
+    width: em(18px);
+    height: em(18px);
+  }
+
+  &_Info {
+    width: 100%;
+    margin-bottom: em(10px);
+    padding-left: em(30px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &_Description {
+      max-width: em(380px);
+      p {
+        font-size: em(14px);
+        line-height: 143%;
+        color: #1a1a1a;
+        font-weight: 500;
+      }
+    }
+
+    &_Date {
+      padding-right: em(20px);
+      span {
+        font-size: em(12px);
+        font-weight: 500;
+        color: rgba(26, 26, 26, 0.4);
+      }
+    }
+  }
+
+  &_New {
+    width: em(5px);
+    height: em(5px);
+    border-radius: 50%;
+    background: $blue50;
+    position: absolute;
+    top: em(10px);
+    right: em(-5px);
+  }
+
+  &_Border {
+    border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+    margin-left: em(-16px);
+    width: calc(100% + em(32px));
+  }
+}

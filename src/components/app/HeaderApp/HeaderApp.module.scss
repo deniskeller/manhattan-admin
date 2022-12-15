@@ -93,7 +93,6 @@
         width: em(18px);
         height: em(20px);
         margin-right: em(44px);
-        cursor: pointer;
 
         @include iftablet {
           margin-right: em(44px);
@@ -105,6 +104,7 @@
         &_Icon {
           width: inherit;
           height: inherit;
+          cursor: pointer;
         }
 
         &_Counter {
@@ -119,6 +119,7 @@
           justify-content: center;
           min-width: em(12px);
           height: em(14px);
+          cursor: pointer;
 
           span {
             display: flex;
@@ -132,8 +133,9 @@
 
       &_Burger {
         width: em(20px);
-        cursor: pointer;
         margin-left: em(40px);
+        position: relative;
+        z-index: 100;
         @include ifdesktop {
           display: none;
         }
