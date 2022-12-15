@@ -2,12 +2,11 @@ import { BaseIcon } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { Logo } from '@content/index';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Sidebar.module.scss';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { sidebarSlice } from '@store/sidebar/reducer';
-import useOnClickOutside from '@hooks/useOnClickOutside';
 
 type Props = {
   pages?: {
@@ -21,17 +20,19 @@ const Sidebar: React.FC<Props> = ({ pages }) => {
   const dispatch = useAppDispatch();
   const isVisible = useAppSelector((state) => state.sidebar.visible);
   const { setVisibleSidebar } = sidebarSlice.actions;
-  const thisSidebar = React.useRef<HTMLDivElement>(null);
-  const clickOutsideHandler = () => {
-    dispatch(setVisibleSidebar({ visible: false }));
-  };
-  useOnClickOutside(thisSidebar, clickOutsideHandler);
+  const [visible, setVisible] = React.useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+    console.log('isVisible: ', isVisible);
+  }, [isVisible]);
 
   return (
-    <div
-      className={`${styles.SidebarApp} ${isVisible ? styles.Visible : ''}`}
-      ref={thisSidebar}
-    >
+    <div className={`${styles.SidebarApp} ${visible ? styles.Visible : ''}`}>
       <div className={styles.SidebarApp_Sidebar}>
         <Logo className={styles.SidebarApp_Sidebar_Logo} small />
 
@@ -67,7 +68,11 @@ const Sidebar: React.FC<Props> = ({ pages }) => {
           {pages?.map((page, index) => {
             return (
               <Link href={page.path} key={index}>
-                <a>
+                <a
+                  onClick={() =>
+                    dispatch(setVisibleSidebar({ visible: false }))
+                  }
+                >
                   <li
                     className={`${
                       router.pathname.split('/')[3] === page.path.split('/')[3]

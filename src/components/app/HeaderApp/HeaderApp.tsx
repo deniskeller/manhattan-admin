@@ -8,7 +8,6 @@ type Props = {};
 const HeaderApp = () => {
   const dispatch = useAppDispatch();
   const isVisible = useAppSelector((state) => state.sidebar.visible);
-  console.log('HeaderApp isVisible: ', isVisible);
   const { setVisibleSidebar } = sidebarSlice.actions;
 
   return (
