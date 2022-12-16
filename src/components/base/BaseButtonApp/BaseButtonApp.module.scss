@@ -5,7 +5,6 @@
   height: em(58px);
   border-radius: 2px;
   @extend %button;
-
   .Title {
     display: flex;
     font-size: em(20px);
@@ -24,6 +23,13 @@
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.4;
+}
+
+.Button_small {
+  height: em(44px);
+  .Title {
+    font-size: em(16px);
+  }
 }
 
 //Secondary

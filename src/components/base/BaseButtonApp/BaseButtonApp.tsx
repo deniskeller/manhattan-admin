@@ -3,6 +3,7 @@ import styles from './BaseButtonApp.module.scss';
 
 interface Props {
   title?: string;
+  size?: string;
   type?: string;
   disabled?: boolean;
   className?: string;
@@ -13,6 +14,7 @@ interface Props {
 const BaseButtonApp: React.FC<Props> = ({
   title = '',
   type = 'primary',
+  size = '',
   disabled = false,
   className = '',
   style,
@@ -22,7 +24,9 @@ const BaseButtonApp: React.FC<Props> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${className} ${styles.Button} ${styles['Button_' + type]}`}
+      className={`${className} ${styles.Button} ${styles['Button_' + type]} ${
+        styles['Button_' + size]
+      }`}
       style={style}
     >
       <div className={styles.Title}>{title}</div>
