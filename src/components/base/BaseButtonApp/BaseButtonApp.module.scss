@@ -4,6 +4,11 @@
   width: auto;
   height: em(58px);
   border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: em(10px);
   @extend %button;
   .Title {
     display: flex;
@@ -11,7 +16,7 @@
     font-weight: 600;
     line-height: 100%;
     color: $white;
-    padding: em(10px);
+
     font-family: $font-Avenir;
   }
 }
@@ -91,4 +96,46 @@
   &:active {
     background: #263173;
   }
+}
+
+//style for icons
+.ToDetails {
+  width: em(16px);
+  height: em(8px);
+  margin-left: em(12px);
+}
+
+.Invite {
+  width: em(16px);
+  height: em(16px);
+  margin-right: em(12px);
+}
+
+.Invest {
+  width: em(20px);
+  height: em(12px);
+  margin-right: em(12px);
+}
+
+.CreateProject {
+  width: em(20px);
+  height: em(20px);
+  margin-right: em(12px);
+}
+
+.NewArticle {
+  width: em(16px);
+  height: em(16px);
+  margin-right: em(12px);
+}
+
+.Edit {
+  width: em(16px);
+  height: em(16px);
+  margin-right: em(12px);
+}
+
+.Delete {
+  width: em(18px);
+  height: em(20px);
 }

@@ -21,9 +21,9 @@ const RejectApplicationPopup: React.FC<Props> = ({ className }) => {
       </div>
 
       <div className={styles.Actions}>
-        <BaseButtonApp title="Cancel" type="secondary" />
+        <BaseButtonApp title="Cancel" type="secondary" size="small" />
 
-        <BaseButtonApp title="Confirm" type="primary" />
+        <BaseButtonApp title="Confirm" type="primary" size="small" />
       </div>
     </BasePopupApp>
   );

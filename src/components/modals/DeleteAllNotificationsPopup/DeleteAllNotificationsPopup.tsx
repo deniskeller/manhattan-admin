@@ -18,9 +18,9 @@ const DeleteAllNotificationsPopup: React.FC<Props> = ({ className }) => {
       </div>
 
       <div className={styles.Actions}>
-        <BaseButtonApp title="Cancel" type="secondary" />
+        <BaseButtonApp title="Cancel" type="secondary" size="small" />
 
-        <BaseButtonApp title="Delete" type="destructive" />
+        <BaseButtonApp title="Delete" type="destructive" size="small" />
       </div>
     </BasePopupApp>
   );
