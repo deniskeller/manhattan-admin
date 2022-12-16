@@ -41,7 +41,7 @@ const NewsItem: React.FC<Props> = ({
           style={{
             backgroundImage: image
               ? `url(/images/image/${image})`
-              : 'url(/images/image/main_header_bg.png)',
+              : 'url(/images/image/main_header_bg.jpg)',
           }}
         ></div>
 

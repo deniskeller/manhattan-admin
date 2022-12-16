@@ -2,6 +2,7 @@ export enum OthersIcons {
   GEAR_COLOR_ICON = 'GEAR_COLOR_ICON',
   PDF_ICON = 'PDF_ICON',
   ARROW = 'ARROW',
+  ARROW_2 = 'ARROW_2',
   SIDEBAR_NAVBAR_ITEM_ICON = 'SIDEBAR_NAVBAR_ITEM_ICON',
 }
 
@@ -87,6 +88,25 @@ export const othersIcons = {
           fill="white"
         />
       </g>
+    </>
+  ),
+  [OthersIcons.ARROW_2]: (
+    <>
+      <svg
+        width="16"
+        height="9"
+        viewBox="0 0 16 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 1L8 8L1 1"
+          stroke="#1A1A1A"
+          strokeOpacity="0.7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     </>
   ),
   [OthersIcons.SIDEBAR_NAVBAR_ITEM_ICON]: (

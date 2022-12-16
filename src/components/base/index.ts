@@ -11,3 +11,4 @@ export { default as BaseLink } from "./BaseLink/BaseLink";
 // app ui components
 export { default as BasePopupApp } from "./BasePopupApp/BasePopupApp";
 export { default as BaseButtonApp } from "./BaseButtonApp/BaseButtonApp";
+export { default as BaseSortSelect } from "./BaseSortSelect/BaseSortSelect";

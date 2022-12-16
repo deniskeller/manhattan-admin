@@ -10,6 +10,7 @@
 
   &_Header {
     position: sticky;
+    z-index: 100;
     top: 0;
     min-height: em(88px);
     padding: 0 em(56px);

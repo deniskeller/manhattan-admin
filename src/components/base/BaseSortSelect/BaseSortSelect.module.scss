@@ -1,0 +1,64 @@
+.SelectContainer {
+  position: relative;
+}
+
+.SelectHeader {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: em(48px);
+
+  p {
+    font-size: em(16px);
+    line-height: 120%;
+    font-family: $font-Avenir;
+    white-space: nowrap;
+    color: rgba(26, 26, 26, 0.8);
+  }
+}
+
+.SelectList {
+  position: absolute;
+  top: em(45px);
+  z-index: 1000;
+  width: max-content;
+  max-height: em(400px);
+  border: 1px solid rgba(26, 26, 26, 0.1);
+  border-radius: em(8px);
+  background: $white;
+  overflow: hidden;
+}
+
+.ListItem {
+  list-style: none;
+  cursor: pointer;
+
+  border-width: 1px;
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: em(8px) em(16px);
+
+  &:hover {
+    background-color: rgb(243, 244, 246, 1);
+  }
+
+  .ListItemTitle {
+    font-size: em(16px);
+    font-weight: 500;
+    font-family: $font-Avenir;
+    color: rgb(26, 26, 26, 1);
+  }
+}
+
+.IconArrow {
+  width: em(14px);
+  height: em(7px);
+  margin-left: em(12px);
+  transition: ease 0.6s;
+}
+
+.IconArrowActive {
+  transform: rotate(180deg);
+}
