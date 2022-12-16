@@ -2,7 +2,7 @@ import React from 'react';
 import { Application } from '@layouts/index';
 import { Articles } from '@view/index';
 
-const ProjectsPage = () => {
+const ArticlesPage = () => {
   return (
     <Application>
       <Articles />
@@ -10,4 +10,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default ArticlesPage;

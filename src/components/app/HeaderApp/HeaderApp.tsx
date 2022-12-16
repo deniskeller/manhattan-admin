@@ -5,8 +5,6 @@ import React from 'react';
 import { Notifications } from '../content';
 import styles from './HeaderApp.module.scss';
 
-type Props = {};
-
 const HeaderApp = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();

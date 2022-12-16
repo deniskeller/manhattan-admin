@@ -1,4 +1,3 @@
-import { Input } from '@tw/components/Input';
 import React from 'react';
 import styles from './ArticleItem.module.scss';
 
@@ -30,33 +29,22 @@ const ArticleItem: React.FC<Props> = ({
 
       <div className={styles.ArticleItem_Content}>
         <div className={styles.ArticleItem_Content_Info}>
-          <div className={styles.ArticleItem_Content_Info_Date}>09.01.2022</div>
+          <div className={styles.ArticleItem_Content_Info_Date}>{date}</div>
 
           <div className={styles.ArticleItem_Content_Info_Dote}>
             <span>•</span>
           </div>
 
-          <div className={styles.ArticleItem_Content_Info_Author}>
-            Dmitriy Bunin
-          </div>
+          <div className={styles.ArticleItem_Content_Info_Author}>{author}</div>
         </div>
 
         <div className={styles.ArticleItem_Content_Header}>
-          <h3>Start a blog to reach your creative peak</h3>
+          <h3>{header}</h3>
         </div>
 
         <div className={styles.ArticleItem_Content_Description}>
-          Placeholder for body text. Enter text into this container. Body text
-          hugs tex..
+          {description}
         </div>
-
-        {/* <Input
-          label="City"
-          placeholder="City"
-          required
-          value={'sdfsd'}
-          onChange={(e: any) => {}}
-        /> */}
       </div>
     </div>
   );

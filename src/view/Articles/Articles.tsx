@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import s from './Articles.module.scss';
 import { Pagination } from '@beetbarrel/teido-core';
 import { ArticleItem } from 'components/app/content';
+import { useRouter } from 'next/router';
 
 const mock_articles = [
   {
@@ -50,6 +51,7 @@ const mock_articles = [
 const Articles = () => {
   const [page, setPage] = useState(1);
   const [sortValue, setSortValue] = useState('');
+  const router = useRouter();
   return (
     <div className={s.Articles}>
       <div className={s.Articles_Header}>
@@ -79,7 +81,10 @@ const Articles = () => {
           size="small"
           icon="new-article"
           className={s.Articles_Header_Button}
-        ></BaseButtonApp>
+          onClick={() => {
+            router.push('/app/admin/create-article');
+          }}
+        />
       </div>
 
       <div className={s.Articles_Content}>
