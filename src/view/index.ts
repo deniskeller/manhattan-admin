@@ -15,3 +15,4 @@ export { default as Registration } from "./Registration/Registration";
 export { default as Auth } from "./Auth/Auth";
 export { default as PassRecovery } from "./PassRecovery/PassRecovery";
 export { default as ChangePassword } from "./ChangePassword/ChangePassword";
+export { default as Articles } from "./Articles/Articles";

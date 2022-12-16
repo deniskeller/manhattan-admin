@@ -1,0 +1,20 @@
+.Articles {
+  padding: 0 em(47px);
+
+  &_Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: em(30px);
+
+    &_Button {
+      width: em(164px);
+    }
+  }
+
+  &_Pagination {
+    display: flex;
+    justify-content: center;
+  }
+}

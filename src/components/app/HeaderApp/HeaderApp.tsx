@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { sidebarSlice } from '@store/sidebar/reducer';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { Notifications } from '../content';
 import styles from './HeaderApp.module.scss';
@@ -8,15 +9,17 @@ type Props = {};
 
 const HeaderApp = () => {
   const dispatch = useAppDispatch();
+  const router = useRouter();
   const isVisible = useAppSelector((state) => state.sidebar.visible);
   const { setVisibleSidebar } = sidebarSlice.actions;
-
   const [isNotifications, setIsNotifications] = React.useState(false);
 
   return (
     <div className={styles.HeaderApp}>
       <header className={styles.HeaderApp_Header}>
-        <div className={styles.HeaderApp_Header_Title}>Company</div>
+        <div className={styles.HeaderApp_Header_Title}>
+          {router.pathname.split('/')[3]}
+        </div>
 
         <div className={styles.HeaderApp_Header_Actions}>
           <div className={styles.HeaderApp_Header_Actions_CompanyBalance}>
