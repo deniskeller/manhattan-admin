@@ -71,7 +71,10 @@ const Notifications: React.FC<Props> = ({
       </div>
 
       {mock_notifications?.length > 10 ? (
-        <div className={styles.Notifications_Footer}>
+        <div
+          className={styles.Notifications_Footer}
+          onClick={() => dispatch(setPopup({ popup: 'NotificationsPopup' }))}
+        >
           <span>View all</span>
         </div>
       ) : null}

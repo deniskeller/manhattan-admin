@@ -1,0 +1,52 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: em(490px);
+  margin-bottom: em(30px);
+
+  @include ifmobile {
+    max-width: em(270px);
+  }
+
+  &_ClearAll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      .Header_ClearAll_Title {
+        text-decoration: underline;
+      }
+    }
+
+    &_Title {
+      font-size: em(16px);
+      color: $red;
+    }
+
+    &_Icon {
+      width: em(18px);
+      height: em(20px);
+      margin-left: em(10px);
+
+      path {
+        stroke: $red;
+      }
+    }
+  }
+}
+
+.Content {
+  height: em(440px);
+  margin-bottom: em(32px);
+  //убрать overflow: hidden; и сдлеать логику пагинации
+  overflow: hidden;
+}
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+}

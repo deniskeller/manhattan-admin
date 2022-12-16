@@ -30,7 +30,6 @@
     }
 
     &_Date {
-      padding-right: em(20px);
       span {
         font-size: em(12px);
         font-weight: 500;
@@ -46,12 +45,11 @@
     background: $blue50;
     position: absolute;
     top: em(10px);
-    right: em(-5px);
+    right: em(-10px);
   }
 
   &_Border {
     border-bottom: 1px solid rgba(26, 26, 26, 0.05);
-    margin-left: em(-16px);
-    width: calc(100% + em(32px));
+    width: 100%;
   }
 }

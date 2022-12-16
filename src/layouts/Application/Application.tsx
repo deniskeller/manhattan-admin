@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import {
   AcceptApplicationPopup,
   DeleteAllNotificationsPopup,
+  NotificationsPopup,
   RejectApplicationPopup,
 } from 'components/modals';
 
@@ -90,6 +91,7 @@ const Application: React.FC<Props> = ({ children }) => {
       <DeleteAllNotificationsPopup className="DeleteAllNotificationsPopup" />
       <AcceptApplicationPopup className="AcceptApplicationPopup" />
       <RejectApplicationPopup className="RejectApplicationPopup" />
+      <NotificationsPopup className="NotificationsPopup" />
     </>
   );
 };
