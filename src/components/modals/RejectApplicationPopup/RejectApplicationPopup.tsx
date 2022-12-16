@@ -1,29 +1,32 @@
 import React from 'react';
-import styles from './DeleteAllNotificationsPopup.module.scss';
+import styles from './RejectApplicationPopup.module.scss';
 import { BaseButtonApp, BasePopupApp, BaseTitle } from '@base/index';
 
 interface Props {
   className: string;
 }
 
-const DeleteAllNotificationsPopup: React.FC<Props> = ({ className }) => {
+const RejectApplicationPopup: React.FC<Props> = ({ className }) => {
   return (
     <BasePopupApp className={className} type="small">
       <BaseTitle type="app" className={styles.Title}>
-        Delete all notifications?
+        Reject application
       </BaseTitle>
 
       <div className={styles.Subtitle}>
-        <p>All notifications will be deleted</p>
+        <p>
+          If you reject this application, user will be notified and will not be
+          able to register again. It can still be accepted later.
+        </p>
       </div>
 
       <div className={styles.Actions}>
         <BaseButtonApp title="Cancel" type="secondary" />
 
-        <BaseButtonApp title="Delete" type="destructive" />
+        <BaseButtonApp title="Confirm" type="primary" />
       </div>
     </BasePopupApp>
   );
 };
 
-export default DeleteAllNotificationsPopup;
+export default RejectApplicationPopup;

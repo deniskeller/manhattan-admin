@@ -23,6 +23,8 @@ const BasePopupApp: React.FC<Props> = ({
   const dispatch = useAppDispatch();
   const thisClass = React.useRef<HTMLDivElement>(null);
 
+  console.log('popup: ', popup);
+
   const showPopup = useCallback(() => {
     setIsVisible(true);
     document.body.style.overflow = 'hidden';
@@ -60,7 +62,9 @@ const BasePopupApp: React.FC<Props> = ({
   const thisPopup = React.useRef<HTMLDivElement>(null);
 
   const clickOutsideHandler = () => {
-    hidePopup();
+    if (thisClass.current?.classList.contains(popup)) {
+      hidePopup();
+    }
   };
   useOnClickOutside(thisPopup, clickOutsideHandler);
 

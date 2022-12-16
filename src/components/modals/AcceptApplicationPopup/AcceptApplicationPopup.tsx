@@ -1,29 +1,32 @@
 import React from 'react';
-import styles from './DeleteAllNotificationsPopup.module.scss';
+import styles from './AcceptApplicationPopup.module.scss';
 import { BaseButtonApp, BasePopupApp, BaseTitle } from '@base/index';
 
 interface Props {
   className: string;
 }
 
-const DeleteAllNotificationsPopup: React.FC<Props> = ({ className }) => {
+const AcceptApplicationPopup: React.FC<Props> = ({ className }) => {
   return (
     <BasePopupApp className={className} type="small">
       <BaseTitle type="app" className={styles.Title}>
-        Delete all notifications?
+        accept application
       </BaseTitle>
 
       <div className={styles.Subtitle}>
-        <p>All notifications will be deleted</p>
+        <p>
+          After confirming the application, user will be notified and received
+          access to the platform.
+        </p>
       </div>
 
       <div className={styles.Actions}>
         <BaseButtonApp title="Cancel" type="secondary" />
 
-        <BaseButtonApp title="Delete" type="destructive" />
+        <BaseButtonApp title="Confirm" type="primary" />
       </div>
     </BasePopupApp>
   );
 };
 
-export default DeleteAllNotificationsPopup;
+export default AcceptApplicationPopup;

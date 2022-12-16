@@ -1,0 +1,88 @@
+//general
+.Button {
+  font-size: 100%;
+  width: auto;
+  height: em(58px);
+  border-radius: 2px;
+  @extend %button;
+
+  .Title {
+    display: flex;
+    font-size: em(20px);
+    font-weight: 600;
+    line-height: 100%;
+    color: $white;
+    padding: em(10px);
+    font-family: $font-Avenir;
+  }
+}
+
+//disabled style
+.Button:disabled,
+.Button:disabled:hover,
+.Button:disabled:active {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+//Secondary
+.Button_secondary {
+  background: $white;
+  border: 1px solid #d1d5db;
+  &:hover {
+    border: 1px solid #8c97d9;
+    background: #eceef9;
+  }
+
+  &:active {
+    background: #d9dcf2;
+    border: 1px solid #2e3c8d;
+  }
+
+  .Title {
+    color: $black;
+  }
+}
+
+//destructive
+.Button_destructive {
+  background: #dc2828;
+  &:hover {
+    background: #ef4343;
+  }
+
+  &:active {
+    background: #ba1c1c;
+  }
+}
+
+//destructive2
+.Button_destructive2 {
+  background: $white;
+  border: 1px solid #dc2828;
+  &:hover {
+    background: #fef1f1;
+  }
+
+  &:active {
+    background: #fee1e1;
+    border: 1px solid #ba1c1c;
+  }
+
+  .Title {
+    color: $black;
+  }
+}
+
+//primary
+.Button_primary {
+  background: #2e3c8d;
+  &:hover {
+    background: #32429a;
+  }
+
+  &:active {
+    background: #263173;
+  }
+}

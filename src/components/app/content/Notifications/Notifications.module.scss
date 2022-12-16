@@ -70,7 +70,7 @@
       width: em(4px);
     }
     &::-webkit-scrollbar-thumb {
-      background: $grey;
+      background: rgba(26, 26, 26, 0.2);
       border-radius: 100px;
     }
 

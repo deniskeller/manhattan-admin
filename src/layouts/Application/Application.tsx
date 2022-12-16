@@ -3,7 +3,11 @@ import styles from './Application.module.scss';
 import { HeaderApp, Sidebar } from 'components/app';
 
 import { useRouter } from 'next/router';
-import { DeleteAllNotificationsPopup } from 'components/modals';
+import {
+  AcceptApplicationPopup,
+  DeleteAllNotificationsPopup,
+  RejectApplicationPopup,
+} from 'components/modals';
 
 const admin_pages = [
   {
@@ -84,6 +88,8 @@ const Application: React.FC<Props> = ({ children }) => {
       </div>
 
       <DeleteAllNotificationsPopup className="DeleteAllNotificationsPopup" />
+      <AcceptApplicationPopup className="AcceptApplicationPopup" />
+      <RejectApplicationPopup className="RejectApplicationPopup" />
     </>
   );
 };
