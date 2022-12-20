@@ -107,7 +107,10 @@ const HeaderApp = () => {
           </div>
 
           <div className={styles.HeaderApp_Header_Actions_Logout}>
-            <div className={styles.HeaderApp_Header_Actions_Logout_Name}>
+            <div
+              className={styles.HeaderApp_Header_Actions_Logout_Name}
+              onClick={() => router.push('/app/admin/profile')}
+            >
               <span>Maxim Ivanov</span>
             </div>
 

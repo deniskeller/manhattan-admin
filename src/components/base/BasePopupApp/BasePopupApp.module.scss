@@ -12,17 +12,16 @@
   overflow-y: scroll;
   min-height: 100%;
   overflow: auto;
-  overflow-y: scroll;
-  align-items: center;
-  justify-content: center;
+  padding: em(163px) em(8px);
+
   @include ifmobile {
-    padding: 0 em(8px);
+    padding: em(30px) em(8px);
   }
 }
 .Popup {
   position: relative;
-  overflow: hidden;
   width: 100%;
+  height: max-content;
   padding: em(24px) em(24px) em(32px);
   margin: 0 auto;
   background: $white;

@@ -3,15 +3,16 @@
   z-index: 1000;
   right: em(-30px);
   top: em(36px);
-  overflow: hidden;
   background: $white;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
     0px 4px 6px -1px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   width: em(315px);
-  max-height: em(508px);
   cursor: auto;
   flex-direction: column;
+  min-height: em(508px);
+  height: 100%;
+  overflow: auto;
 
   @include ifmobile {
     position: fixed;
