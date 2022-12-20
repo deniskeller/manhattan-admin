@@ -6,8 +6,11 @@ import { useRouter } from 'next/router';
 import {
   AcceptApplicationPopup,
   DeleteAllNotificationsPopup,
+  EditPhotoArticlePopup,
   NotificationsPopup,
+  PublishArticlePopup,
   RejectApplicationPopup,
+  SaveArticlePopup,
 } from 'components/modals';
 
 const admin_pages = [
@@ -92,6 +95,9 @@ const Application: React.FC<Props> = ({ children }) => {
       <AcceptApplicationPopup className="AcceptApplicationPopup" />
       <RejectApplicationPopup className="RejectApplicationPopup" />
       <NotificationsPopup className="NotificationsPopup" />
+      <EditPhotoArticlePopup className="EditPhotoArticlePopup" />
+      <PublishArticlePopup className="PublishArticlePopup" />
+      <SaveArticlePopup className="SaveArticlePopup" />
     </>
   );
 };

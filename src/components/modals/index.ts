@@ -6,3 +6,6 @@ export { default as DeleteAllNotificationsPopup } from './DeleteAllNotifications
 export { default as AcceptApplicationPopup } from './AcceptApplicationPopup/AcceptApplicationPopup';
 export { default as RejectApplicationPopup } from './RejectApplicationPopup/RejectApplicationPopup';
 export { default as NotificationsPopup } from './NotificationsPopup/NotificationsPopup';
+export { default as EditPhotoArticlePopup } from './EditPhotoArticlePopup/EditPhotoArticlePopup';
+export { default as PublishArticlePopup } from './PublishArticlePopup/PublishArticlePopup';
+export { default as SaveArticlePopup } from './SaveArticlePopup/SaveArticlePopup';

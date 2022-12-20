@@ -1,0 +1,50 @@
+.Title {
+  margin-bottom: em(12px);
+}
+
+.Subtitle {
+  margin-bottom: em(24px);
+  p {
+    font-size: em(16px);
+    color: rgba(26, 26, 26, 0.7);
+  }
+}
+
+.Image {
+  width: 100%;
+  height: em(336px);
+  margin-bottom: em(18px);
+  background: $grey;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include ifmobile {
+    height: em(180px);
+    margin-bottom: em(24px);
+  }
+}
+
+.Actions {
+  display: flex;
+  flex-direction: row;
+  @include ifmobile {
+    flex-direction: column;
+  }
+  &_Cencel {
+    width: em(100px);
+    margin-right: em(16px);
+    @include ifmobile {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  &_Save {
+    width: em(84px);
+    @include ifmobile {
+      width: 100%;
+      margin-bottom: em(16px);
+      order: -1;
+    }
+  }
+}

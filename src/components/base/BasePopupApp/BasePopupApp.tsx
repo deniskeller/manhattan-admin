@@ -68,6 +68,12 @@ const BasePopupApp: React.FC<Props> = ({
   };
   useOnClickOutside(thisPopup, clickOutsideHandler);
 
+  useEffect(() => {
+    return () => {
+      hidePopup();
+    };
+  }, [hidePopup]);
+
   return (
     <div
       className={` ${styles.Wrapper} ${

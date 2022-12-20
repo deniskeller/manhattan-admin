@@ -78,10 +78,11 @@
       margin-bottom: em(22px);
 
       &_Item {
-        padding: em(8px) em(26px);
+        padding: em(12px) em(26px);
         display: flex;
         flex-direction: row;
         align-items: center;
+        margin-bottom: em(8px);
 
         &:hover {
           background: #32429a;
@@ -94,6 +95,8 @@
         }
 
         &_Name {
+          font-size: em(14px);
+          line-height: 100%;
           text-transform: uppercase;
           color: $white;
         }

@@ -1,3 +1,5 @@
+import { BaseIcon } from '@base/index';
+import { ALL_ICONS } from '@constants/icons';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { sidebarSlice } from '@store/sidebar/reducer';
 import { useRouter } from 'next/router';
@@ -15,9 +17,39 @@ const HeaderApp = () => {
   return (
     <div className={styles.HeaderApp}>
       <header className={styles.HeaderApp_Header}>
-        <div className={styles.HeaderApp_Header_Title}>
-          {router.pathname.split('/')[3]}
-        </div>
+        {router.pathname.split('/')[3] === 'create-article' ? (
+          <div
+            className={styles.HeaderApp_Header_WithButtonBack}
+            onClick={() => router.back()}
+          >
+            <BaseIcon
+              icon={ALL_ICONS.TO_DETAILS}
+              viewBox="0 0 16 8"
+              className={styles.HeaderApp_Header_WithButtonBack_Icon}
+            />
+            <div className={styles.HeaderApp_Header_Title}>
+              {router.pathname.split('/')[3] === 'create-article'
+                ? 'Articles'
+                : router.pathname.split('/')[3] === 'edit-article'
+                ? 'Articles'
+                : router.pathname.split('/')[3] === 'investors'
+                ? 'investors'
+                : router.pathname.split('/')[3] === 'applications'
+                ? 'Applications'
+                : router.pathname.split('/')[3] === 'projects'
+                ? 'project-details'
+                : router.pathname.split('/')[3] === 'projects'
+                ? 'create-project'
+                : router.pathname.split('/')[3] === 'projects'
+                ? 'edit-project'
+                : ''}
+            </div>
+          </div>
+        ) : (
+          <div className={styles.HeaderApp_Header_Title}>
+            {router.pathname.split('/')[3]}
+          </div>
+        )}
 
         <div className={styles.HeaderApp_Header_Actions}>
           <div className={styles.HeaderApp_Header_Actions_CompanyBalance}>

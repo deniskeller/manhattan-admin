@@ -1,0 +1,61 @@
+.BaseAlert {
+  position: fixed;
+  z-index: 9999;
+  top: em(50px);
+  left: calc(50vw - em(168.5px));
+
+  &__toast {
+    background: #f9fafb;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.04),
+      0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: max-content;
+    position: absolute;
+    transition: all 0.5s ease-out;
+    padding: em(10px) em(16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include ifmobile {
+      width: calc(100vw - em(24px));
+      padding: em(10px);
+    }
+  }
+
+  &__success_icon {
+    cursor: pointer;
+    width: em(44px);
+    width: em(44px);
+    @include ifmobile {
+      width: em(30px);
+      width: em(30px);
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: em(20px);
+    margin-right: em(70px);
+    @include ifmobile {
+      column-gap: em(10px);
+    }
+    span {
+      font-family: $font-Avenir;
+      font-size: em(18px);
+      font-weight: 500;
+      line-height: 133%;
+      color: #2d3142;
+      @include ifmobile {
+        font-size: em(14px);
+      }
+    }
+  }
+
+  &__tick_icon {
+    cursor: pointer;
+    width: em(18px);
+    width: em(18px);
+  }
+}

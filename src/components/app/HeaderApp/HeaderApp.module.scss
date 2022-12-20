@@ -28,6 +28,22 @@
       padding: 0 em(16px);
     }
 
+    &_WithButtonBack {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+      &_Icon {
+        width: em(18px);
+        height: em(8px);
+        transform: rotate(180deg);
+        margin-right: em(10px);
+        path {
+          stroke: $blue50;
+        }
+      }
+    }
+
     &_Title {
       font-weight: 500;
       font-size: em(20px);
