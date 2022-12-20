@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 const mock_articles = [
   {
+    id: 1,
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin',
@@ -15,6 +16,7 @@ const mock_articles = [
       'Placeholder for body text. Enter text into this container. Body text hugs tex..',
   },
   {
+    id: 2,
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin 2',
@@ -23,6 +25,7 @@ const mock_articles = [
       'Placeholder for body text. Enter text into this container. Body text hugs tex..',
   },
   {
+    id: 3,
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin 3',
@@ -31,6 +34,7 @@ const mock_articles = [
       'Placeholder for body text. Enter text into this container. Body text hugs tex..',
   },
   {
+    id: 4,
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin 4',
@@ -39,6 +43,7 @@ const mock_articles = [
       'Placeholder for body text. Enter text into this container. Body text hugs tex..',
   },
   {
+    id: 5,
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin 5',
@@ -92,6 +97,7 @@ const Articles = () => {
           return (
             <ArticleItem
               key={index}
+              id={item.id}
               image={item.image}
               date={item.date}
               author={item.author}

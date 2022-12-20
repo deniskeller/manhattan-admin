@@ -9,3 +9,4 @@ export { default as NotificationsPopup } from './NotificationsPopup/Notification
 export { default as EditPhotoArticlePopup } from './EditPhotoArticlePopup/EditPhotoArticlePopup';
 export { default as PublishArticlePopup } from './PublishArticlePopup/PublishArticlePopup';
 export { default as SaveArticlePopup } from './SaveArticlePopup/SaveArticlePopup';
+export { default as DeleteArticlePopup } from './DeleteArticlePopup/DeleteArticlePopup';

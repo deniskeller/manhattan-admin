@@ -17,7 +17,8 @@ const HeaderApp = () => {
   return (
     <div className={styles.HeaderApp}>
       <header className={styles.HeaderApp_Header}>
-        {router.pathname.split('/')[3] === 'create-article' ? (
+        {router.pathname.split('/')[3] === 'create-article' ||
+        router.pathname.split('/')[3] === 'edit-article' ? (
           <div
             className={styles.HeaderApp_Header_WithButtonBack}
             onClick={() => router.back()}

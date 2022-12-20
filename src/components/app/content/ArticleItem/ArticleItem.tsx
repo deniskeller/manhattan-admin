@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './ArticleItem.module.scss';
 
 type Props = {
+  id: number;
   image: string;
   date: string;
   author: string;
@@ -10,14 +12,20 @@ type Props = {
 };
 
 const ArticleItem: React.FC<Props> = ({
+  id,
   image,
   date,
   author,
   header,
   description,
 }) => {
+  const router = useRouter();
+
   return (
-    <div className={styles.ArticleItem}>
+    <div
+      className={styles.ArticleItem}
+      onClick={() => router.push('/app/admin/edit-article')}
+    >
       <div
         className={styles.ArticleItem_Image}
         style={{

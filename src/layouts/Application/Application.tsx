@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import {
   AcceptApplicationPopup,
   DeleteAllNotificationsPopup,
+  DeleteArticlePopup,
   EditPhotoArticlePopup,
   NotificationsPopup,
   PublishArticlePopup,
@@ -98,6 +99,7 @@ const Application: React.FC<Props> = ({ children }) => {
       <EditPhotoArticlePopup className="EditPhotoArticlePopup" />
       <PublishArticlePopup className="PublishArticlePopup" />
       <SaveArticlePopup className="SaveArticlePopup" />
+      <DeleteArticlePopup className="DeleteArticlePopup" />
     </>
   );
 };
