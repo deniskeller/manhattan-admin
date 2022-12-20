@@ -121,9 +121,10 @@ const CreateArticle = () => {
                 <FileDrop
                   onDrop={(files) => {
                     // handleChange(files, 'filesBankDetails');
-                    setNewValue(files, 'files');
+                    // setNewValue(files, 'files');
                   }}
-                  files={value.files}
+                  files={[]}
+                  // files={value.files}
                   types={['jpg', 'png', 'jpeg']}
                   maxFiles={1}
                   maxSize={3}
