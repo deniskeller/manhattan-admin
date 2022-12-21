@@ -13,3 +13,4 @@ export { default as BasePopupApp } from "./BasePopupApp/BasePopupApp";
 export { default as BaseButtonApp } from "./BaseButtonApp/BaseButtonApp";
 export { default as BaseSortSelect } from "./BaseSortSelect/BaseSortSelect";
 export { default as BaseAlert } from "./BaseAlert/BaseAlert";
+export { default as BaseInputApp } from "./BaseInputApp/BaseInputApp";
