@@ -4,9 +4,12 @@ import {
   BaseIcon,
   BaseInput,
   BaseInputApp,
+  BaseSelect,
+  BaseSelectApp,
   BaseTitle,
 } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
+import { Select } from '@tw/components/Select';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import s from './Profile.module.scss';
@@ -93,11 +96,14 @@ const Profile = () => {
                 onChange={(val: string) => setNewValue(val, 'birth_date')}
               />
 
-              <BaseInputApp
-                name="title"
-                placeholder="Title"
+              <BaseSelectApp
                 label="Title"
-                value={value.title}
+                options={[
+                  { value: 'mr', label: 'Mr' },
+                  { value: 'mrs', label: 'Mrs' },
+                  { value: 'ms', label: 'Ms' },
+                  { value: 'mss', label: 'Mss' },
+                ]}
                 onChange={(val: string) => setNewValue(val, 'title')}
               />
             </div>

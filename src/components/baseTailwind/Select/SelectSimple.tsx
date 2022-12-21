@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef } from 'react';
 import {
   FormControl,
@@ -71,7 +70,8 @@ export const SelectSimple = function <T>({
   const InputLabelStyled = styled(InputLabel)<InputLabelProps>(() => ({
     color: 'rgba(255, 255, 255, 0.7)',
     '&.MuiInputLabel-shrink': {
-      color: 'rgba(255, 255, 255, 0.5)',
+      color:
+        theme === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(26, 26, 26, 0.5)',
     },
   }));
 
@@ -79,7 +79,11 @@ export const SelectSimple = function <T>({
   const Icon = (props: any) => {
     const className = props.className;
     return (
-      <div className={`${styles.IconChevron} ${className}`}>
+      <div
+        className={`${styles.IconChevron} ${className} ${
+          theme === 'dark' ? styles.DarkTheme : styles.LightTheme
+        }`}
+      >
         {
           <img
             alt="v"
@@ -88,100 +92,6 @@ export const SelectSimple = function <T>({
         }
       </div>
     );
-  };
-  const themes = {
-    dark: {
-      common: '',
-      MenuProps: {
-        borderColor: '#474A5A',
-        color: 'white',
-        bgColor: {
-          common: tw`bg-blue-dark-200`,
-        },
-        items: {
-          hover: tw`bg-blue-dark-100!`,
-          selected: tw`bg-blue-dark-100!`,
-        },
-      },
-      input: {
-        common: [
-          tw`border-gray-dark-100!`,
-          tw`bg-blue-dark-200!`,
-          css`
-            color: white !important;
-          `,
-        ],
-        hover: css`
-          &:hover {
-            color: white !important;
-            background-color: ${tw`bg-blue-dark-200`};
-            border: ${tw`border-blue-light-900!`};
-          }
-        `,
-        active: [
-          css`
-            &:active {
-              color: white !important;
-              background-color: ${tw`bg-blue-dark-200`};
-              border: ${tw`border-blue-light-550!`};
-            }
-          `,
-        ],
-        focus: css`
-          &:focus {
-            ${tw`border-blue-light-550!`}
-          }
-        `,
-      },
-    },
-    light: {
-      common: css`
-        .MuiOutlinedInput-root.Mui-focused {
-          border-color: ${tw`border-blue-light-550!`};
-        }
-      `,
-      MenuProps: {
-        borderColor: '#6575CD',
-        color: '#1A1A1A',
-        bgColor: {
-          common: 'white',
-        },
-        items: {
-          hover: tw`bg-blue-light-100!`,
-          selected: tw`bg-blue-light-100!`,
-        },
-      },
-      input: {
-        common: [
-          tw`border-gray-light-150!`,
-          tw`bg-gray-light-50!`,
-          css`
-            color: #1a1a1a !important;
-          `,
-        ],
-        hover: css`
-          &:hover {
-            color: #1a1a1a !important;
-            background-color: ${tw`bg-gray-light-50`}
-              ${tw`border-blue-light-400!`};
-          }
-        `,
-        active: [
-          css`
-            &:active {
-              color: #1a1a1a !important;
-              background-color: ${tw`bg-gray-light-50`};
-              border: ${tw`border-blue-light-550!`};
-            }
-          `,
-        ],
-        focus: css`
-          &:focus-within {
-            ${tw`border-blue-light-550!`}
-          }
-        `,
-      },
-    },
   };
 
   useEffect(() => {
@@ -226,6 +136,7 @@ export const SelectSimple = function <T>({
                   marginRight: '-1px',
                   marginLeft: '-1px',
                   backgroundColor: themes[theme].MenuProps.bgColor.common,
+                  boxShadow: themes[theme].MenuProps.boxShadow,
                 },
                 '&.MuiPaper-root *': {
                   fontSize: '14px!important',
@@ -264,7 +175,6 @@ export const SelectSimple = function <T>({
               height: ${height ? height : 53}px;
               border-style: solid;
               border-width: 1px;
-
               & .MuiOutlinedInput-notchedOutline {
                 border: none !important;
               }
@@ -294,4 +204,98 @@ export const SelectSimple = function <T>({
       )}
     </Box>
   );
+};
+
+export const themes = {
+  dark: {
+    common: '',
+    MenuProps: {
+      borderColor: '#474A5A',
+      boxShadow: 'none',
+      color: 'white',
+      bgColor: {
+        common: tw`bg-blue-dark-200`,
+      },
+      items: {
+        hover: tw`bg-blue-dark-100!`,
+        selected: tw`bg-blue-dark-100!`,
+      },
+    },
+    input: {
+      common: [
+        tw`border-gray-dark-100!`,
+        tw`bg-blue-dark-200!`,
+        css`
+          color: white !important;
+        `,
+      ],
+      hover: css`
+        &:hover {
+          color: white !important;
+          background-color: ${tw`bg-blue-dark-200`};
+          border: ${tw`border-blue-light-900!`};
+        }
+      `,
+      active: [
+        css`&:active{ 
+          color: white!important; 
+          background-color: ${tw`bg-blue-dark-200`}
+          border: ${tw`border-blue-light-550!`} 
+          }`,
+      ],
+      focus: css`
+        &:focus {
+          ${tw`border-blue-light-550!`}
+        }
+      `,
+    },
+  },
+  light: {
+    common: css`
+      .MuiOutlinedInput-root.Mui-focused {
+        border-color: ${tw`border-blue-light-550!`};
+      }
+    `,
+    MenuProps: {
+      borderColor: 'rgba(26, 26, 26, 0.1)',
+      boxShadow:
+        '0px 2px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 6px -1px rgba(0, 0, 0, 0.08)',
+      color: '#1A1A1A',
+      bgColor: {
+        common: 'white',
+      },
+      items: {
+        hover: tw`bg-blue-light-100!`,
+        selected: tw`bg-blue-light-100!`,
+      },
+    },
+    input: {
+      common: [
+        tw`border-gray-light-150!`,
+        tw`bg-gray-light-50!`,
+        css`
+          color: #1a1a1a !important;
+        `,
+      ],
+      hover: css`
+        &:hover {
+          color: #1a1a1a !important;
+          background-color: ${tw`bg-gray-light-50`}
+            ${tw`border-blue-light-400!`};
+        }
+      `,
+      active: [
+        css`&:active{ 
+          color: #1A1A1A!important; 
+          background-color: ${tw`bg-gray-light-50`}
+          border: ${tw`border-blue-light-550!`} 
+          }`,
+      ],
+      focus: css`
+        &:focus-within {
+          ${tw`border-blue-light-550!`}
+        }
+      `,
+    },
+  },
 };

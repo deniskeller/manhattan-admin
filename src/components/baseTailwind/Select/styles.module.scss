@@ -4,12 +4,23 @@
   /* top: calc(50% - 14px)!important;
   right: 5px!important;*/
 
-  top: calc(50% - 3px) !important; //select123
-  right: 11px !important;
+  &.IconChevronSmall {
+    top: calc(50% - 5px);
+  }
 
-  & img {
-    /*width: 24px*/
-    width: 14px;
+  &.DarkTheme {
+    top: calc(50% - 12px) !important;
+    right: 8px !important;
+    & img {
+      width: 24px;
+    }
+  }
+  &.LightTheme {
+    top: calc(50% - 14px) !important;
+    right: 8px !important;
+    & img {
+      width: 28px;
+    }
   }
 }
 .SelectStatusRow {
@@ -17,10 +28,9 @@
   align-items: center;
   & .SelectStatusRowText {
     font-weight: 400;
-    font-size: 16px;
+    font-size: em(16px);
     line-height: 24px;
     font-family: $font-Avenir;
-
     color: #1a1a1a;
   }
   & .SelectStatusRowStatus {
