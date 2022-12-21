@@ -1,5 +1,5 @@
 .BaseInput {
-  font-size: 100%;
+  font-size: initial;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,12 +17,18 @@
   pointer-events: none;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_Icon {
+    width: em(20px);
+    height: em(20px);
+  }
 }
 
 .Input {
-  $size: 16px;
   line-height: 100%;
-  font-size: em($size);
+  font-size: em(16px);
   font-weight: 400;
   color: #1a1a1a;
   font-family: $font-Avenir;
@@ -37,11 +43,10 @@
   border: 1px solid #d1d5db;
   border-radius: 2px;
   @include placeholder-color(rgba(26, 26, 26, 0));
-  padding: em(26px, $size) em(16px, $size) em(8px, $size);
+  padding: em(26px) em(16px) em(8px);
 
   &.WithPrefix {
-    $size: 16px;
-    padding: em(26px, $size) em(16px, $size) em(8px, $size) em(73px, $size);
+    padding: em(26px) em(16px) em(8px) em(73px);
   }
 
   &:hover {
@@ -53,24 +58,24 @@
     @include placeholder-color(rgba(26, 26, 26, 0.7));
     & + .Label_Default {
       $size: 12px;
-      font-size: em($size);
-      left: em(18px, $size);
-      transform: translateY(em(-8px));
+      font-size: em(12px);
+      left: em(17px, $size);
+      top: em(10px);
     }
 
     & + .Label_WithPrefix {
       $size: 12px;
-      font-size: em($size);
-      left: em(73px, $size);
-      transform: translateY(em(-8px));
+      font-size: em(12px);
+      left: em(74px, $size);
+      top: em(10px);
     }
   }
 
   & + .NoEmpty {
     $size: 12px;
-    font-size: em($size);
-    left: em(18px, $size);
-    top: em(10px, $size);
+    font-size: em(12px);
+    left: em(17px, $size);
+    top: em(10px);
   }
 }
 
@@ -89,8 +94,8 @@
 }
 
 .ErrorText {
-  font-family: $font-Avenir;
   font-size: em(12px);
+  font-family: $font-Avenir;
   line-height: 100%;
   color: #ef4343;
   display: block;
@@ -99,32 +104,26 @@
 }
 
 .Label {
-  $size: 16px;
   position: absolute;
   pointer-events: none;
-  top: em(22px, $size);
+  font-size: em(16px);
+  top: em(20px);
   font-family: $font-Avenir;
-  font-size: em($size);
   font-weight: 500;
   line-height: 100%;
   color: rgba(26, 26, 26, 0.5);
-  transform: translateY(-2px);
   transition: all 0.3s ease;
 }
 
 .Label_Default {
-  $size: 16px;
-  left: em(18px, $size);
+  left: em(16px);
 }
-
 .Label_WithPrefix {
-  $size: 16px;
-  left: em(73px, $size);
+  left: em(73px);
 }
 
 .WithPrefix + .NoEmpty {
-  $size: 12px;
-  font-size: em($size);
-  top: em(8px, $size);
-  left: em(73px, $size);
+  font-size: em(12px);
+  top: em(10px);
+  left: em(99px);
 }

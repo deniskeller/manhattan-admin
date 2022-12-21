@@ -45,7 +45,7 @@ const BaseInputApp: React.FC<Props> = ({
           <div className={styles.Prefix}>
             <BaseIcon
               viewBox="0 0 20 20"
-              icon={ALL_ICONS.GEAR_COLOR_ICON}
+              icon={ALL_ICONS.PREFIX_DOLLAR}
               className={styles.Prefix_Icon}
             />
           </div>

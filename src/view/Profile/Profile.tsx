@@ -6,6 +6,8 @@ import {
   BaseInputApp,
   BaseTitle,
 } from '@base/index';
+import { ALL_ICONS } from '@constants/icons';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import s from './Profile.module.scss';
 
@@ -20,8 +22,8 @@ export interface IValueForm {
 
 const Profile = () => {
   const [value, setValue] = React.useState<IValueForm>({
-    name: '',
-    surname: '',
+    name: 'Maxim',
+    surname: 'Ivanov',
     phone: '',
     email: '',
     birth_date: '',
@@ -35,17 +37,101 @@ const Profile = () => {
   return (
     <>
       <div className={s.Profile}>
-        <BaseInputApp
-          name="name"
-          placeholder="Placeholder-label"
-          label="Placeholder-label"
-          value={value.name}
-          onChange={(val: string) => setNewValue(val, 'name')}
-          className={s.Form_Input}
-          // error="some text"
-          // disabled
-          prefix="wer"
-        />
+        <div className={s.Profile_Header}>
+          <div className={s.Profile_Header_Name}>
+            Maxim Ivanov&nbsp;—<span>&nbsp;Manhattan VC</span>
+          </div>
+        </div>
+
+        <div className={s.Profile_Content}>
+          <div className={s.Profile_Content_Form}>
+            <div className={s.Profile_Content_Form_Header}>
+              <span>
+                Personal info caption, connect with the two-factor
+                authentication service
+              </span>
+            </div>
+
+            <div className={s.Profile_Content_Form_Form}>
+              <BaseInputApp
+                name="name"
+                placeholder="Name"
+                label="Name"
+                value={value.name}
+                onChange={(val: string) => setNewValue(val, 'name')}
+              />
+
+              <BaseInputApp
+                name="surname"
+                placeholder="Surname"
+                label="Surname"
+                value={value.surname}
+                onChange={(val: string) => setNewValue(val, 'surname')}
+              />
+
+              <BaseInputApp
+                name="phone"
+                placeholder="Phone number"
+                label="Phone number"
+                value={value.phone}
+                onChange={(val: string) => setNewValue(val, 'phone')}
+              />
+
+              <BaseInputApp
+                name="email"
+                placeholder="Email"
+                label="Email"
+                value={value.email}
+                onChange={(val: string) => setNewValue(val, 'email')}
+              />
+
+              <BaseInputApp
+                name="birth_date"
+                placeholder="Birth date"
+                label="Birth date"
+                value={value.birth_date}
+                onChange={(val: string) => setNewValue(val, 'birth_date')}
+              />
+
+              <BaseInputApp
+                name="title"
+                placeholder="Title"
+                label="Title"
+                value={value.title}
+                onChange={(val: string) => setNewValue(val, 'title')}
+              />
+            </div>
+          </div>
+
+          <div className={s.Profile_Content_2fAuth}>
+            <div className={s.Profile_Content_2fAuth_Header}>
+              <span>Two-factor authentication</span>
+            </div>
+
+            <div className={s.Profile_Content_2fAuth_Form}>
+              <div className={s.Profile_Content_2fAuth_Form_Tooltip}>
+                <BaseIcon
+                  icon={ALL_ICONS.TOOLTIP}
+                  viewBox="0 0 20 20"
+                  className={s.Profile_Content_2fAuth_Form_Tooltip_Icon}
+                />
+
+                <p>
+                  Please, connect with the two-factor authentication service to
+                  confirm your financial activities inside Manhattan VC.
+                </p>
+              </div>
+
+              <div className={s.Profile_Content_2fAuth_Form_Image}>
+                <Image
+                  src="/images/image/2f-auth.png"
+                  layout="fill"
+                  alt={'Image'}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

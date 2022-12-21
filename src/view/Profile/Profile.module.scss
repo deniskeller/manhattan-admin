@@ -1,3 +1,130 @@
 .Profile {
-  background: $white;
+  &_Header {
+    margin-bottom: em(20px);
+    &_Name {
+      font-weight: 400;
+      font-size: em(20px);
+      text-transform: uppercase;
+      color: $black;
+      span {
+        font-weight: 500;
+      }
+      @include ifmobile {
+        text-align: center;
+      }
+    }
+  }
+
+  &_Content {
+    display: grid;
+    grid-template-columns: 1fr em(473px);
+    max-width: em(1114px);
+    gap: 0 em(13px);
+
+    @include iftablet {
+      grid-template-columns: 1fr em(351px);
+    }
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(20px) 0;
+    }
+
+    &_Form,
+    &_2fAuth {
+      background: $white;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06),
+        0px 1px 3px rgba(0, 0, 0, 0.1);
+      border-radius: em(4px);
+      padding: em(24px);
+
+      @include ifmobile {
+        padding: em(24px) em(10px);
+        border-radius: 0;
+      }
+    }
+
+    &_Form {
+      &_Header {
+        margin-bottom: em(26px);
+        span {
+          font-weight: 400;
+          font-size: em(16px);
+          line-height: 150%;
+          color: rgba(26, 26, 26, 0.7);
+        }
+      }
+
+      &_Form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: em(16px) em(20px);
+
+        @include ifmobile {
+          grid-template-columns: 1fr;
+          gap: em(16px) 0;
+        }
+      }
+    }
+
+    &_2fAuth {
+      &_Header {
+        margin-bottom: em(26px);
+        span {
+          font-weight: 500;
+          font-size: em(18px);
+          text-transform: uppercase;
+          color: $blue50;
+        }
+      }
+
+      &_Form {
+        display: grid;
+        grid-template-columns: 1fr em(192px);
+        gap: 0 em(20px);
+
+        @include iftablet {
+          grid-template-columns: 1fr;
+          gap: em(20px) 0;
+        }
+
+        @include ifmobile {
+          grid-template-columns: 1fr;
+          gap: em(20px) 0;
+        }
+
+        &_Tooltip {
+          padding-left: em(32px);
+          position: relative;
+          &_Icon {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            width: em(18px);
+            height: em(18px);
+          }
+          p {
+            font-size: em(14px);
+            font-weight: 400;
+            line-height: 143%;
+            color: rgba(26, 26, 26, 0.7);
+          }
+        }
+
+        &_Image {
+          position: relative;
+          width: em(192px);
+          height: em(192px);
+          @include iftablet {
+            width: em(119px);
+            height: em(119px);
+          }
+          @include ifmobile {
+            width: em(156px);
+            height: em(156px);
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
 }
