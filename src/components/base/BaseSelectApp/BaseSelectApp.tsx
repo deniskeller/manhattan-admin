@@ -36,7 +36,10 @@ const BaseSelectApp: React.FC<Props> = ({
   const toggling = () => setIsOpen(!isOpen);
 
   const onOptionClicked = (value: string) => () => {
-    setSelectedOption(value);
+    const item = options.filter((item) => {
+      return item.value == value;
+    })[0].label;
+    setSelectedOption(item);
     setIsOpen(false);
     onChange(value);
   };
@@ -85,8 +88,10 @@ const BaseSelectApp: React.FC<Props> = ({
         <ul className={styles.SelectList}>
           {options.map((option: ISelectItem) => (
             <li
-              className={styles.ListItem}
-              onClick={onOptionClicked(option.label)}
+              className={`${styles.ListItem} ${
+                selectedOption === option.value ? styles.ListItem_Active : ''
+              }`}
+              onClick={onOptionClicked(option.value)}
               key={option.value}
             >
               <span className={styles.ListItemTitle}>{option.label}</span>

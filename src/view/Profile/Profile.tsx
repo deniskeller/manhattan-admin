@@ -11,7 +11,7 @@ import {
 import { ALL_ICONS } from '@constants/icons';
 import { Select } from '@tw/components/Select';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Profile.module.scss';
 
 export interface IValueForm {

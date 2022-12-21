@@ -45,23 +45,23 @@
 
 .SelectList {
   position: absolute;
-  top: em(75px);
+  top: em(59px);
   z-index: 1000;
-  width: em(280px);
-  background: #1d2747;
-  box-shadow: 1px 2px 10px rgb(0 0 0 / 35%);
-  border-radius: em(2px);
+  width: 100%;
+  background: $white;
   max-height: em(200px);
-  overflow-y: scroll;
+  overflow: auto;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  border: 1px solid rgba(26, 26, 26, 0.1);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  padding: em(8px) 0;
 }
 
 .SelectList::-webkit-scrollbar {
   width: em(4px);
-  position: absolute;
-  padding-right: 10px;
-  right: -3px;
 }
 .SelectList::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
@@ -70,21 +70,22 @@
 
 .ListItem {
   cursor: pointer;
-  height: em(40px);
   list-style: none;
   display: flex;
   align-items: center;
-  padding: 0 em(16px);
-  color: $white;
-  &:hover {
-    background-color: #2e3d8d;
+  padding: em(10px) em(16px);
+
+  &_Active {
+    cursor: default;
+    background: #eceef9;
   }
 
   .ListItemTitle {
-    line-height: 100%;
+    line-height: 150%;
     font-size: em(16px);
     font-weight: 400;
     font-family: $font-Avenir;
+    color: $black;
   }
 }
 
