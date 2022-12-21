@@ -74,6 +74,9 @@
   display: flex;
   align-items: center;
   padding: em(10px) em(16px);
+  &:hover {
+    background: #eceef9;
+  }
 
   &_Active {
     cursor: default;
@@ -133,4 +136,11 @@
 
 .IconArrowActive {
   transform: rotate(180deg);
+}
+
+.Disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  background: #f4f4f5;
+  border: 1px solid #e5e7eb !important;
 }

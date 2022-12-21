@@ -9,6 +9,7 @@ interface Props {
   type?: string;
   className?: string;
   error?: string | boolean;
+  disabled?: boolean;
   options: ISelectItem[];
   onChange: (value: string) => void;
 }
@@ -24,6 +25,7 @@ const BaseSelectApp: React.FC<Props> = ({
   type = 'default',
   options,
   error,
+  disabled = false,
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +56,7 @@ const BaseSelectApp: React.FC<Props> = ({
       <div
         className={`${styles.SelectHeader}  ${
           isOpen ? styles.SelectHeaderFocus : ''
-        } ${error ? styles.Error : ''}`}
+        } ${error ? styles.Error : ''} ${disabled ? styles.Disabled : ''}`}
         onClick={toggling}
       >
         <p className={`${selectedOption ? styles.NotEmpty : ''}`}>
@@ -89,7 +91,7 @@ const BaseSelectApp: React.FC<Props> = ({
           {options.map((option: ISelectItem) => (
             <li
               className={`${styles.ListItem} ${
-                selectedOption === option.value ? styles.ListItem_Active : ''
+                selectedOption === option.label ? styles.ListItem_Active : ''
               }`}
               onClick={onOptionClicked(option.value)}
               key={option.value}
