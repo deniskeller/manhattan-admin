@@ -65,8 +65,8 @@
         }
 
         &_Field {
-          cursor: not-allowed;
-          pointer-events: none;
+          // cursor: not-allowed;
+          // pointer-events: none;
         }
 
         .Change {
@@ -75,7 +75,7 @@
             position: absolute;
             z-index: 100;
             right: em(16px);
-            bottom: em(6px);
+            bottom: em(8px);
             cursor: pointer;
             font-weight: 400;
             font-size: em(16px);
