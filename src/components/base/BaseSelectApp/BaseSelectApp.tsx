@@ -29,7 +29,7 @@ const BaseSelectApp: React.FC<Props> = ({
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(options[0].label);
   const selectContainerRef = React.useRef(null);
 
   const clickOutsideHandler = () => setIsOpen(false);

@@ -27,10 +27,10 @@ const Profile = () => {
   const [value, setValue] = React.useState<IValueForm>({
     name: 'Maxim',
     surname: 'Ivanov',
-    phone: '',
-    email: '',
+    phone: '+79307733233',
+    email: 'example@com',
     birth_date: '',
-    title: '',
+    title: 'Mr',
   });
 
   const setNewValue = (val: string | number | File[], key: string) => {
@@ -62,6 +62,7 @@ const Profile = () => {
                 label="Name"
                 value={value.name}
                 onChange={(val: string) => setNewValue(val, 'name')}
+                className={s.Profile_Content_Form_Form_Field}
               />
 
               <BaseInputApp
@@ -70,15 +71,21 @@ const Profile = () => {
                 label="Surname"
                 value={value.surname}
                 onChange={(val: string) => setNewValue(val, 'surname')}
+                className={s.Profile_Content_Form_Form_Field}
               />
 
-              <BaseInputApp
-                name="phone"
-                placeholder="Phone number"
-                label="Phone number"
-                value={value.phone}
-                onChange={(val: string) => setNewValue(val, 'phone')}
-              />
+              <div className={s.Change}>
+                <div className={s.Profile_Content_Form_Form_Field}>
+                  <BaseInputApp
+                    name="phone"
+                    placeholder="Phone number"
+                    label="Phone number"
+                    value={value.phone}
+                    onChange={(val: string) => setNewValue(val, 'phone')}
+                  />
+                </div>
+                <span>Change</span>
+              </div>
 
               <BaseInputApp
                 name="email"
@@ -86,6 +93,7 @@ const Profile = () => {
                 label="Email"
                 value={value.email}
                 onChange={(val: string) => setNewValue(val, 'email')}
+                className={s.Profile_Content_Form_Form_Field}
               />
 
               <BaseInputApp
@@ -94,17 +102,19 @@ const Profile = () => {
                 label="Birth date"
                 value={value.birth_date}
                 onChange={(val: string) => setNewValue(val, 'birth_date')}
+                className={s.Profile_Content_Form_Form_Field}
               />
 
               <BaseSelectApp
                 label="Title"
                 options={[
-                  { value: 'mr', label: 'Mr' },
-                  { value: 'mrs', label: 'Mrs' },
-                  { value: 'ms', label: 'Ms' },
-                  { value: 'mss', label: 'Mss' },
+                  { value: 'mr', label: 'Mr.' },
+                  { value: 'mrs', label: 'Mrs.' },
+                  { value: 'ms', label: 'Ms.' },
+                  { value: 'mss', label: 'Mss.' },
                 ]}
                 onChange={(val: string) => setNewValue(val, 'title')}
+                className={s.Profile_Content_Form_Form_Field}
               />
             </div>
           </div>
