@@ -15,3 +15,4 @@ export { default as BaseSortSelect } from "./BaseSortSelect/BaseSortSelect";
 export { default as BaseAlert } from "./BaseAlert/BaseAlert";
 export { default as BaseInputApp } from "./BaseInputApp/BaseInputApp";
 export { default as BaseSelectApp } from "./BaseSelectApp/BaseSelectApp";
+export { default as BaseInputFileApp } from "./BaseInputFileApp/BaseInputFileApp";

@@ -133,10 +133,6 @@
 
       &_AddImage {
         height: em(255px);
-        //
-        //убрать серый фон когда поправится инпут
-        //
-        background: $grey;
         @include ifmobile {
           height: em(204px);
         }

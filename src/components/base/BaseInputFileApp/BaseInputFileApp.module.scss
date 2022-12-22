@@ -1,0 +1,262 @@
+.FileInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: inherit;
+
+  &_Clear {
+    display: flex;
+    justify-content: center;
+    padding: em(24px) em(16px);
+    cursor: pointer;
+    position: relative;
+    height: inherit;
+    &:hover {
+      .FileInput_Clear_Border {
+        border: 2px dashed #cccccc;
+      }
+    }
+
+    &.Error {
+      .FileInput_Clear_Border {
+        border: 1px dashed #ff9900;
+      }
+    }
+
+    &_Border {
+      @extend %fullsize;
+      border: 1px dashed #d4d3d9;
+      border-radius: 8px;
+    }
+
+    &.Active {
+      .FileInput_Clear_Border {
+        border: 2px dashed $red;
+      }
+    }
+
+    &_Content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &_Header {
+        &_Title {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: em(20px);
+          span {
+            display: flex;
+            text-align: center;
+            font-weight: 400;
+            font-size: em(18px);
+            line-height: 167%;
+            color: rgba(26, 26, 26, 0.7);
+          }
+        }
+        &_Subtitle {
+          text-align: center;
+          @include ifmobile {
+            max-width: em(260px);
+          }
+          span {
+            font-size: em(14px);
+            line-height: 143%;
+            font-weight: 400;
+            color: rgba(26, 26, 26, 0.5);
+          }
+        }
+      }
+
+      &_Icon {
+        &_File {
+          width: em(32px);
+          height: em(32px);
+        }
+        &_Image {
+          width: em(28px);
+          height: em(28px);
+        }
+      }
+
+      .MarginRight {
+        margin-right: em(15px);
+        margin-bottom: 0;
+      }
+      .MarginBottom {
+        margin-right: 0;
+        margin-bottom: em(15px);
+      }
+    }
+  }
+
+  &_UploadFile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: em(16px);
+    background: rgba(26, 26, 26, 0.05);
+    border-radius: 2px;
+
+    &_Title {
+      font-size: em(16px);
+      font-weight: 400;
+      color: $black;
+    }
+
+    &_Delete {
+      width: em(21px);
+      height: em(21px);
+      cursor: pointer;
+      path {
+        stroke: rgba(26, 26, 26, 0.5);
+      }
+      &:hover {
+        path {
+          stroke: $red;
+        }
+      }
+    }
+  }
+
+  &_UploadImage {
+    width: 145px;
+    height: 145px;
+    background: $grey;
+    border: 1px solid #d1d5db;
+    border-radius: 2px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    &:hover {
+      .FileInput_UploadImage_Overlay {
+        opacity: 0.5;
+      }
+      .FileInput_UploadImage_Delete_Desktop {
+        display: flex;
+      }
+    }
+
+    &_Overlay {
+      @extend %fullsize;
+      background: #000;
+      opacity: 0;
+      @include ifmobile {
+        display: none;
+      }
+    }
+
+    &_Delete {
+      position: absolute;
+      border-radius: 50%;
+      justify-content: center;
+      align-items: center;
+      &_Icon {
+        width: em(18px);
+        height: em(18px);
+        cursor: pointer;
+        path {
+          stroke: rgba(26, 26, 26, 0.5);
+        }
+        &:hover {
+          path {
+            stroke: $red;
+          }
+        }
+      }
+
+      &_Desktop {
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: em(40px);
+        height: em(40px);
+        background: $white;
+        @include ifmobile {
+          display: none;
+        }
+      }
+
+      &_Mobile {
+        top: em(-13px);
+        right: em(-13px);
+        display: none;
+        width: em(26px);
+        height: em(26px);
+        background: #f4f4f4;
+        @include ifmobile {
+          display: flex;
+        }
+
+        &_Icon {
+          width: em(11px);
+          height: em(11px);
+        }
+      }
+    }
+  }
+}
+
+.ErrorText {
+  margin-top: em(8px);
+  span {
+    display: flex;
+    font-weight: 300;
+    font-size: em(12px);
+    line-height: 120%;
+    color: #ff9900;
+  }
+}
+
+.mb20 {
+  margin-bottom: em(10px);
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.Desktop {
+  @include ifmobile {
+    display: none;
+  }
+}
+
+.Mobile {
+  display: none;
+
+  .FileInput_Clear_Content_Header_Title {
+    max-width: em(228px);
+    border: 1px solid #d1d5db;
+    border-radius: 2px;
+    padding: em(7px) em(20px);
+    flex-direction: row !important;
+    align-items: center !important;
+    margin: 0 auto;
+    margin-bottom: em(20px);
+    .FileInput_Clear_Content_Icon {
+      margin-bottom: 0;
+      margin-right: em(15px);
+      &_File {
+        width: em(22px);
+        height: em(22px);
+      }
+      &_Image {
+        width: em(18px);
+        height: em(18px);
+      }
+    }
+    span {
+      font-weight: 600;
+      font-size: em(18px);
+      color: $black;
+    }
+  }
+  @include ifmobile {
+    display: block;
+  }
+}
