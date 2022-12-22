@@ -21,6 +21,8 @@ interface IValueForm {
   files: File[];
 }
 
+const status = 'published';
+
 const EditArticle = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -118,9 +120,17 @@ const EditArticle = () => {
           <div className={s.Articles_Options_Image}>
             <div className={s.Articles_Options_Image_Top}>
               <div className={s.Articles_Options_Image_Header}>Cover image</div>
-              <div className={s.Articles_Options_Image_Mark}>
-                <span>Published</span>
-              </div>
+
+              {status ? (
+                <div
+                  className={s.Articles_Options_Image_Mark}
+                  style={{
+                    background: status == 'draft' ? '#BF8822' : '#027147',
+                  }}
+                >
+                  <span>{status}</span>
+                </div>
+              ) : null}
             </div>
 
             <div className={s.Articles_Options_Image_AddImage}>
