@@ -5,7 +5,7 @@ import styles from './ArticleItem.module.scss';
 type Props = {
   id: number;
   image: string;
-  status: string;
+  status?: string;
   date: string;
   author: string;
   header: string;
