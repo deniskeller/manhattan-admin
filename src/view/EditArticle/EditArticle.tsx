@@ -52,7 +52,7 @@ const EditArticle = () => {
                 { value: 'archived', label: 'Archived.' },
               ]}
               onChange={(val: string) => setNewValue(val, '')}
-              className={s.Articles_Header_SaveChanges}
+              className={s.Articles_Header_Select}
             />
 
             <BaseButtonApp

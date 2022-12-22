@@ -24,6 +24,11 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      flex-wrap: wrap;
+    }
+
+    &_Select {
+      min-width: em(140px);
     }
 
     &_SaveChanges {
@@ -36,6 +41,9 @@
 
     &_Delete {
       width: em(44px);
+      @include ifmobile {
+        margin-top: em(20px);
+      }
       svg {
         path {
           stroke: $red;
