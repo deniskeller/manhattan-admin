@@ -1,4 +1,10 @@
-import { BaseAlert, BaseButtonApp, BaseIcon, BaseTitle } from '@base/index';
+import {
+  BaseAlert,
+  BaseButtonApp,
+  BaseIcon,
+  BaseInputApp,
+  BaseTitle,
+} from '@base/index';
 import React, { useState } from 'react';
 import s from './CreateArticle.module.scss';
 import { useRouter } from 'next/router';
@@ -74,28 +80,22 @@ const CreateArticle = () => {
             </div>
 
             <div className={s.Articles_Options_Details_InputTitle}>
-              <Input
-                label="Article title"
+              <BaseInputApp
+                name="title"
                 placeholder="Article title"
-                required
+                label="Article title"
                 value={value.title}
-                //
-                //поправить инпуты
-                //
-                // onChange={(val: string) => setNewValue(val, 'title')}
+                onChange={(val: string) => setNewValue(val, 'title')}
               />
             </div>
 
             <div className={s.Articles_Options_Details_InputAuthor}>
-              <Input
-                label="Article author"
+              <BaseInputApp
+                name="author"
                 placeholder="Article author"
-                required
+                label="Article author"
                 value={value.author}
-                //
-                //поправить инпуты
-                //
-                // onChange={(val: string) => setNewValue(val, 'author')}
+                onChange={(val: string) => setNewValue(val, 'author')}
               />
             </div>
 
