@@ -3,6 +3,7 @@ import {
   BaseButtonApp,
   BaseIcon,
   BaseInputApp,
+  BaseSelectApp,
   BaseTitle,
 } from '@base/index';
 import React, { useState } from 'react';
@@ -30,9 +31,11 @@ const EditArticle = () => {
     author: '',
     files: [],
   });
+
   const setNewValue = (val: string | File[], key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));
   };
+
   return (
     <>
       <div className={s.Articles}>
@@ -42,14 +45,14 @@ const EditArticle = () => {
           </BaseTitle>
 
           <div className={s.Articles_Header_Actions}>
-            <Select.Simple
-              options={[{ value: 'value', label: 'label' }]}
-              value={'value'}
-              // onChange={(value) => {
-              //   if (typeof value === 'string' && onChange) {
-              //     onChange(value);
-              //   }
-              // }}
+            <BaseSelectApp
+              type="mini"
+              options={[
+                { value: 'published', label: 'Published.' },
+                { value: 'archived', label: 'Archived.' },
+              ]}
+              onChange={(val: string) => setNewValue(val, '')}
+              className={s.Articles_Header_SaveChanges}
             />
 
             <BaseButtonApp

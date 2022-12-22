@@ -19,6 +19,7 @@
   transition: 0.5s ease all;
   -moz-transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
+  background: #fdfdfd;
   &:hover {
     border: 1px solid #8c97d9;
   }
@@ -130,7 +131,7 @@
   height: em(12px);
   position: absolute;
   top: calc(50% - em(5px));
-  right: em(24px);
+  right: em(20px);
   transition: transform 0.6s ease;
 }
 
@@ -143,4 +144,10 @@
   pointer-events: none;
   background: #f4f4f5;
   border: 1px solid #e5e7eb !important;
+}
+
+.Select_mini {
+  .SelectHeader {
+    height: em(44px);
+  }
 }

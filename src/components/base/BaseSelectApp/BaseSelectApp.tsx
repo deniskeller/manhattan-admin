@@ -59,7 +59,10 @@ const BaseSelectApp: React.FC<Props> = ({
         } ${error ? styles.Error : ''} ${disabled ? styles.Disabled : ''}`}
         onClick={toggling}
       >
-        <p className={`${selectedOption ? styles.NotEmpty : ''}`}>
+        <p
+          className={`${selectedOption ? styles.NotEmpty : ''}`}
+          style={{ position: label ? 'absolute' : 'static' }}
+        >
           {selectedOption}
         </p>
 
