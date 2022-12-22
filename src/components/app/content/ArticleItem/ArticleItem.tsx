@@ -5,6 +5,7 @@ import styles from './ArticleItem.module.scss';
 type Props = {
   id: number;
   image: string;
+  status: string;
   date: string;
   author: string;
   header: string;
@@ -14,6 +15,7 @@ type Props = {
 const ArticleItem: React.FC<Props> = ({
   id,
   image,
+  status,
   date,
   author,
   header,
@@ -33,7 +35,16 @@ const ArticleItem: React.FC<Props> = ({
             ? `url(/images/image/${image})`
             : 'url(/images/image/main_header_bg.jpg)',
         }}
-      ></div>
+      >
+        {status ? (
+          <div
+            className={styles.ArticleItem_Status}
+            style={{ background: status == 'draft' ? '#BF8822' : '#027147' }}
+          >
+            <span>{status}</span>
+          </div>
+        ) : null}
+      </div>
 
       <div className={styles.ArticleItem_Content}>
         <div className={styles.ArticleItem_Content_Info}>

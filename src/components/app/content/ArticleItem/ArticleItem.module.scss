@@ -5,7 +5,26 @@
   overflow: hidden;
   cursor: pointer;
 
+  &_Status {
+    position: absolute;
+    top: em(12px);
+    right: em(12px);
+    padding: em(2px) em(8px);
+    background: #027147;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      font-weight: 400;
+      font-size: em(12px);
+      color: $white;
+      text-transform: capitalize;
+    }
+  }
+
   &_Image {
+    position: relative;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 const mock_articles = [
   {
     id: 1,
+    status: 'published',
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin',
@@ -17,6 +18,7 @@ const mock_articles = [
   },
   {
     id: 2,
+    status: 'draft',
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin 2',
@@ -26,6 +28,7 @@ const mock_articles = [
   },
   {
     id: 3,
+    status: 'draft',
     image: 'main_header_bg.jpg',
     date: '09.01.2022',
     author: 'Dmitriy Bunin 3',
@@ -98,6 +101,7 @@ const Articles = () => {
             <ArticleItem
               key={index}
               id={item.id}
+              status={item.status}
               image={item.image}
               date={item.date}
               author={item.author}
