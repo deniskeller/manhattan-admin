@@ -3,15 +3,14 @@ import {
   BaseButtonApp,
   BaseIcon,
   BaseInputApp,
+  BaseInputFileApp,
   BaseSelectApp,
   BaseTitle,
 } from '@base/index';
 import React, { useState } from 'react';
 import s from './EditArticle.module.scss';
 import { useRouter } from 'next/router';
-import { Input } from '@tw/components/Input';
 import { ALL_ICONS } from '@constants/icons';
-import { FileDrop, Select } from '@tw/components/index';
 import { useAppDispatch } from '@hooks/redux';
 import { modalSlice } from '@store/modals/reducer';
 
@@ -21,12 +20,11 @@ interface IValueForm {
   files: File[];
 }
 
-const status = 'published';
-
 const EditArticle = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { setPopup } = modalSlice.actions;
+  const [status, setStatus] = React.useState('published');
 
   const [value, setValue] = React.useState<IValueForm>({
     title: '',
@@ -135,18 +133,13 @@ const EditArticle = () => {
 
             <div className={s.Articles_Options_Image_AddImage}>
               {value.files.length == 0 ? (
-                <FileDrop
-                  onDrop={(files) => {
-                    // handleChange(files, 'filesBankDetails');
-                    // setNewValue(files, 'files');
-                  }}
-                  files={[]}
-                  // files={value.files}
-                  types={['jpg', 'png', 'jpeg']}
-                  maxFiles={1}
-                  maxSize={3}
-                  // variant={true ? 'error' : 'default'}
-                  // message={'spme text'}
+                <BaseInputFileApp
+                  article
+                  type="image"
+                  title="Drag article cover here to upload or browse"
+                  types="jpg, jpeg, .png"
+                  files={value.files}
+                  onChange={(val: any[]) => setNewValue(val, 'files')}
                 />
               ) : (
                 <>
@@ -179,6 +172,7 @@ const EditArticle = () => {
                         className={
                           s.Articles_Options_Image_AddImage_Image_Actions_Button
                         }
+                        onClick={() => setNewValue([], 'files')}
                       >
                         <BaseIcon
                           icon={ALL_ICONS.DELETE}
