@@ -1,11 +1,11 @@
-import React, { ComponentProps, forwardRef, useEffect, useState } from "react";
-import Input from "./Input";
-import { AlertTriangle, Phone } from "react-feather";
-import tw, { css } from "twin.macro";
-import styles from "./styles.module.scss";
-import { PhoneNumberUtil } from "google-libphonenumber";
-import { Select } from "../Select/Select";
-import { countries } from "utils/countries";
+import React, { ComponentProps, forwardRef, useEffect, useState } from 'react';
+import Input from './Input';
+import { AlertTriangle, Phone } from 'react-feather';
+import tw, { css } from 'twin.macro';
+import styles from './styles.module.scss';
+import { PhoneNumberUtil } from 'google-libphonenumber';
+import { Select } from '../Select/Select';
+import { countries } from 'utils/countries';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -25,40 +25,40 @@ type PhoneProps = {
   messageCode?: string;
   isErrorPhone?: boolean;
   isErrorCode?: boolean;
-} & Omit<ComponentProps<typeof Input>, "onChange" | "value">;
+} & Omit<ComponentProps<typeof Input>, 'onChange' | 'value'>;
 
 export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
-  ({ label,
-     labelVariant = "floating", ...props },
-   ref) => {
-    console.log("props phone inp",props);
+  ({ label, labelVariant = 'floating', ...props }, ref) => {
     const parsedPhone = parsePhoneNumber(props.value);
     const nationalPhone = parsedPhone?.getNationalNumber()?.toString();
-    console.log("parsedPhone", parsedPhone, "nationalPhone", nationalPhone);
     const initialCountryCode =
       parsedPhone && phoneUtil.getRegionCodeForNumber(parsedPhone);
 
     const [country, setCountry] = useState<string | undefined>(
-      initialCountryCode ? initialCountryCode : props.valueCodeInitial ? countries.find((c)=>{
-        return c.dial_code == props.valueCodeInitial
-      })?.code : ""
+      initialCountryCode
+        ? initialCountryCode
+        : props.valueCodeInitial
+        ? countries.find((c) => {
+            return c.dial_code == props.valueCodeInitial;
+          })?.code
+        : ''
     );
-    useEffect(()=>{
-      console.log("country useEffect", country);
-      const val = countries.find((c)=>{
-        return c.code == country
+    useEffect(() => {
+      const val = countries.find((c) => {
+        return c.code == country;
       })?.dial_code;
       props.onChangeCode?.(val as string);
-    },[country])
-    const [phone, setPhone] = useState<string>(nationalPhone ?? props?.value ?? "");
+    }, [country]);
+    const [phone, setPhone] = useState<string>(
+      nationalPhone ?? props?.value ?? ''
+    );
 
     useEffect(() => {
-      console.log("phone useEffect", phone);
       const foundCountryCode = countries.find((code) => {
         return code.code === country;
       });
 
-      props.onChange?.(phone ?? "");
+      props.onChange?.(phone ?? '');
 
       /*if (foundCountryCode) {
         props.onChange?.(`${foundCountryCode.dial_code}${phone}`);
@@ -72,8 +72,8 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
         <div
           css={[
             [tw`flex gap-1 items-start`],
-            labelVariant === "default" &&
-            css`
+            labelVariant === 'default' &&
+              css`
                 .MuiInputLabel-shrink {
                   display: none !important;
                 }
@@ -81,8 +81,8 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
           ]}
         >
           <Select
-            label={labelVariant === "default" && label}
-            variant={props.isErrorCode ? "error" : undefined}
+            label={labelVariant === 'default' && label}
+            variant={props.isErrorCode ? 'error' : undefined}
             value={country}
             message={props.messageCode}
             required={true}
@@ -92,7 +92,7 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
                 name: country.name,
                 label: (
                   <div css={tw`flex`}>
-                    <span css={tw`w-20`} style={{flexShrink: 0}}>
+                    <span css={tw`w-20`} style={{ flexShrink: 0 }}>
                       <img
                         loading="lazy"
                         width="20"
@@ -100,24 +100,26 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
                         srcSet={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png 2x`}
                         alt={``}
                         style={{
-                          display: "inline-flex",
+                          display: 'inline-flex',
                         }}
-                      />{" "}
+                      />{' '}
                       <span>{country.dial_code}</span>
                     </span>
-                    <div style={{whiteSpace: "break-spaces"}}>{country.name}</div>
+                    <div style={{ whiteSpace: 'break-spaces' }}>
+                      {country.name}
+                    </div>
                   </div>
                 ),
               };
             })}
             onChange={(value) => {
-              if (typeof value === "string") {
+              if (typeof value === 'string') {
                 setCountry(value);
               }
             }}
             placeholder="Code"
             renderValue={(option) => {
-              if (option && "value" in option) {
+              if (option && 'value' in option) {
                 const foundCountryCode = countries.find((code) => {
                   return code.code === option.value;
                 });
@@ -126,8 +128,11 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
                     {foundCountryCode && (
                       <div
                         className={styles.FlagSelect}
-                        style={{backgroundImage: `url(https://flagcdn.com/w20/${foundCountryCode.code.toLowerCase()}.png)`}}>
-                       {/* <img
+                        style={{
+                          backgroundImage: `url(https://flagcdn.com/w20/${foundCountryCode.code.toLowerCase()}.png)`,
+                        }}
+                      >
+                        {/* <img
                           loading="lazy"
                           width="24"
                           src={`https://flagcdn.com/w20/${foundCountryCode.code.toLowerCase()}.png`}
@@ -138,8 +143,7 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
                           }}
                         />*/}
                       </div>
-
-                    )}{" "}
+                    )}{' '}
                     <span>{foundCountryCode?.dial_code}</span>
                   </span>
                 );
@@ -148,28 +152,29 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
             slotProps={{
               popper: {
                 style: {
-                  whiteSpace: "nowrap",
+                  whiteSpace: 'nowrap',
                 },
                 disablePortal: false,
               },
               root: {
                 style: {
                   width: 120,
-                  whiteSpace: "nowrap",
+                  whiteSpace: 'nowrap',
                 },
               },
             }}
           />
+					
           <Input
             {...props}
             message={props.message}
             ref={ref}
-            variant={props.isErrorPhone ? "error" : "default"}
+            variant={props.isErrorPhone ? 'error' : 'default'}
             type="text"
             value={phone}
-            placeholder={"Phone"}
+            placeholder={'Phone'}
             onChange={(e) => {
-              if (e.target.value.includes("+")) {
+              if (e.target.value.includes('+')) {
                 const parsedPhone = parsePhoneNumber(e.target.value);
                 const nationalPhone = parsedPhone
                   ?.getNationalNumber()
@@ -180,15 +185,15 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
                   setCountry(initialCountryCode);
                   setPhone(nationalPhone);
                 } else {
-                  setPhone(e.target.value.replace(/[^0-9.]/g, ""));
+                  setPhone(e.target.value.replace(/[^0-9.]/g, ''));
                 }
               } else {
-                setPhone(e.target.value.replace(/[^0-9.]/g, ""));
+                setPhone(e.target.value.replace(/[^0-9.]/g, ''));
               }
             }}
           />
         </div>
-     {/*   {props.variant === "error" && props.message && (
+        {/*   {props.variant === "error" && props.message && (
           <div css={tw`flex gap-1 items-center`}>
             <div css={tw`text-left w-full text-red-light-450 text-sm`}>
               {props.message}
@@ -200,4 +205,4 @@ export const InputPhone = forwardRef<HTMLInputElement, PhoneProps>(
   }
 );
 
-InputPhone.displayName = "Input.Phone";
+InputPhone.displayName = 'Input.Phone';

@@ -1,23 +1,23 @@
-.IconPass{
+.IconPass {
   cursor: pointer;
   & svg {
     width: 19px;
   }
 }
-.FlagSelect{
+.FlagSelect {
   width: 24px;
   height: 24px;
   display: inline-block;
   border-radius: 50%;
   overflow: hidden;
-  background-repeat: no-repeat!important;
-  background-position: center!important;
-  background-size: cover!important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
 }
-.FlagSelectWrap{
+.FlagSelectWrap {
   display: flex;
   align-items: center;
-  & > span{
-    padding-left: 10px
+  & > span {
+    padding-left: 10px;
   }
 }

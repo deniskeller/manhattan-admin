@@ -9,6 +9,9 @@ import {
   BaseTitle,
 } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
+import { useAppDispatch } from '@hooks/redux';
+import { modalSlice } from '@store/modals/reducer';
+import Input from '@tw/components/Input/Input';
 import { Select } from '@tw/components/Select';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -27,7 +30,7 @@ const Profile = () => {
   const [value, setValue] = React.useState<IValueForm>({
     name: 'Maxim',
     surname: 'Ivanov',
-    phone: '+79307733233',
+    phone: '+3809307733233',
     email: 'example@com',
     birth_date: '',
     title: 'Mr',
@@ -36,6 +39,9 @@ const Profile = () => {
   const setNewValue = (val: string | number | File[], key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));
   };
+
+  const dispatch = useAppDispatch();
+  const { setPopup } = modalSlice.actions;
 
   return (
     <>
@@ -84,7 +90,13 @@ const Profile = () => {
                     onChange={(val: string) => setNewValue(val, 'phone')}
                   />
                 </div>
-                <span>Change</span>
+                <span
+                  onClick={() => {
+                    dispatch(setPopup({ popup: 'ChangePhoneNumberPopup' }));
+                  }}
+                >
+                  Change
+                </span>
               </div>
 
               <BaseInputApp
@@ -96,11 +108,16 @@ const Profile = () => {
                 className={s.Profile_Content_Form_Form_Field}
               />
 
-              <BaseInputApp
-                name="birth_date"
-                placeholder="Birth date"
-                label="Birth date"
+              <Input.Calendar
+                label={'Birth date'}
                 value={value.birth_date}
+                calendarProps={{}}
+                valueCodeInitial={''}
+                variant={'default'}
+                message={''}
+                messageCode={''}
+                isErrorPhone={false}
+                isErrorCode={false}
                 onChange={(val: string) => setNewValue(val, 'birth_date')}
                 className={s.Profile_Content_Form_Form_Field}
               />
@@ -149,6 +166,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <BaseAlert />
     </>
   );
 };

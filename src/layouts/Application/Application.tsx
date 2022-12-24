@@ -5,6 +5,7 @@ import { HeaderApp, Sidebar } from 'components/app';
 import { useRouter } from 'next/router';
 import {
   AcceptApplicationPopup,
+  ChangePhoneNumberPopup,
   DeleteAllNotificationsPopup,
   DeleteArticlePopup,
   EditPhotoArticlePopup,
@@ -100,6 +101,7 @@ const Application: React.FC<Props> = ({ children }) => {
       <PublishArticlePopup className="PublishArticlePopup" />
       <SaveArticlePopup className="SaveArticlePopup" />
       <DeleteArticlePopup className="DeleteArticlePopup" />
+      <ChangePhoneNumberPopup className="ChangePhoneNumberPopup" />
     </>
   );
 };

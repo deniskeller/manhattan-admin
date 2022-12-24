@@ -1,8 +1,14 @@
 .SidebarApp {
   position: fixed;
-  z-index: 200;
+
   top: 0px;
   transition: all 0.5s ease 0s;
+  @include iftablet {
+    z-index: 1000;
+  }
+  @include ifmobile {
+    z-index: 1000;
+  }
 
   @include iftablet {
     margin-left: em(-200px);
@@ -197,4 +203,11 @@
 
 .Visible {
   margin-left: 0;
+
+  @include iftablet {
+    z-index: 1000;
+  }
+  @include ifmobile {
+    z-index: 1000;
+  }
 }

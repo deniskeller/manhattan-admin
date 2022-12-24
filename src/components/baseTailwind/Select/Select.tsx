@@ -103,8 +103,9 @@ export const Select = function <T>({
     ref: React.ForwardedRef<HTMLButtonElement>
   ) {
     const StyledPopper = styled(PopperUnstyled)([
-      tw`z-10 min-w-fit w-fit max-h-96 overflow-auto shadow-md bg-blue-dark-300`, //bg to theme
+      tw`min-w-fit w-fit max-h-96 overflow-auto shadow-md bg-blue-dark-300`, //bg to theme
       css`
+        z-index: 10000;
         border-radius: 2px;
         & .MuiSelect-listbox,
         & .MuiSelect-listbox:active,

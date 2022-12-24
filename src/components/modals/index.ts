@@ -10,3 +10,4 @@ export { default as EditPhotoArticlePopup } from './EditPhotoArticlePopup/EditPh
 export { default as PublishArticlePopup } from './PublishArticlePopup/PublishArticlePopup';
 export { default as SaveArticlePopup } from './SaveArticlePopup/SaveArticlePopup';
 export { default as DeleteArticlePopup } from './DeleteArticlePopup/DeleteArticlePopup';
+export { default as ChangePhoneNumberPopup } from './ChangePhoneNumberPopup/ChangePhoneNumberPopup';
