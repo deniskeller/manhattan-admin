@@ -1,6 +1,9 @@
 .InvestorDetails {
   &_Header {
     margin-bottom: em(30px);
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
     &_InvestorName {
       font-weight: 400;
       font-size: em(20px);
@@ -17,13 +20,19 @@
     display: flex;
     flex-direction: row;
     margin-bottom: em(30px);
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
 
     .TabItem {
       padding: em(13px) 0;
       cursor: pointer;
       list-style: none;
-      margin-right: em(32px);
       position: relative;
+      margin-right: em(32px);
+      @include ifmobile {
+        margin-right: em(20px);
+      }
       &:before {
         content: '';
         position: absolute;
@@ -44,6 +53,10 @@
         font-weight: 500;
         font-size: em(18px);
         line-height: 100%;
+
+        @include ifmobile {
+          font-size: em(14px);
+        }
       }
 
       &.Active {
