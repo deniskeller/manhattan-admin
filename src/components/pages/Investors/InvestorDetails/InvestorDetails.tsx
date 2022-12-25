@@ -16,6 +16,7 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
   const [tab, setTab] = React.useState(0);
 
   console.log('id: ', id);
+  console.log('id: ', id);
   return (
     <>
       <div className={s.InvestorDetails}>
