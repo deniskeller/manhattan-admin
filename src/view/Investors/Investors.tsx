@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useCallback, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { ColumnDef, createColumnHelper } from '@tanstack/react-table';
