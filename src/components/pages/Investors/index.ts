@@ -1,0 +1,1 @@
+export { default as InvestorDetails } from "./InvestorDetails/InvestorDetails";

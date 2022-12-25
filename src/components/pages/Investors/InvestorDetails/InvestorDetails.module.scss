@@ -1,0 +1,68 @@
+.InvestorDetails {
+  &_Header {
+    margin-bottom: em(30px);
+    &_InvestorName {
+      font-weight: 400;
+      font-size: em(20px);
+      text-transform: uppercase;
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.Tabs {
+  &_TabList {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: em(30px);
+
+    .TabItem {
+      padding: em(13px) 0;
+      cursor: pointer;
+      list-style: none;
+      margin-right: em(32px);
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: em(2px);
+        background: $blue50;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      span {
+        display: flex;
+        color: rgba(26, 26, 26, 0.7);
+        font-weight: 500;
+        font-size: em(18px);
+        line-height: 100%;
+      }
+
+      &.Active {
+        &:before {
+          opacity: 1;
+        }
+        span {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  &_TabContent {
+    &_TabItem {
+      display: none;
+      &.Active {
+        display: block;
+      }
+    }
+  }
+}

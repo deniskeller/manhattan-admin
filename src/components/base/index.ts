@@ -16,3 +16,5 @@ export { default as BaseAlert } from "./BaseAlert/BaseAlert";
 export { default as BaseInputApp } from "./BaseInputApp/BaseInputApp";
 export { default as BaseSelectApp } from "./BaseSelectApp/BaseSelectApp";
 export { default as BaseInputFileApp } from "./BaseInputFileApp/BaseInputFileApp";
+export { default as BaseLabel } from "./BaseLabel/BaseLabel";
+export { default as BaseStatus } from "./BaseStatus/BaseStatus";

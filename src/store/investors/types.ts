@@ -71,7 +71,12 @@ export type BeneficialsDto = {
   email:	string;
   partcipationOtherBusiness:	string;
   passport:	string;
-  type: TBeneficial
+  type: TBeneficial;
+  country?: string;
+  shareholderType?: "PERSON" | "COMPANY",
+  companyName?: string;
+  regNumber?: string;
+  registrationDate?: string;
 }
 
 export type RegistrationInvestorDto = {
@@ -186,8 +191,8 @@ export const convertFieldsToApiValidate = (step: number, fields: any ) =>{
             obj.usPerson = value;
           }
         } else {
-          console.log("name===",name, value?.length > 0, value);
-          if (value?.length > 0 || (name === "companyRegdate" && !!value)){
+          console.log("name===",name, value?.length > 0 || value instanceof Date, value);
+          if (value?.length > 0 || (name === "companyRegdate" && !!value) || value instanceof Date){
 
             if (name === "firstName" || name === "lastName" || name === "birthDate" || name === "email"){
               obj[name] = value
@@ -299,7 +304,7 @@ export const convertFieldsToApiValidate = (step: number, fields: any ) =>{
   companyEmail: string;
   companyOtherBusiness: string;
       */
-      //api
+//api
       /*  firstName	string
         lastName	string
         birthDate	string
@@ -342,4 +347,83 @@ export const convertFieldsToApiValidate = (step: number, fields: any ) =>{
       usdtDetail: fields.walletNumber
     }
   }
+}
+
+export type TOrder = "ASC" | "DESC";
+
+
+
+export type TKybStatus = "SUBMITTED" | "DECLINED" | "APPROVED";
+export type TKycStatus = "SUBMITTED" | "REJECTED" | "APPROVED";
+export type TStatus = "APROOVED" | "DECLINED" | "AWAITING";
+export type ApplicationData = {
+  id:	string;
+  kybStatus:	TKybStatus;
+  kycStatus: TKycStatus;
+  isNew:	boolean;
+  firstName:	string;
+  lastName:	string;
+  email: string;
+  phone: string;
+  countryCode:	string;
+  title:	string;
+  birthDate:	string;
+  password:	string;
+  aboutCompany:	string;
+  industries:	string;
+  aboutCompanyObject:	AboutCompanyEntity;
+  industriesObject:	IndustriesEntity;
+  status:	TStatus;
+  createdAt:	string;
+  beneficials:	BeneficialsDto[];
+  financial: string;
+  financialObject: TFinancialObject;
+}
+
+export type TFinancialObject = {
+  id: string;
+  usdDetail: string;
+  usdtDetail: string;
+}
+
+export type AboutCompanyEntity = {
+  id:	string;
+  country:	string;
+  companyName:	string;
+  tradeName:	string;
+  nullable: boolean;
+  type:	string;
+  registrationNumber:	string;
+  registrationDate:	string;
+  taxNumber:	string;
+  sector:	string;
+  website:	string;
+  addressActual:	boolean;
+  haveUsPerson:	boolean;
+  financialInstitution:	boolean;
+  regCountry:	string;
+  regCity:	string;
+  regPostCode:	string;
+  regAddressLine1:	string;
+  regAddressLine2:	string;
+  actCountry:	string;
+  actCity:	string;
+  actPostCode:	string;
+  actAddressLine1:	string;
+  actAddressLine2:	string;
+}
+
+export type IndustriesEntity = {
+  id:	string;
+  armamentsWeaponsDefence:	boolean;
+  adaultEntertaiment:	boolean;
+  artAuction:	boolean;
+  chemicalLegal:	boolean;
+  moneyProcessing:	boolean;
+  cryptocurrencyProcessing:	boolean;
+  fxSpeculations:	boolean;
+  gamblingGame:	boolean;
+  nonprofitPoliticalReligious:	boolean;
+  metalsStones:	boolean;
+  usedCarsIndustryVehicles:	boolean;
 }
