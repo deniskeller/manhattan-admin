@@ -1,0 +1,11 @@
+.Investors {
+  padding: 0 em(47px);
+
+  @include iftablet {
+    padding: 0 em(16px);
+  }
+
+  @include ifmobile {
+    padding: 0;
+  }
+}

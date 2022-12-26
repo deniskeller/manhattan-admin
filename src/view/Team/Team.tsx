@@ -3,6 +3,7 @@ import styles from './Team.module.scss';
 import { TeamItem } from '@content/index';
 import { modalSlice } from '@store/modals/reducer';
 import { useAppDispatch } from '@hooks/redux';
+import { BaseButtonApp, BaseTitle } from '@base/index';
 
 const team_members = [
   {
@@ -50,21 +51,39 @@ const Team: React.FC<Props> = () => {
 
   return (
     <div className={styles.Team}>
-      {team_members?.map((member, index) => {
-        return (
-          <TeamItem
-            key={index}
-            name={member.name}
-            profession={member.profession}
-            mail={member.mail}
-            phone={member.phone}
-            status={member.status}
-            onClick={() =>
-              dispatch(setPopup({ popup: 'InvestorUserDetailsPopup' }))
-            }
-          />
-        );
-      })}
+      <div className={styles.Team_Header}>
+        <BaseTitle type="app" className={styles.Team_Header_Title}>
+          Manhattan VC
+        </BaseTitle>
+
+        <BaseButtonApp
+          size="small"
+          title="Invite user"
+          type="primary"
+          icon="invite"
+          className={styles.Team_Header_Button}
+          // onClick={() => dispatch(setPopup({ popup: '' }))}
+        />
+      </div>
+
+      <div className={styles.Team_Members}>
+        {team_members?.map((member, index) => {
+          return (
+            <TeamItem
+              key={index}
+              name={member.name}
+              profession={member.profession}
+              mail={member.mail}
+              phone={member.phone}
+              status={member.status}
+              onClick={() =>
+                // dispatch(setPopup({ popup: 'InvestorUserDetailsPopup' }))
+                alert('lol')
+              }
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

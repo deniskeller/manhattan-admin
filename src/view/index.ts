@@ -20,3 +20,4 @@ export { default as CreateArticle } from "./CreateArticle/CreateArticle";
 export { default as EditArticle } from "./EditArticle/EditArticle";
 export { default as Profile } from "./Profile/Profile";
 export { default as Investors } from "./Investors/Investors";
+export { default as Team } from "./Team/Team";

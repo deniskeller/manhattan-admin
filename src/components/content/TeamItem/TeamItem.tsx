@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './TeamItem.module.scss';
 import { BaseIcon } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
-import { modalSlice } from '@store/modals/reducer';
-import { useAppDispatch } from '@hooks/redux';
 
 type Props = {
   name?: string;
@@ -11,6 +9,7 @@ type Props = {
   mail?: string;
   phone?: string;
   status?: string;
+  onClick?: (e: React.SyntheticEvent) => void;
 };
 
 const TeamItem: React.FC<Props> = ({
@@ -19,15 +18,10 @@ const TeamItem: React.FC<Props> = ({
   mail,
   phone,
   status = 'active',
+  onClick,
 }) => {
-  const { setPopup } = modalSlice.actions;
-  const dispatch = useAppDispatch();
-
   return (
-    <div
-      className={styles.TeamItem}
-      onClick={() => dispatch(setPopup({ popup: 'InvestorUserDetailsPopup' }))}
-    >
+    <div className={styles.TeamItem} onClick={onClick}>
       <div className={styles.TeamItem_Header}>
         <BaseIcon
           icon={ALL_ICONS.USER}
