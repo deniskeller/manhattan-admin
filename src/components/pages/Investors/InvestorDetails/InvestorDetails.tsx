@@ -2,7 +2,7 @@ import { BaseButtonApp } from '@base/index';
 import { useAppDispatch } from '@hooks/redux';
 import { modalSlice } from '@store/modals/reducer';
 import React from 'react';
-import { Documents, Overwiev } from '../index';
+import { Documents, Overwiev, Team } from '../index';
 import s from './InvestorDetails.module.scss';
 
 type Props = {
@@ -88,7 +88,7 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
                 tab === 3 ? s.Active : ''
               }`}
             >
-              Tab 4
+              <Team />
             </div>
           </div>
         </div>

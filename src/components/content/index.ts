@@ -16,3 +16,4 @@ export { default as AuthForm } from "./Auth/AuthForm";
 export { default as PassRecoveryForm } from "./PassRecovery/PassRecoveryForm";
 export { default as ChangePasswordForm } from "./ChangePassword/ChangePasswordForm";
 export { default as InfoRow } from "./InfoRow/InfoRow";
+export { default as TeamItem } from "./TeamItem/TeamItem";

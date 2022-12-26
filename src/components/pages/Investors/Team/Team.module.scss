@@ -1,0 +1,14 @@
+.Team {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: em(20px);
+
+  @include iftablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include ifmobile {
+    grid-template-columns: 1fr;
+    gap: em(10px) 0;
+    padding: 0 em(10px);
+  }
+}

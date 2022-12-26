@@ -64,6 +64,7 @@ const Profile = () => {
 
             <div className={s.Profile_Content_Form_Form}>
               <BaseInputApp
+                disabled
                 name="name"
                 placeholder="Name"
                 label="Name"
@@ -73,6 +74,7 @@ const Profile = () => {
               />
 
               <BaseInputApp
+                disabled
                 name="surname"
                 placeholder="Surname"
                 label="Surname"
@@ -84,6 +86,7 @@ const Profile = () => {
               <div className={s.Change}>
                 <div className={s.Profile_Content_Form_Form_Field}>
                   <BaseInputApp
+                    disabled
                     name="phone"
                     placeholder="Phone number"
                     label="Phone number"
@@ -101,6 +104,7 @@ const Profile = () => {
               </div>
 
               <BaseInputApp
+                disabled
                 name="email"
                 placeholder="Email"
                 label="Email"
@@ -110,6 +114,7 @@ const Profile = () => {
               />
 
               <Input.Calendar
+                disabled
                 label={'Birth date'}
                 value={value.birth_date}
                 calendarProps={{}}
@@ -124,6 +129,7 @@ const Profile = () => {
               />
 
               <BaseSelectApp
+                disabled
                 label="Title"
                 options={[
                   { value: 'mr', label: 'Mr.' },

@@ -10,6 +10,9 @@ export enum OthersIcons {
   CLIPBOARD_COPY = 'CLIPBOARD_COPY',
   EYE = 'EYE',
   UPLOAD = 'UPLOAD',
+  USER = 'USER',
+  MAIL = 'MAIL',
+  PHONE = 'PHONE',
 }
 
 export const othersIcons = {
@@ -203,6 +206,47 @@ export const othersIcons = {
         d="M1 13V14C1 15.6569 2.34315 17 4 17H14C15.6569 17 17 15.6569 17 14V13M13 9L9 13M9 13L5 9M9 13L9 1"
         stroke="#1A1A1A"
         strokeOpacity="0.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </>
+  ),
+  [OthersIcons.USER]: (
+    <>
+      <ellipse
+        cx="10.0151"
+        cy="5.66667"
+        rx="4.66667"
+        ry="4.66667"
+        stroke="#3479E9"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M19.0306 20.1883C18.4989 18.6998 17.3271 17.3846 15.6971 16.4465C14.0671 15.5085 12.0699 15 10.0153 15C7.96072 15 5.96355 15.5085 4.33354 16.4465C2.70352 17.3846 1.53177 18.6998 1 20.1883"
+        stroke="#3479E9"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </>
+  ),
+  [OthersIcons.MAIL]: (
+    <>
+      <path
+        d="M1.25 3L7.16795 6.9453C7.6718 7.2812 8.3282 7.2812 8.83205 6.9453L14.75 3M2.75 11.25H13.25C14.0784 11.25 14.75 10.5784 14.75 9.75V2.25C14.75 1.42157 14.0784 0.75 13.25 0.75H2.75C1.92157 0.75 1.25 1.42157 1.25 2.25V9.75C1.25 10.5784 1.92157 11.25 2.75 11.25Z"
+        stroke="#1A1A1A"
+        strokeOpacity="0.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </>
+  ),
+  [OthersIcons.PHONE]: (
+    <>
+      <path
+        d="M1.25 2.75C1.25 1.92157 1.92157 1.25 2.75 1.25H5.20943C5.53225 1.25 5.81886 1.45657 5.92094 1.76283L7.0443 5.13291C7.16233 5.48699 7.00203 5.87398 6.6682 6.0409L4.97525 6.88737C5.80194 8.72091 7.27909 10.1981 9.11263 11.0247L9.9591 9.3318C10.126 8.99796 10.513 8.83767 10.8671 8.9557L14.2372 10.0791C14.5434 10.1811 14.75 10.4677 14.75 10.7906V13.25C14.75 14.0784 14.0784 14.75 13.25 14.75H12.5C6.2868 14.75 1.25 9.7132 1.25 3.5V2.75Z"
+        stroke="#1A1A1A"
+        strokeOpacity="0.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
