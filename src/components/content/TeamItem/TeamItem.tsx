@@ -6,7 +6,6 @@ import { modalSlice } from '@store/modals/reducer';
 import { useAppDispatch } from '@hooks/redux';
 
 type Props = {
-  index: number;
   name?: string;
   profession?: string;
   mail?: string;
@@ -15,7 +14,6 @@ type Props = {
 };
 
 const TeamItem: React.FC<Props> = ({
-  index,
   name,
   profession,
   mail,
@@ -28,7 +26,6 @@ const TeamItem: React.FC<Props> = ({
   return (
     <div
       className={styles.TeamItem}
-      key={index}
       onClick={() => dispatch(setPopup({ popup: 'InvestorUserDetailsPopup' }))}
     >
       <div className={styles.TeamItem_Header}>
