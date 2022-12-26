@@ -1,4 +1,8 @@
+import { BaseButtonApp } from '@base/index';
+import { useAppDispatch } from '@hooks/redux';
+import { modalSlice } from '@store/modals/reducer';
 import React from 'react';
+import { Documents, Overwiev } from '../index';
 import s from './InvestorDetails.module.scss';
 
 type Props = {
@@ -6,6 +10,9 @@ type Props = {
 };
 
 const InvestorDetails: React.FC<Props> = ({ id }) => {
+  const { setPopup } = modalSlice.actions;
+  const dispatch = useAppDispatch();
+
   const tabs = [
     { id: 1, title: 'Overwiev' },
     { id: 2, title: 'Investment stats' },
@@ -15,8 +22,6 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
 
   const [tab, setTab] = React.useState(0);
 
-  console.log('id: ', id);
-  console.log('id: ', id);
   return (
     <>
       <div className={s.InvestorDetails}>
@@ -25,6 +30,19 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
             investor details —&nbsp;
             <span>Wayne Enterprises</span>
           </div>
+          {tab == 2 ? (
+            <BaseButtonApp
+              title="Upload file"
+              type="primary"
+              size="small"
+              className={s.InvestorDetails_Header_UploadFile}
+              onClick={() =>
+                dispatch(
+                  setPopup({ popup: 'InvestorDocumentsUploadFilePopup' })
+                )
+              }
+            />
+          ) : null}
         </div>
 
         <div className={s.Tabs}>
@@ -46,7 +64,7 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
                 tab === 0 ? s.Active : ''
               }`}
             >
-              Tab 1
+              <Overwiev />
             </div>
 
             <div
@@ -62,7 +80,7 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
                 tab === 2 ? s.Active : ''
               }`}
             >
-              Tab 3
+              <Documents />
             </div>
 
             <div
@@ -74,7 +92,6 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
             </div>
           </div>
         </div>
-        {/* <CompanyDetails data={data ?? ({} as any)} /> */}
       </div>
     </>
   );

@@ -11,3 +11,4 @@ export { default as PublishArticlePopup } from './PublishArticlePopup/PublishArt
 export { default as SaveArticlePopup } from './SaveArticlePopup/SaveArticlePopup';
 export { default as DeleteArticlePopup } from './DeleteArticlePopup/DeleteArticlePopup';
 export { default as ChangePhoneNumberPopup } from './ChangePhoneNumberPopup/ChangePhoneNumberPopup';
+export { default as InvestorDocumentsUploadFilePopup } from './InvestorDocumentsUploadFilePopup/InvestorDocumentsUploadFilePopup';

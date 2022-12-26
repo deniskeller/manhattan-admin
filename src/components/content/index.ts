@@ -15,3 +15,4 @@ export { default as RegistrationForm } from "./Registration/RegistrationForm/Reg
 export { default as AuthForm } from "./Auth/AuthForm";
 export { default as PassRecoveryForm } from "./PassRecovery/PassRecoveryForm";
 export { default as ChangePasswordForm } from "./ChangePassword/ChangePasswordForm";
+export { default as InfoRow } from "./InfoRow/InfoRow";

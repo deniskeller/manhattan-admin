@@ -7,6 +7,9 @@ export enum OthersIcons {
   TOOLTIP = 'TOOLTIP',
   TICK_ICON_LIGHT = 'TICK_ICON_LIGHT',
   ADMIN_TOAST_SUCCESS_LIGHT = 'ADMIN_TOAST_SUCCESS_LIGHT',
+  CLIPBOARD_COPY = 'CLIPBOARD_COPY',
+  EYE = 'EYE',
+  UPLOAD = 'UPLOAD',
 }
 
 export const othersIcons = {
@@ -151,6 +154,55 @@ export const othersIcons = {
         d="M17 22L20.6667 25.6667L28 18.3333M39 22C39 31.1127 31.6127 38.5 22.5 38.5C13.3873 38.5 6 31.1127 6 22C6 12.8873 13.3873 5.5 22.5 5.5C31.6127 5.5 39 12.8873 39 22Z"
         stroke="#3479E9"
         strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </>
+  ),
+  [OthersIcons.CLIPBOARD_COPY]: (
+    <>
+      <path
+        d="M5 13H3C1.89543 13 1 12.1046 1 11V3C1 1.89543 1.89543 1 3 1H11C12.1046 1 13 1.89543 13 3V5M7 17H15C16.1046 17 17 16.1046 17 15V7C17 5.89543 16.1046 5 15 5H7C5.89543 5 5 5.89543 5 7V15C5 16.1046 5.89543 17 7 17Z"
+        stroke="#1A1A1A"
+        strokeOpacity="0.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      ;
+    </>
+  ),
+  [OthersIcons.EYE]: (
+    <>
+      <svg
+        width="22"
+        height="16"
+        viewBox="0 0 22 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.9998 8C13.9998 9.65685 12.6566 11 10.9998 11C9.3429 11 7.99976 9.65685 7.99976 8C7.99976 6.34315 9.3429 5 10.9998 5C12.6566 5 13.9998 6.34315 13.9998 8Z"
+          stroke="#1A1A1A"
+          strokeOpacity="0.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1.45801 7.99997C2.73228 3.94288 6.52257 1 11.0002 1C15.4778 1 19.2681 3.94291 20.5424 8.00004C19.2681 12.0571 15.4778 15 11.0002 15C6.52256 15 2.73226 12.0571 1.45801 7.99997Z"
+          stroke="#1A1A1A"
+          strokeOpacity="0.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </>
+  ),
+  [OthersIcons.UPLOAD]: (
+    <>
+      <path
+        d="M1 13V14C1 15.6569 2.34315 17 4 17H14C15.6569 17 17 15.6569 17 14V13M13 9L9 13M9 13L5 9M9 13L9 1"
+        stroke="#1A1A1A"
+        strokeOpacity="0.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

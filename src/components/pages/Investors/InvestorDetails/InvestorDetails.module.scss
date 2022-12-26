@@ -1,5 +1,10 @@
 .InvestorDetails {
   &_Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     margin-bottom: em(30px);
     @include ifmobile {
       padding: 0 em(10px);
@@ -11,6 +16,14 @@
       text-transform: uppercase;
       span {
         font-weight: 500;
+      }
+    }
+
+    &_UploadFile {
+      width: em(132px);
+      @include ifmobile {
+        margin-top: em(30px);
+        margin-left: auto;
       }
     }
   }

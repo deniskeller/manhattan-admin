@@ -1,0 +1,35 @@
+.InfoRow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid #f4f4f4;
+  padding-bottom: em(10px);
+  .Left {
+    width: 50%;
+    span {
+      display: flex;
+      font-weight: 400;
+      font-size: em(14px);
+      line-height: 143%;
+      color: rgba(26, 26, 26, 0.7);
+      @include ifmobile {
+        font-size: em(12px);
+      }
+    }
+  }
+  .Right {
+    width: 48%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    span {
+      color: rgba(26, 26, 26, 0.8);
+      font-weight: 500;
+      font-size: em(14px);
+      @include ifmobile {
+        font-size: em(12px);
+      }
+    }
+  }
+}

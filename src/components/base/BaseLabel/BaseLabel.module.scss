@@ -1,16 +1,27 @@
-.Label{
+.Label {
   display: inline-flex;
-  padding: 0 12px;
-  border-radius: 2px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  &_success{
-    background: #DEFCE9;
-    color: #114C29;
+  padding: em(8px) em(12px);
+  border-radius: em(2px);
+  span {
+    display: flex;
+    font-weight: 500;
+    font-size: em(14px);
+    line-height: 100%;
+    @include ifmobile {
+      font-size: em(12px);
+    }
   }
-  &_new{
-    background: #ECEEF9;
-    color: #2E3C8D;
+  &_success {
+    background: #defce9;
+    color: #114c29;
+  }
+  &_new {
+    background: #eceef9;
+    color: #2e3c8d;
+  }
+
+  &_unavailable {
+    background: rgba(26, 26, 26, 0.05);
+    color: rgba(26, 26, 26, 0.5);
   }
 }
