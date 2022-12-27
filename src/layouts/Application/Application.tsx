@@ -15,6 +15,9 @@ import {
   PublishArticlePopup,
   RejectApplicationPopup,
   SaveArticlePopup,
+  TeamInviteUserPopup,
+  TeamUserDetailsPopup,
+  TwoFactorAuthenticationPopup,
 } from 'components/modals';
 
 const admin_pages = [
@@ -106,6 +109,9 @@ const Application: React.FC<Props> = ({ children }) => {
       <ChangePhoneNumberPopup className="ChangePhoneNumberPopup" />
       <InvestorDocumentsUploadFilePopup className="InvestorDocumentsUploadFilePopup" />
       <InvestorUserDetailsPopup className="InvestorUserDetailsPopup" />
+      <TeamInviteUserPopup className="TeamInviteUserPopup" />
+      <TwoFactorAuthenticationPopup className="TwoFactorAuthenticationPopup" />
+      <TeamUserDetailsPopup className="TeamUserDetailsPopup" />
     </>
   );
 };

@@ -13,3 +13,6 @@ export { default as DeleteArticlePopup } from './DeleteArticlePopup/DeleteArticl
 export { default as ChangePhoneNumberPopup } from './ChangePhoneNumberPopup/ChangePhoneNumberPopup';
 export { default as InvestorDocumentsUploadFilePopup } from './InvestorDocumentsUploadFilePopup/InvestorDocumentsUploadFilePopup';
 export { default as InvestorUserDetailsPopup } from './InvestorUserDetailsPopup/InvestorUserDetailsPopup';
+export { default as TeamInviteUserPopup } from './TeamInviteUserPopup/TeamInviteUserPopup';
+export { default as TwoFactorAuthenticationPopup } from './TwoFactorAuthenticationPopup/TwoFactorAuthenticationPopup';
+export { default as TeamUserDetailsPopup } from './TeamUserDetailsPopup/TeamUserDetailsPopup';

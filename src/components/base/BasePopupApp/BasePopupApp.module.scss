@@ -12,10 +12,13 @@
   overflow-y: scroll;
   min-height: 100%;
   overflow: auto;
-  padding: em(163px) em(8px);
+  padding: em(30px) em(8px);
 
-  @include ifmobile {
-    padding: em(30px) em(8px);
+  @include ifdesktop {
+    align-content: center;
+  }
+  @include iftablet {
+    align-content: center;
   }
 }
 .Popup {
@@ -31,7 +34,7 @@
   border-radius: 4px;
 
   @include ifmobile {
-    padding: em(24px) em(16px) em(32px);
+    padding: em(24px) em(10px) em(32px);
   }
 
   &_Close {
@@ -67,5 +70,5 @@
 }
 
 .Visible {
-  display: flex;
+  display: grid;
 }

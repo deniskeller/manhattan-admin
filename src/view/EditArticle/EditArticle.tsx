@@ -46,10 +46,11 @@ const EditArticle = () => {
 
           <div className={s.Articles_Header_Actions}>
             <BaseSelectApp
+              initialValue="Published"
               type="mini"
               options={[
-                { value: 'published', label: 'Published.' },
-                { value: 'archived', label: 'Archived.' },
+                { value: 'published', label: 'Published' },
+                { value: 'archived', label: 'Archived' },
               ]}
               onChange={(val: string) => setNewValue(val, '')}
               className={s.Articles_Header_Select}

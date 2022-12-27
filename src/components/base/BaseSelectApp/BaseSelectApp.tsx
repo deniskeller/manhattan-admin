@@ -8,6 +8,7 @@ interface Props {
   label?: string;
   type?: string;
   className?: string;
+  initialValue?: string;
   error?: string | boolean;
   disabled?: boolean;
   options: ISelectItem[];
@@ -22,6 +23,7 @@ interface ISelectItem {
 const BaseSelectApp: React.FC<Props> = ({
   label,
   className,
+  initialValue,
   type = 'default',
   options,
   error,
@@ -29,7 +31,7 @@ const BaseSelectApp: React.FC<Props> = ({
   onChange,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0].label);
+  const [selectedOption, setSelectedOption] = useState(initialValue);
   const selectContainerRef = React.useRef(null);
 
   const clickOutsideHandler = () => setIsOpen(false);
