@@ -4,6 +4,7 @@ import {
   BaseButtonApp,
   BaseInputApp,
   BasePopupApp,
+  BaseSelectApp,
   BaseTitle,
 } from '@base/index';
 import { modalSlice } from '@store/modals/reducer';
@@ -23,6 +24,8 @@ interface IValueModals {
   permision: string;
   status: string;
 }
+
+const invited = true;
 
 const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
   const { setPopup } = modalSlice.actions;
@@ -44,7 +47,7 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
   };
 
   return (
-    <BasePopupApp className={className} type="large">
+    <BasePopupApp className={className} type="middle">
       <BaseTitle type="app" className={styles.Title}>
         user details
       </BaseTitle>
@@ -71,21 +74,21 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
 
       <BaseInputApp
         disabled
-        name="phone_number"
-        placeholder="Phone number"
-        label="Phone number"
-        value={value.phone_number}
-        onChange={(val: string) => setNewValue(val, 'phone_number')}
-        className={styles.Input}
-      />
-
-      <BaseInputApp
-        disabled
         name="email"
         placeholder="Email"
         label="Email"
         value={value.email}
         onChange={(val: string) => setNewValue(val, 'email')}
+        className={styles.Input}
+      />
+
+      <BaseInputApp
+        disabled
+        name="phone_number"
+        placeholder="Phone number"
+        label="Phone number"
+        value={value.phone_number}
+        onChange={(val: string) => setNewValue(val, 'phone_number')}
         className={styles.Input}
       />
 
@@ -100,7 +103,6 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
       />
 
       <BaseInputApp
-        disabled
         name="job_title"
         placeholder="Job title"
         label="Job title"
@@ -109,12 +111,13 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
         className={styles.Input}
       />
 
-      <BaseInputApp
-        disabled
-        name="permision"
-        placeholder="Permision"
+      <BaseSelectApp
+        initialValue="Manage"
         label="Permision"
-        value={value.permision}
+        options={[
+          { value: 'view_only', label: 'View only' },
+          { value: 'asset_management', label: 'Asset management' },
+        ]}
         onChange={(val: string) => setNewValue(val, 'permision')}
         className={styles.Input}
       />
@@ -129,12 +132,37 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
         className={styles.Input}
       />
 
-      <BaseButtonApp
-        title="Close"
-        type="secondary"
-        className={styles.Button}
-        onClick={() => dispatch(setPopup({ popup: '' }))}
-      />
+      <div className={styles.Actions}>
+        <BaseButtonApp
+          title="Revoke invintation"
+          type="destructive2"
+          className={styles.Actions_Button}
+        />
+      </div>
+
+      <div className={styles.Actions}>
+        <div className={styles.Actions_Top}>
+          <BaseButtonApp
+            title="Save changes"
+            type="primary"
+            className={styles.Actions_Button}
+          />
+        </div>
+
+        <div className={styles.Actions_Bottom}>
+          <BaseButtonApp
+            title="Block"
+            type="destructive2"
+            className={styles.Actions_Button}
+          />
+
+          <BaseButtonApp
+            icon="delete"
+            type="destructive"
+            className={styles.Actions_Button}
+          />
+        </div>
+      </div>
     </BasePopupApp>
   );
 };

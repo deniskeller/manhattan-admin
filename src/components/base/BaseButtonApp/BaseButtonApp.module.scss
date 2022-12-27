@@ -10,6 +10,10 @@
   align-items: center;
   padding: em(10px);
   @extend %button;
+  @include ifmobile {
+    height: em(44px);
+  }
+
   .Title {
     display: flex;
     font-size: em(20px);
@@ -17,6 +21,9 @@
     line-height: 100%;
     color: $white;
     font-family: $font-Avenir;
+    @include ifmobile {
+      font-size: em(18px);
+    }
   }
 }
 

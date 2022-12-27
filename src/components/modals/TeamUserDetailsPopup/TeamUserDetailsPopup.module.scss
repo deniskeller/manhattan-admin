@@ -14,7 +14,18 @@
   margin-bottom: em(16px);
 }
 
-.Button {
-  width: 100%;
+.Actions {
   margin-top: em(32px);
+  display: grid;
+  gap: em(16px) 0;
+
+  &_Bottom {
+    display: grid;
+    grid-template-columns: 1fr em(64px);
+    gap: 0 em(20px);
+  }
+
+  &_Button {
+    width: 100%;
+  }
 }
