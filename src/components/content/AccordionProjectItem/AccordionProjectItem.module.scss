@@ -1,0 +1,109 @@
+.ProjectItem {
+  background: $white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: em(4px);
+
+  &_Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    background: #f9fafb;
+    border-radius: em(4px);
+    padding: em(26.5px) em(66px) em(26.5px) em(40px);
+
+    &_Title {
+      font-weight: 600;
+      font-size: em(24px);
+      line-height: 133%;
+      text-transform: uppercase;
+      color: $blue50;
+    }
+
+    &_Status {
+      background: #defce9;
+      border-radius: 2px;
+      padding: em(5px) em(12px);
+      span {
+        text-transform: capitalize;
+        display: flex;
+        font-weight: 500;
+        font-size: em(14px);
+        line-height: 143%;
+        color: $green;
+      }
+    }
+
+    &_Toggle {
+      position: absolute;
+      top: calc(50% - em(4.5px));
+      right: em(27px);
+      display: flex;
+      width: em(16px);
+      height: em(9px);
+      transition: ease $speed;
+    }
+    .Open {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &_Content {
+    overflow: hidden;
+    transition: max-height $speed cubic-bezier(1, 0, 1, 0);
+    height: auto;
+    max-height: 9999px;
+
+    &_Hidden {
+      max-height: 0;
+      transition: max-height $speed cubic-bezier(0, 1, 0, 1);
+    }
+
+    &_MoreInfo {
+      padding: em(24px) em(40px) em(32px);
+      display: grid;
+      gap: em(24px) 0;
+
+      &_Info {
+        display: grid;
+        grid-template-columns: 1fr em(604px);
+        gap: 0 em(20px);
+
+        &_Statistics {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 0 em(20px);
+
+          .StatisticsItem {
+            &_Label {
+              margin-bottom: em(10px);
+              span {
+                font-size: em(14px);
+                font-weight: 400;
+                color: rgba(26, 26, 26, 0.7);
+              }
+            }
+            &_Value {
+              font-weight: 500;
+              font-size: em(20px);
+              color: rgba(26, 26, 26, 0.8);
+            }
+          }
+        }
+
+        &_Collected {
+          &_Label {
+            margin-bottom: em(10px);
+            span {
+              font-size: em(14px);
+              font-weight: 400;
+              color: rgba(26, 26, 26, 0.7);
+            }
+          }
+        }
+      }
+    }
+  }
+}

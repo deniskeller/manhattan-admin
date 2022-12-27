@@ -1,0 +1,125 @@
+.InvestmentStats {
+  &_GeneralInfo {
+    display: grid;
+    grid-template-columns:
+      minmax(em(366px), em(440px)) minmax(em(366px), em(440px))
+      1fr 1fr;
+    gap: 0 em(20px);
+    margin-bottom: em(30px);
+
+    @media only screen and (min-width: 768px) and (max-width: 1580px) {
+      grid-template-columns: 1fr 1fr;
+      gap: em(20px);
+    }
+
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(8px) 0;
+      padding: 0 em(10px);
+    }
+
+    &_Item {
+      background: $white;
+      padding: em(30px);
+      box-shadow: 0px 2px 5px rgba(38, 51, 77, 0.03);
+      border-radius: em(4px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      min-height: em(160px);
+      @include ifmobile {
+        padding: em(22px) em(10px);
+        min-height: em(120px);
+      }
+
+      &_WithoutGraph {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        @media only screen and (min-width: 768px) and (max-width: 1580px) {
+          min-height: em(120px);
+        }
+        @include ifmobile {
+          min-height: em(56px);
+          .InvestmentStats_GeneralInfo_Item_Info {
+            @include ifmobile {
+              width: 100%;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+            }
+          }
+          .InvestmentStats_GeneralInfo_Item_Info_Label {
+            @include ifmobile {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      &_Info {
+        display: flex;
+        flex-direction: column;
+
+        &_Label {
+          margin-bottom: em(15px);
+          @include ifmobile {
+            margin-bottom: em(8px);
+          }
+          span {
+            font-weight: 400;
+            font-size: em(14px);
+            color: rgba(26, 26, 26, 0.7);
+            @include ifmobile {
+              font-size: em(12px);
+            }
+          }
+        }
+        &_Value {
+          font-weight: 600;
+          font-size: em(20px);
+          color: $blue50;
+          white-space: nowrap;
+          @include ifmobile {
+            font-size: em(16px);
+          }
+        }
+      }
+
+      &_Graph {
+        display: grid;
+        background: $grey;
+        min-width: em(155px);
+        max-width: em(240px);
+        width: 100%;
+        height: em(102px);
+        margin-left: em(30px);
+        @media only screen and (min-width: 768px) and (max-width: 1580px) {
+          max-width: em(350px);
+        }
+
+        @include ifmobile {
+        }
+      }
+    }
+  }
+
+  &_InvestedProjects {
+    margin-bottom: em(30px);
+    &_Header {
+      margin-bottom: em(20px);
+    }
+
+    &_Items {
+      display: grid;
+      gap: em(20px) 0;
+    }
+  }
+
+  &_FinancialRecords {
+    &_Header {
+      margin-bottom: em(20px);
+    }
+  }
+}
