@@ -78,6 +78,7 @@ const LineGraph: React.FC<Props> = () => {
         bodySpacing: 10,
         backgroundColor: '#2E3C8D',
         position: 'nearest',
+        intersect: false,
         callbacks: {
           title: function () {
             return 'Balance';
