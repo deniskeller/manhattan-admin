@@ -4,28 +4,69 @@
   border-radius: em(4px);
 
   &_Header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
     position: relative;
     cursor: pointer;
     background: #f9fafb;
     border-radius: em(4px);
     padding: em(26.5px) em(66px) em(26.5px) em(40px);
+    @include ifdesktop {
+      align-items: center;
+    }
+    @include iftablet {
+      align-items: center;
+    }
+
+    @include ifmobile {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: em(17px) em(17px) em(24px) em(17px);
+    }
+
+    &_Icon {
+      @include ifmobile {
+        order: 1;
+        margin-top: em(24px);
+        margin-right: auto;
+      }
+    }
 
     &_Title {
-      font-weight: 600;
-      font-size: em(24px);
-      line-height: 133%;
-      text-transform: uppercase;
-      color: $blue50;
+      text-align: center;
+      @include ifmobile {
+        width: 100%;
+        text-align: left;
+      }
+      span {
+        font-weight: 600;
+        font-size: em(24px);
+        line-height: 133%;
+        text-transform: uppercase;
+        color: $blue50;
+        justify-self: center;
+        text-align: center;
+        @include ifmobile {
+          font-size: em(20px);
+        }
+      }
     }
 
     &_Status {
+      width: max-content;
+      height: max-content;
       background: #defce9;
       border-radius: 2px;
       padding: em(5px) em(12px);
+      margin-left: auto;
+      @include ifmobile {
+        position: absolute;
+        top: em(17px);
+        right: em(17px);
+      }
       span {
         text-transform: capitalize;
         display: flex;
@@ -33,6 +74,9 @@
         font-size: em(14px);
         line-height: 143%;
         color: $green;
+        @include ifmobile {
+          font-size: em(12px);
+        }
       }
     }
 
@@ -44,9 +88,24 @@
       width: em(16px);
       height: em(9px);
       transition: ease $speed;
+      @include ifmobile {
+        top: auto;
+        bottom: em(33px);
+        right: em(21px);
+      }
     }
     .Open {
       transform: rotate(-180deg);
+    }
+  }
+
+  &_HeaderWithLargeTitle {
+    .ProjectItem_Header_Icon {
+      margin-right: 0;
+    }
+    .ProjectItem_Header_Title {
+      margin-top: em(45px);
+      text-align: center;
     }
   }
 
@@ -62,23 +121,52 @@
     }
 
     &_MoreInfo {
-      padding: em(24px) em(40px) em(32px);
       display: grid;
       gap: em(24px) 0;
+      padding: em(24px) em(40px) em(32px);
+      @include ifmobile {
+        padding: em(24px) em(16px);
+      }
 
       &_Info {
         display: grid;
-        grid-template-columns: 1fr em(604px);
+        grid-template-columns: minmax(em(550px), 1fr) minmax(
+            em(360px),
+            em(604px)
+          );
         gap: 0 em(20px);
+
+        @media only screen and (min-width: 768px) and (max-width: 1440px) {
+          grid-template-columns: 1fr em(360px);
+        }
+
+        @include ifmobile {
+          grid-template-columns: 1fr;
+        }
 
         &_Statistics {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
           gap: 0 em(20px);
 
+          @include ifmobile {
+            grid-template-columns: 1fr;
+          }
+
           .StatisticsItem {
+            @include ifmobile {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              @include ifmobile {
+                margin-bottom: em(21px);
+              }
+            }
             &_Label {
               margin-bottom: em(10px);
+              @include ifmobile {
+                margin-bottom: 0;
+              }
               span {
                 font-size: em(14px);
                 font-weight: 400;
@@ -89,6 +177,10 @@
               font-weight: 500;
               font-size: em(20px);
               color: rgba(26, 26, 26, 0.8);
+              @include ifmobile {
+                font-size: em(16px);
+                font-weight: 600;
+              }
             }
           }
         }
@@ -96,11 +188,199 @@
         &_Collected {
           &_Label {
             margin-bottom: em(10px);
+            @include ifmobile {
+              margin-bottom: em(8px);
+            }
             span {
               font-size: em(14px);
               font-weight: 400;
               color: rgba(26, 26, 26, 0.7);
             }
+          }
+
+          &_Graph {
+            display: flex;
+            flex-direction: column;
+
+            .GraphLabels {
+              display: flex;
+              flex-direction: row;
+              margin-bottom: em(12px);
+              @include ifmobile {
+                margin-bottom: em(3px);
+              }
+              &_Item {
+                font-size: em(20px);
+                font-weight: 500;
+                color: rgba(26, 26, 26, 0.8);
+                @include ifmobile {
+                  font-size: em(16px);
+                  font-weight: 600;
+                }
+                &_Slash {
+                  font-size: em(20px);
+                  font-weight: 500;
+                  color: #85198f;
+                  @include ifmobile {
+                    font-size: em(16px);
+                    font-weight: 600;
+                  }
+                }
+
+                &_Current {
+                  color: #85198f;
+                }
+                &_Total {
+                  margin-left: auto;
+                }
+              }
+            }
+
+            .GraphProgressBar {
+              width: 100%;
+              height: 4px;
+              background: #d9dcf2;
+              border-radius: em(10px);
+              margin-bottom: em(10px);
+              position: relative;
+              overflow: hidden;
+              display: flex;
+              flex-direction: row;
+
+              &_Item {
+                &:nth-child(1) {
+                  display: flex;
+                  width: 40%;
+                  background: #2e3c8d;
+                }
+                &:nth-child(2) {
+                  display: flex;
+                  width: 20%;
+                  background: #85198f;
+                  margin-left: 2px;
+                  border-top-right-radius: em(10px);
+                  border-bottom-right-radius: em(10px);
+                }
+              }
+            }
+
+            .GraphDate {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+
+              &_Label {
+                font-size: em(14px);
+                font-weight: 400;
+                color: rgba(26, 26, 26, 0.7);
+              }
+
+              &_Tooltip {
+                position: relative;
+                margin-left: auto;
+                &_Icon {
+                  width: em(16px);
+                  height: em(16px);
+                  cursor: pointer;
+                  &:hover + .GraphDate_Tooltip_Tooltip {
+                    opacity: 1;
+                  }
+                  path,
+                  circle {
+                    stroke: #9ca3b0;
+                  }
+                }
+
+                &_Tooltip {
+                  width: max-content;
+                  position: absolute;
+                  top: em(-35px);
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  padding: em(8px) em(12px);
+                  background: #fdfdfd;
+                  border: 1px solid #d4d4d8;
+                  border-radius: em(4px);
+                  filter: drop-shadow(0px 1px 1px rgba(18, 18, 18, 0.3));
+                  pointer-events: none;
+                  opacity: 0;
+                  transition: ease-in $speed;
+
+                  &::after {
+                    content: '';
+                    display: flex;
+                    border: 1px solid #cccc;
+                    border-bottom: none;
+                    border-right: none;
+                    height: em(8px);
+                    width: em(8px);
+                    position: absolute;
+                    top: 100%;
+                    right: calc(50% - em(4px));
+                    transform: translatey(em(-3.3px)) rotate(225deg);
+                    background-color: #fff;
+                  }
+                  span {
+                    font-weight: 500;
+                    font-size: em(12px);
+                    color: rgba(26, 26, 26, 0.7);
+                  }
+                }
+              }
+
+              &_Date {
+                margin-left: em(14px);
+                span {
+                  font-weight: 500;
+                  font-size: em(14px);
+                  color: $black;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &_Footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .Tags {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 80%;
+          @include ifmobile {
+            margin-bottom: em(16px);
+          }
+
+          &_Item {
+            width: max-content;
+            padding: em(5px) em(10px);
+            background: #eceef9;
+            border-radius: 2px;
+            margin-right: em(6px);
+            margin-bottom: em(6px);
+            &:first-child {
+              background: #b2bae6;
+            }
+
+            &_Name {
+              font-weight: 500;
+              font-size: em(12px);
+              color: $black;
+            }
+          }
+        }
+
+        .ToDetails {
+          width: em(123px);
+          @include ifmobile {
+            width: 100%;
           }
         }
       }

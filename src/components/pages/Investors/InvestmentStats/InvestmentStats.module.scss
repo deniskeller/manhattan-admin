@@ -107,6 +107,9 @@
 
   &_InvestedProjects {
     margin-bottom: em(30px);
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
     &_Header {
       margin-bottom: em(20px);
     }
@@ -118,6 +121,9 @@
   }
 
   &_FinancialRecords {
+    @include ifmobile {
+      padding-left: em(10px);
+    }
     &_Header {
       margin-bottom: em(20px);
     }

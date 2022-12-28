@@ -20,7 +20,7 @@ const InvestorDetails: React.FC<Props> = ({ id }) => {
     { id: 3, title: 'Team' },
   ];
 
-  const [tab, setTab] = React.useState(0);
+  const [tab, setTab] = React.useState(1);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { BaseIcon } from '@base/index';
+import { BaseButtonApp, BaseIcon } from '@base/index';
 import styles from './AccordionProjectItem.module.scss';
 import { ALL_ICONS } from '@constants/icons';
 
@@ -9,7 +9,7 @@ interface IPurpose {
 
 interface IProps {
   image?: JSX.Element;
-  name?: string;
+  name: string;
   status?: string;
   investment?: string;
   current_valuation?: string;
@@ -21,18 +21,22 @@ interface IProps {
 const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
   const [isVisible, setIsVisible] = React.useState<boolean>(true);
 
-  const { name, status, image } = props;
+  const { name, status, image, tags } = props;
 
   return (
     <>
       <div className={styles.ProjectItem}>
         <div
-          className={styles.ProjectItem_Header}
+          className={`${styles.ProjectItem_Header} ${
+            name.length > 15 ? styles.ProjectItem_HeaderWithLargeTitle : ''
+          }`}
           onClick={() => setIsVisible(!isVisible)}
         >
           <div className={styles.ProjectItem_Header_Icon}>{image}</div>
 
-          <div className={styles.ProjectItem_Header_Title}>{name}</div>
+          <div className={styles.ProjectItem_Header_Title}>
+            <span>{name}</span>
+          </div>
 
           <div
             className={styles.ProjectItem_Header_Status}
@@ -120,13 +124,72 @@ const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
                     styles.ProjectItem_Content_MoreInfo_Info_Collected_Graph
                   }
                 >
-                  <div className={styles.Graph}>
-                    <div className={styles.Graph}></div>
-                    <div className={styles.Graph}></div>
-                    <div className={styles.Graph}></div>
+                  <div className={styles.GraphLabels}>
+                    <div
+                      className={`${styles.GraphLabels_Item} ${styles.GraphLabels_Item_Initial}`}
+                    >
+                      200,000.00
+                    </div>
+                    <span className={styles.GraphLabels_Item_Slash}>/</span>
+                    <div
+                      className={`${styles.GraphLabels_Item} ${styles.GraphLabels_Item_Current}`}
+                    >
+                      120 000
+                    </div>
+                    <div
+                      className={`${styles.GraphLabels_Item} ${styles.GraphLabels_Item_Total}`}
+                    >
+                      1,500,000.00
+                    </div>
+                  </div>
+
+                  <div className={styles.GraphProgressBar}>
+                    <span className={styles.GraphProgressBar_Item}></span>
+                    <span className={styles.GraphProgressBar_Item}></span>
+                  </div>
+
+                  <div className={styles.GraphDate}>
+                    <div className={styles.GraphDate_Label}>Round ends in</div>
+
+                    <div className={styles.GraphDate_Tooltip}>
+                      <BaseIcon
+                        icon={ALL_ICONS.TOOLTIP}
+                        viewBox="0 0 20 20"
+                        className={styles.GraphDate_Tooltip_Icon}
+                      />
+
+                      <div className={styles.GraphDate_Tooltip_Tooltip}>
+                        <span>31.02.2022</span>&nbsp;—&nbsp;
+                        <span>12.00</span>
+                      </div>
+                    </div>
+
+                    <div className={styles.GraphDate_Date}>
+                      <span>42 days 18 hrs 51 min</span>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className={styles.ProjectItem_Content_MoreInfo_Footer}>
+              <div className={styles.Tags}>
+                {tags?.map((tag, index) => {
+                  return (
+                    <div className={styles.Tags_Item} key={index}>
+                      <div className={styles.Tags_Item_Name}>{tag}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <BaseButtonApp
+                title="Details"
+                type="primary"
+                icon="to-details"
+                size="small"
+                className={styles.ToDetails}
+              />
             </div>
           </div>
         </div>
