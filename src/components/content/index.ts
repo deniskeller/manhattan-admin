@@ -18,3 +18,4 @@ export { default as ChangePasswordForm } from "./ChangePassword/ChangePasswordFo
 export { default as InfoRow } from "./InfoRow/InfoRow";
 export { default as TeamItem } from "./TeamItem/TeamItem";
 export { default as AccordionProjectItem } from "./AccordionProjectItem/AccordionProjectItem";
+export { default as LineGraph } from "./LineGraph/LineGraph";

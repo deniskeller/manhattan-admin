@@ -1,0 +1,12 @@
+.LineGraph {
+  display: grid;
+  justify-self: center;
+  min-width: em(155px);
+  max-width: em(240px);
+  width: 100%;
+  height: em(102px);
+  // overflow: hidden;
+  @media only screen and (min-width: 768px) and (max-width: 1580px) {
+    max-width: em(350px);
+  }
+}

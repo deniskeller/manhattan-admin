@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 //@ts-nocheck
 import React, { useCallback, useEffect, useRef } from 'react';
-import { AccordionProjectItem } from '@content/index';
+import { AccordionProjectItem, LineGraph } from '@content/index';
 import s from './InvestmentStats.module.scss';
 
 import toast from 'react-hot-toast';
@@ -153,6 +153,7 @@ const InvestmentStats: React.FC<Props> = () => {
   console.log('query', query); //{name: "Starlink"
   //result: "decline"
 
+  // таблица
   useEffect(() => {
     // @ts-ignore
     if (
@@ -363,7 +364,9 @@ const InvestmentStats: React.FC<Props> = () => {
               </div>
             </div>
 
-            <div className={s.InvestmentStats_GeneralInfo_Item_Graph}></div>
+            <div className={s.InvestmentStats_GeneralInfo_Item_Graph}>
+              <LineGraph />
+            </div>
           </div>
 
           <div className={`${s.InvestmentStats_GeneralInfo_Item}`}>
@@ -376,7 +379,9 @@ const InvestmentStats: React.FC<Props> = () => {
               </div>
             </div>
 
-            <div className={s.InvestmentStats_GeneralInfo_Item_Graph}></div>
+            <div className={s.InvestmentStats_GeneralInfo_Item_Graph}>
+              <LineGraph />
+            </div>
           </div>
 
           <div
