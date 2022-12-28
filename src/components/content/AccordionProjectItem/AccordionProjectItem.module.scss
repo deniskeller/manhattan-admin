@@ -101,11 +101,15 @@
 
   &_HeaderWithLargeTitle {
     .ProjectItem_Header_Icon {
-      margin-right: 0;
+      @include ifmobile {
+        margin-right: 0;
+      }
     }
     .ProjectItem_Header_Title {
-      margin-top: em(45px);
-      text-align: center;
+      @include ifmobile {
+        text-align: center;
+        margin-top: em(45px);
+      }
     }
   }
 
