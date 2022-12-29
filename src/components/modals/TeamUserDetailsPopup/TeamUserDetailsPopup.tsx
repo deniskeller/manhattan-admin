@@ -9,6 +9,7 @@ import {
 } from '@base/index';
 import { modalSlice } from '@store/modals/reducer';
 import { useAppDispatch } from '@hooks/redux';
+import toast from 'react-hot-toast';
 
 interface Props {
   className: string;
@@ -44,6 +45,20 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
 
   const setNewValue = (val: string | File[], key: string) => {
     setValue((prev) => ({ ...prev, [key]: val }));
+  };
+
+  const deleteUserHandler = () => {
+    dispatch(setPopup({ popup: '' }));
+    setTimeout(() => {
+      toast.success('User deleted', { duration: 3000 });
+    }, 300);
+  };
+
+  const changeEditedHandler = () => {
+    dispatch(setPopup({ popup: '' }));
+    setTimeout(() => {
+      toast.success('Data edited', { duration: 3000 });
+    }, 300);
   };
 
   return (
@@ -146,6 +161,7 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
             title="Save changes"
             type="primary"
             className={styles.Actions_Button}
+            onClick={() => changeEditedHandler()}
           />
         </div>
 
@@ -160,6 +176,7 @@ const TeamUserDetailsPopup: React.FC<Props> = ({ className }) => {
             icon="delete"
             type="destructive"
             className={styles.Actions_Button}
+            onClick={() => deleteUserHandler()}
           />
         </div>
       </div>

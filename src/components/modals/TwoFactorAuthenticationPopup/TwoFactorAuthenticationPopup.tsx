@@ -33,14 +33,14 @@ const TwoFactorAuthenticationPopup: React.FC<Props> = ({ className }) => {
   const submitHandler = () => {
     dispatch(setPopup({ popup: '' }));
     setTimeout(() => {
-      // toast.success('User added', { duration: 3000 });
+      toast.success('User invited', { duration: 3000 });
     }, 300);
   };
 
   return (
     <BasePopupApp className={className} type="middle">
       <BaseTitle type="app" className={styles.Title}>
-        Change Phone number
+        Two factor authentication
       </BaseTitle>
 
       <div className={styles.Subtitle}>

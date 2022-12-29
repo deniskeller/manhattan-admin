@@ -15,6 +15,8 @@ export { default as Registration } from "./Registration/Registration";
 export { default as Auth } from "./Auth/Auth";
 export { default as PassRecovery } from "./PassRecovery/PassRecovery";
 export { default as ChangePassword } from "./ChangePassword/ChangePassword";
+
+//app admin pages
 export { default as Articles } from "./Articles/Articles";
 export { default as CreateArticle } from "./CreateArticle/CreateArticle";
 export { default as EditArticle } from "./EditArticle/EditArticle";
@@ -22,4 +24,6 @@ export { default as Profile } from "./Profile/Profile";
 export { default as Investors } from "./Investors/Investors";
 export { default as Team } from "./Team/Team";
 
+//app user pages
 export { default as UserProfile } from "./UserProfile/UserProfile";
+export { default as UserTeam } from "./UserTeam/UserTeam";
