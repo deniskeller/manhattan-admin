@@ -44,7 +44,7 @@ const MakeDepositPopup: React.FC<Props> = ({ className }) => {
       </BaseTitle>
 
       <div className={styles.Subtitle}>
-        <p>Please enter 6-digit verification code</p>
+        <p>Please enter 6-digit verification code dsfdsf</p>
       </div>
 
       <BaseInputApp
