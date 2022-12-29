@@ -1,25 +1,25 @@
 .Wrapper {
   display: none;
-  background: rgba(13, 16, 38, 0.3);
   width: 100vw;
-  height: 100vh;
-  z-index: 10000;
+  min-height: 100vh;
+  height: 100%;
+  overflow-y: scroll;
+  overflow: auto;
+  padding: em(30px) em(8px);
+  background: rgba(13, 16, 38, 0.3);
   position: fixed;
+  z-index: 10000;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-y: scroll;
-  min-height: 100%;
-  overflow: auto;
-  padding: em(30px) em(8px);
 
-  // @include ifdesktop {
-  //   align-content: center;
-  // }
-  // @include iftablet {
-  //   align-content: center;
-  // }
+  @include ifdesktop {
+    align-content: center;
+  }
+  @include iftablet {
+    align-content: center;
+  }
 }
 .Popup {
   position: relative;
@@ -35,9 +35,6 @@
 
   @include ifmobile {
     padding: em(24px) em(10px) em(32px);
-
-    // display: grid;
-    // align-self: center;
   }
 
   &_Close {
@@ -73,5 +70,5 @@
 }
 
 .Visible {
-  display: block;
+  display: grid;
 }
