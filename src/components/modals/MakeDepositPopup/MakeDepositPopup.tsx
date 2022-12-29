@@ -183,6 +183,7 @@ const MakeDepositPopup: React.FC<Props> = ({ className }) => {
 
               <div className={styles.TransactionHash}>
                 <textarea
+                  autoFocus
                   value={value.transaction_hash}
                   onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                     setNewValue(e.target.value, 'transaction_hash')
