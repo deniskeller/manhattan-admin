@@ -1,0 +1,154 @@
+.BaseRadioButton {
+  position: relative;
+  user-select: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    .BaseRadioButtonCheck {
+      border: 1px solid #6575cd;
+    }
+    .BaseRadioButtonCheck.isActive {
+      border: none;
+      background: #263173;
+    }
+  }
+
+  .Label {
+    margin-left: em(10px);
+    span {
+      display: flex;
+      font-size: em(16px);
+      line-height: 100%;
+      color: $black;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+  }
+
+  .Input {
+    position: absolute;
+    visibility: hidden;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+
+  .BaseRadioButtonCheck {
+    box-sizing: border-box;
+    width: em(18px);
+    height: em(18px);
+    border-radius: 50%;
+    position: relative;
+    background: rgba(26, 26, 26, 0.05);
+    border: 1px solid rgba(26, 26, 26, 0.2);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .BaseRadioButtonTick {
+    width: em(10px);
+    height: em(10px);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: $blue;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+  }
+
+  .isError {
+    border: 1px solid $red;
+  }
+
+  .isActive {
+    .BaseRadioButtonTick {
+      visibility: visible;
+      background: $white;
+    }
+  }
+}
+
+.isActive {
+  .BaseRadioButtonCheck {
+    border: 1px solid #2e3c8d;
+    background: #2e3c8d;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.BaseRadioButton.Disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  .BaseRadioButtonCheck {
+    background-color: #f5f5f5;
+    border-color: #d9d9d9;
+  }
+}
+
+//button style
+.RadioButton_button {
+  min-width: em(80px);
+  height: em(56px);
+  padding: em(12px) em(16px);
+  background: #fdfdfd;
+  border: 1px solid #d1d5db;
+  border-radius: 2px;
+  position: relative;
+
+  .Label {
+    color: $black;
+    margin-left: em(10px);
+  }
+
+  &:hover {
+    border: 1px solid #6575cd;
+    .Label {
+      color: $black;
+    }
+  }
+
+  &.isActive {
+    transition: ease $speed;
+    position: relative;
+    .Label {
+      color: $black;
+    }
+  }
+
+  &.Disabled {
+    opacity: 1;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+
+    .Label {
+      color: $black;
+    }
+  }
+
+  .Icon {
+    position: absolute;
+    top: calc(50% - em(16px));
+    right: em(16px);
+    width: em(32px);
+    height: em(32px);
+    background: #eceef9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_S {
+      width: em(10px);
+      height: em(15px);
+    }
+    &_T {
+      width: em(14px);
+      height: em(14px);
+    }
+  }
+}

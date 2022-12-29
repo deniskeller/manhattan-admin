@@ -45,6 +45,7 @@
         &_Title {
           display: flex;
           flex-direction: row;
+          justify-content: center;
           align-items: center;
           margin-bottom: em(20px);
           span {

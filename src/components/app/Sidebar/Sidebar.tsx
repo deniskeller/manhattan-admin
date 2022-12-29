@@ -7,6 +7,7 @@ import styles from './Sidebar.module.scss';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { sidebarSlice } from '@store/sidebar/reducer';
+import { modalSlice } from '@store/modals/reducer';
 
 type Props = {
   pages?: {
@@ -18,6 +19,7 @@ type Props = {
 const Sidebar: React.FC<Props> = ({ pages }) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const { setPopup } = modalSlice.actions;
   const isVisible = useAppSelector((state) => state.sidebar.visible);
   const { setVisibleSidebar } = sidebarSlice.actions;
   const [visible, setVisible] = React.useState(false);
@@ -52,6 +54,7 @@ const Sidebar: React.FC<Props> = ({ pages }) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={styles.SidebarApp_Sidebar_CompanyBalance_Info_Button}
+              onClick={() => dispatch(setPopup({ popup: 'MakeDepositPopup' }))}
             >
               <path
                 d="M10 7V10M10 10V13M10 10H13M10 10H7M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z"

@@ -17,3 +17,4 @@ export { default as TeamInviteUserPopup } from './TeamInviteUserPopup/TeamInvite
 export { default as TwoFactorAuthenticationPopup } from './TwoFactorAuthenticationPopup/TwoFactorAuthenticationPopup';
 export { default as TeamUserDetailsPopup } from './TeamUserDetailsPopup/TeamUserDetailsPopup';
 export { default as MakeDepositPopup } from './MakeDepositPopup/MakeDepositPopup';
+export { default as PaymentSubmittedPopup } from './PaymentSubmittedPopup/PaymentSubmittedPopup';
