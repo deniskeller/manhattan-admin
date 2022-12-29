@@ -14,12 +14,12 @@
   overflow: auto;
   padding: em(30px) em(8px);
 
-  @include ifdesktop {
-    align-content: center;
-  }
-  @include iftablet {
-    align-content: center;
-  }
+  // @include ifdesktop {
+  //   align-content: center;
+  // }
+  // @include iftablet {
+  //   align-content: center;
+  // }
 }
 .Popup {
   position: relative;
@@ -38,7 +38,6 @@
 
     // display: grid;
     // align-self: center;
-    // justify-content: center;
   }
 
   &_Close {
@@ -74,5 +73,5 @@
 }
 
 .Visible {
-  display: grid;
+  display: block;
 }

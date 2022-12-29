@@ -11,6 +11,7 @@ import {
   EditPhotoArticlePopup,
   InvestorDocumentsUploadFilePopup,
   InvestorUserDetailsPopup,
+  MakeDepositPopup,
   NotificationsPopup,
   PublishArticlePopup,
   RejectApplicationPopup,
@@ -112,6 +113,7 @@ const Application: React.FC<Props> = ({ children }) => {
       <TeamInviteUserPopup className="TeamInviteUserPopup" />
       <TwoFactorAuthenticationPopup className="TwoFactorAuthenticationPopup" />
       <TeamUserDetailsPopup className="TeamUserDetailsPopup" />
+      <MakeDepositPopup className="MakeDepositPopup" />
     </>
   );
 };

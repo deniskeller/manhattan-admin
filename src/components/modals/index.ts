@@ -16,3 +16,4 @@ export { default as InvestorUserDetailsPopup } from './InvestorUserDetailsPopup/
 export { default as TeamInviteUserPopup } from './TeamInviteUserPopup/TeamInviteUserPopup';
 export { default as TwoFactorAuthenticationPopup } from './TwoFactorAuthenticationPopup/TwoFactorAuthenticationPopup';
 export { default as TeamUserDetailsPopup } from './TeamUserDetailsPopup/TeamUserDetailsPopup';
+export { default as MakeDepositPopup } from './MakeDepositPopup/MakeDepositPopup';

@@ -1,6 +1,7 @@
 import { BaseIcon } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
+import { modalSlice } from '@store/modals/reducer';
 import { sidebarSlice } from '@store/sidebar/reducer';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -9,6 +10,7 @@ import styles from './HeaderApp.module.scss';
 
 const HeaderApp = () => {
   const dispatch = useAppDispatch();
+  const { setPopup } = modalSlice.actions;
   const router = useRouter();
   const isVisible = useAppSelector((state) => state.sidebar.visible);
   const { setVisibleSidebar } = sidebarSlice.actions;
@@ -66,6 +68,7 @@ const HeaderApp = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={styles.HeaderApp_Header_Actions_CompanyBalance_Button}
+              onClick={() => dispatch(setPopup({ popup: 'MakeDepositPopup' }))}
             >
               <path
                 d="M10 7V10M10 10V13M10 10H13M10 10H7M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z"
