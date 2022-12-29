@@ -35,8 +35,10 @@
 
   @include ifmobile {
     padding: em(24px) em(10px) em(32px);
+
     // display: grid;
     // align-self: center;
+    // justify-content: center;
   }
 
   &_Close {
