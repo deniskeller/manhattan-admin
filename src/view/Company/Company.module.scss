@@ -1,0 +1,78 @@
+.Company {
+  @include ifdesktop {
+    padding: 0 em(47px);
+  }
+
+  &_Header {
+    margin-bottom: em(30px);
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
+  }
+}
+
+.Tabs {
+  &_TabList {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: em(30px);
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
+
+    .TabItem {
+      padding: em(13px) 0;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      margin-right: em(32px);
+      @include ifmobile {
+        margin-right: em(20px);
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: em(2px);
+        background: $blue50;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      span {
+        display: flex;
+        color: rgba(26, 26, 26, 0.7);
+        font-weight: 500;
+        font-size: em(18px);
+        line-height: 100%;
+        white-space: nowrap;
+
+        @include ifmobile {
+          font-size: em(14px);
+        }
+      }
+
+      &.Active {
+        &:before {
+          opacity: 1;
+        }
+        span {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  &_TabContent {
+    &_TabItem {
+      display: none;
+      &.Active {
+        display: block;
+      }
+    }
+  }
+}

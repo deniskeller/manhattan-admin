@@ -1,0 +1,129 @@
+.Details {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: em(20px) 0;
+  .Container {
+    background: $white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: em(4px);
+    padding: em(24px);
+
+    @include ifmobile {
+      padding: em(24px) em(10px);
+      border-radius: 0;
+    }
+  }
+
+  .Title {
+    margin-bottom: em(20px);
+    @include ifmobile {
+      margin-bottom: em(10px);
+    }
+    span {
+      font-weight: 500;
+      font-size: em(18px);
+      line-height: 167%;
+      text-transform: uppercase;
+      color: $blue50;
+      @include ifmobile {
+        font-size: em(16px);
+      }
+    }
+  }
+
+  .Status {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 em(48px);
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(10px) 0;
+    }
+
+    &_Item {
+      background: #f9fafb;
+      border-radius: em(4px);
+      padding: em(24px) em(20px);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      @include ifmobile {
+        padding: em(12px) em(20px);
+      }
+
+      &_Name {
+        font-weight: 500;
+        font-size: em(14px);
+        line-height: 143%;
+        color: rgba(26, 26, 26, 0.7);
+      }
+    }
+  }
+
+  .Content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 em(48px);
+    margin-bottom: em(12px);
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(12px) 0;
+    }
+
+    &_Items {
+      &_Row {
+        margin-bottom: em(12px);
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .DownloadFile {
+    color: #2463eb;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .Clipboard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      .Clipboard_Title {
+        text-decoration: underline;
+      }
+      .Clipboard_Icon {
+        path {
+          stroke: #2463eb;
+        }
+      }
+    }
+    &_Title {
+      margin-right: em(10px);
+      span {
+        font-size: em(14px, 14px);
+        color: rgba(26, 26, 26, 0.8);
+        font-weight: 500;
+        @include ifmobile {
+          font-size: em(12px, 12px);
+        }
+      }
+    }
+    &_Icon {
+      width: em(18px, 14px);
+      height: em(18px, 14px);
+      @include ifmobile {
+        width: em(16px, 12px);
+        height: em(16px, 12px);
+      }
+    }
+  }
+}

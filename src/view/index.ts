@@ -27,3 +27,4 @@ export { default as Team } from "./Team/Team";
 //app user pages
 export { default as UserProfile } from "./UserProfile/UserProfile";
 export { default as UserTeam } from "./UserTeam/UserTeam";
+export { default as Company } from "./Company/Company";
