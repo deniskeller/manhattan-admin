@@ -14,7 +14,7 @@ const Company: React.FC = () => {
     { id: 3, title: 'Documents' },
   ];
 
-  const [tab, setTab] = React.useState(1);
+  const [tab, setTab] = React.useState(0);
 
   return (
     <>
