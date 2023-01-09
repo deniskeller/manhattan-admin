@@ -25,6 +25,9 @@
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
     0px 4px 6px -1px rgba(0, 0, 0, 0.08);
   border-radius: 4px;
+  //
+  margin-top: auto;
+  margin-bottom: auto;
 
   @include ifmobile {
     margin-top: auto;
@@ -65,11 +68,12 @@
 
 .Visible {
   display: grid;
-  align-content: center;
-  @include iftablet {
-    display: block;
-  }
-  @include ifmobile {
-    display: block;
-  }
+  justify-items: center;
+  // align-content: center;
+  // @include iftablet {
+  //   display: block;
+  // }
+  // @include ifmobile {
+  //   display: block;
+  // }
 }

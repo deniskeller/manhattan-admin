@@ -1,5 +1,8 @@
 .Title {
   margin-bottom: em(28px);
+  @include ifmobile {
+    padding-right: em(20px);
+  }
 }
 
 .Subtitle {
