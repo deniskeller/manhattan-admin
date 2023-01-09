@@ -28,3 +28,4 @@ export { default as Team } from "./Team/Team";
 export { default as UserProfile } from "./UserProfile/UserProfile";
 export { default as UserTeam } from "./UserTeam/UserTeam";
 export { default as Company } from "./Company/Company";
+export { default as Transactions } from "./Transactions/Transactions";

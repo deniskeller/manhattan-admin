@@ -1,12 +1,11 @@
 import React from 'react';
 import { Application } from '@layouts/index';
+import { Transactions } from '@view/index';
 
 const TransactionsPage = () => {
   return (
     <Application>
-      <>
-        <h1>transactions page</h1>
-      </>
+      <Transactions />
     </Application>
   );
 };
