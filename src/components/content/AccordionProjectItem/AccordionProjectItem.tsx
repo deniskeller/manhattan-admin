@@ -194,7 +194,7 @@ const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
                 className={styles.ToDetails}
                 onClick={() =>
                   router.push(
-                    `/app/${link}/project_details/${name.toLocaleLowerCase()}`
+                    `/app/${link}/projects/project-details/${name.toLocaleLowerCase()}`
                   )
                 }
               />

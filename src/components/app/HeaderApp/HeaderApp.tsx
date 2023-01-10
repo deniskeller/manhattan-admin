@@ -21,7 +21,8 @@ const HeaderApp = () => {
       <header className={styles.HeaderApp_Header}>
         {router.pathname.split('/')[3] === 'create-article' ||
         router.pathname.split('/')[3] === 'edit-article' ||
-        router.pathname.split('/')[4] === 'current-investor' ? (
+        router.pathname.split('/')[4] === 'current-investor' ||
+        router.pathname.split('/')[4] === 'project-details' ? (
           <div
             className={styles.HeaderApp_Header_WithButtonBack}
             onClick={() => router.back()}
@@ -41,7 +42,7 @@ const HeaderApp = () => {
                 : router.pathname.split('/')[3] === 'applications'
                 ? 'Applications'
                 : router.pathname.split('/')[3] === 'projects'
-                ? 'project-details'
+                ? 'projects'
                 : router.pathname.split('/')[3] === 'projects'
                 ? 'create-project'
                 : router.pathname.split('/')[3] === 'projects'
