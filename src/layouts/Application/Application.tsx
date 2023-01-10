@@ -12,11 +12,13 @@ import {
   InvestorDocumentsUploadFilePopup,
   InvestorUserDetailsPopup,
   MakeDepositPopup,
+  MakePayoutPopup,
   NotificationsPopup,
   PaymentSubmittedPopup,
   PublishArticlePopup,
   RejectApplicationPopup,
   SaveArticlePopup,
+  SelectActionPopup,
   TeamInviteUserPopup,
   TeamUserDetailsPopup,
   TwoFactorAuthenticationPopup,
@@ -116,6 +118,8 @@ const Application: React.FC<Props> = ({ children }) => {
       <TeamUserDetailsPopup className="TeamUserDetailsPopup" />
       <MakeDepositPopup className="MakeDepositPopup" />
       <PaymentSubmittedPopup className="PaymentSubmittedPopup" />
+      <SelectActionPopup className="SelectActionPopup" />
+      <MakePayoutPopup className="MakePayoutPopup" />
     </>
   );
 };

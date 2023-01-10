@@ -18,3 +18,5 @@ export { default as TwoFactorAuthenticationPopup } from './TwoFactorAuthenticati
 export { default as TeamUserDetailsPopup } from './TeamUserDetailsPopup/TeamUserDetailsPopup';
 export { default as MakeDepositPopup } from './MakeDepositPopup/MakeDepositPopup';
 export { default as PaymentSubmittedPopup } from './PaymentSubmittedPopup/PaymentSubmittedPopup';
+export { default as SelectActionPopup } from './SelectActionPopup/SelectActionPopup';
+export { default as MakePayoutPopup } from './MakePayoutPopup/MakePayoutPopup';

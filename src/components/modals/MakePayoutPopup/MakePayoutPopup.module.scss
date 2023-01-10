@@ -1,0 +1,157 @@
+.Title {
+  margin-bottom: em(28px);
+}
+
+.Description {
+  display: grid;
+  gap: em(16px) 0;
+  margin-bottom: em(32px);
+  p {
+    font-weight: 500;
+    font-size: em(16px);
+    line-height: 150%;
+    color: $black;
+    &:nth-child(2) {
+      font-weight: 400;
+      color: rgba(26, 26, 26, 0.7);
+    }
+  }
+}
+
+.Label {
+  margin-bottom: em(16px);
+  p {
+    font-size: em(16px);
+    font-weight: 500;
+    color: rgba(26, 26, 26, 0.7);
+  }
+}
+
+.Input {
+  margin-bottom: em(16px);
+
+  &_Label {
+    margin-bottom: em(10px);
+    span {
+      font-weight: 500;
+      font-size: em(16px);
+      color: rgba(26, 26, 26, 0.8);
+    }
+  }
+
+  &_DownloadFile {
+    height: em(56px);
+    padding: em(16px);
+    background: rgba(26, 26, 26, 0.05);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      .Input_DownloadFile_Icon {
+        path {
+          stroke: rgba(46, 60, 141, 1);
+        }
+      }
+    }
+    &_Name {
+      font-weight: 400;
+      font-size: em(16px);
+      color: $black;
+    }
+    &_Icon {
+      position: absolute;
+      top: calc(50% - em(8px));
+      right: em(16px);
+      width: em(18px);
+      height: em(18px);
+      path {
+        stroke: rgba(26, 26, 26, 0.5);
+      }
+    }
+  }
+
+  &_WalletNumber {
+    height: em(56px);
+    padding: em(6px) em(16px);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    background: #fdfdfd;
+    border: 1px solid #d1d5db;
+    &:hover {
+      .Input_WalletNumber_Icon {
+        path {
+          stroke: rgba(46, 60, 141, 1);
+        }
+      }
+    }
+    &_Label {
+      margin-bottom: em(10px);
+      span {
+        display: flex;
+        line-height: 100%;
+        font-weight: 500;
+        font-size: em(12px);
+        color: rgba(26, 26, 26, 0.5);
+      }
+    }
+
+    &_Value {
+      span {
+        display: flex;
+        font-weight: 400;
+        font-size: em(16px);
+        line-height: 100%;
+        color: $black;
+      }
+    }
+
+    &_Icon {
+      position: absolute;
+      top: calc(50% - em(8px));
+      right: em(16px);
+      width: em(18px);
+      height: em(18px);
+      path {
+        stroke: rgba(26, 26, 26, 0.5);
+      }
+    }
+  }
+}
+
+.RadioButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 em(8px);
+  margin-bottom: em(24px);
+}
+
+.Button {
+  width: 100%;
+  margin-top: em(32px);
+}
+
+.TransactionHash {
+  background: #fdfdfd;
+  border: 1px solid #d1d5db;
+  border-radius: 2px;
+
+  &_Name {
+    font-weight: 400;
+    font-size: em(16px);
+    line-height: 150%;
+    color: $black;
+    resize: none;
+    font-weight: 400;
+    width: 100%;
+    height: em(74px);
+    background: none;
+    outline: none;
+    border: none;
+    position: relative;
+    box-shadow: none;
+    border-radius: 0;
+    color: $black;
+    padding: em(13px) em(16px);
+  }
+}
