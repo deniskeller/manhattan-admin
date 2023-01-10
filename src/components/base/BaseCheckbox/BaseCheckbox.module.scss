@@ -1,0 +1,115 @@
+.BaseCheckbox {
+  position: relative;
+  user-select: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  font-size: 100%;
+
+  &:hover {
+    .BaseCheckboxCheck {
+      border-color: #6575cd;
+    }
+    .BaseCheckboxCheck.isActive {
+      background: #263173;
+      border-color: #263173;
+    }
+  }
+
+  .BaseCheckboxLabel {
+    margin-left: em(12px);
+    span {
+      font-size: em(16px);
+      font-weight: 500;
+      line-height: 100%;
+      color: $black;
+    }
+  }
+
+  .BaseCheckboxInput {
+    position: absolute;
+    visibility: hidden;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+
+  .BaseCheckboxCheck {
+    box-sizing: border-box;
+    width: em(24px);
+    height: em(24px);
+    position: relative;
+    border-radius: 2px;
+    background: #f8fafc;
+    border: 1.5px solid #94a3b8;
+
+    @include ifmobile {
+      width: em(18px);
+      height: em(18px);
+    }
+  }
+
+  .BaseCheckboxTick {
+    width: em(16px);
+    height: em(13px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+
+    @include ifmobile {
+      width: em(13px);
+      height: em(10px);
+    }
+  }
+
+  .isError {
+    border: 1.5px solid $red;
+  }
+
+  .isActive {
+    background: $blue50;
+    border: 1.5px solid $blue50;
+    .BaseCheckboxTick {
+      visibility: visible;
+    }
+  }
+}
+
+.BaseCheckbox.isDisabled {
+  cursor: not-allowed;
+  &:hover {
+    .BaseCheckboxCheck {
+      border: none;
+    }
+    .BaseCheckboxCheck.isActive {
+      background: rgba(26, 26, 26, 0.1);
+      border: none;
+    }
+  }
+
+  .isActive {
+    background-color: rgba(26, 26, 26, 0.1);
+    border: none;
+    .BaseCheckboxTick {
+      path {
+        stroke: rgba(26, 26, 26, 0.1);
+      }
+    }
+  }
+  .BaseCheckboxCheck {
+    border: none;
+    background: rgba(26, 26, 26, 0.1);
+  }
+
+  .BaseCheckboxLabel {
+    span {
+      color: rgba(26, 26, 26, 0.1);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.AllProjects {
+  &_Items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: em(20px) 0;
+    margin-bottom: em(30px);
+  }
+
+  &_Pagination {
+    width: max-content;
+    margin: 0 auto;
+  }
+}

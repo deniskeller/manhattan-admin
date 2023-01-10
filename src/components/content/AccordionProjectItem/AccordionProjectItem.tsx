@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { BaseButtonApp, BaseIcon } from '@base/index';
 import styles from './AccordionProjectItem.module.scss';
 import { ALL_ICONS } from '@constants/icons';
+import { useRouter } from 'next/router';
 
 interface IPurpose {
   [key: string]: string;
@@ -14,14 +15,16 @@ interface IProps {
   investment?: string;
   current_valuation?: string;
   performance?: string;
+  link?: string;
   purpose_of_collection?: IPurpose[];
   tags?: string[];
 }
 
 const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
+  const router = useRouter();
   const [isVisible, setIsVisible] = React.useState<boolean>(true);
 
-  const { name, status, image, tags } = props;
+  const { name, status, image, tags, link } = props;
 
   return (
     <>
@@ -189,6 +192,11 @@ const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
                 icon="to-details"
                 size="small"
                 className={styles.ToDetails}
+                onClick={() =>
+                  router.push(
+                    `/app/${link}/project_details/${name.toLocaleLowerCase()}`
+                  )
+                }
               />
             </div>
           </div>

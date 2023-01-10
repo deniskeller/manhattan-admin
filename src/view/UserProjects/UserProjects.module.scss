@@ -1,0 +1,141 @@
+.UserProjects {
+  padding: 0 em(47px);
+  @include iftablet {
+    padding: 0 em(16px);
+  }
+
+  @include ifmobile {
+    padding: 0 em(10px);
+  }
+
+  &_Statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 em(20px);
+    margin-bottom: em(40px);
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      gap: em(8px) 0;
+      margin-bottom: em(30px);
+    }
+    &_Item {
+      background: $white;
+      border: 2px solid #f5f6f7;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: em(120px);
+      @include ifmobile {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: em(56px);
+        padding: 0 em(10px);
+      }
+
+      &:first-child {
+        background: $blue50;
+        .UserProjects_Statistics_Item_Label {
+          span {
+            color: $white;
+          }
+        }
+        .UserProjects_Statistics_Item_Value {
+          color: $white;
+        }
+      }
+      &_Label {
+        margin-bottom: em(10px);
+        @include ifmobile {
+          margin-bottom: 0;
+        }
+        span {
+          display: flex;
+          font-weight: 500;
+          font-size: em(12px);
+          line-height: 133%;
+          color: $blue50;
+        }
+      }
+      &_Value {
+        font-weight: 600;
+        font-size: em(20px);
+        line-height: 160%;
+        color: #263173;
+        @include ifmobile {
+          font-size: em(16px);
+          line-height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.Tabs {
+  &_TabList {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: em(20px);
+
+    &_Checkbox {
+      margin-left: auto;
+    }
+
+    .TabItem {
+      padding: em(13px) 0;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      margin-right: em(32px);
+      @include ifmobile {
+        margin-right: em(20px);
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: em(2px);
+        background: $blue50;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      span {
+        display: flex;
+        color: rgba(26, 26, 26, 0.7);
+        font-weight: 500;
+        font-size: em(18px);
+        line-height: 100%;
+        white-space: nowrap;
+
+        @include ifmobile {
+          font-size: em(14px);
+        }
+      }
+
+      &.Active {
+        &:before {
+          opacity: 1;
+        }
+        span {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  &_TabContent {
+    &_TabItem {
+      display: none;
+      &.Active {
+        display: block;
+      }
+    }
+  }
+}
