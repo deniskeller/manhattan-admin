@@ -1,11 +1,11 @@
 .ProjectDetails {
   padding: 0 em(47px);
   @include iftablet {
-    padding: 0 em(16px);
+    padding: 0;
   }
 
   @include ifmobile {
-    padding: 0 em(10px);
+    padding: 0;
   }
 
   &_Header {
@@ -15,9 +15,183 @@
     align-items: center;
     margin-bottom: em(30px);
 
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
+
     &_Button {
       width: em(177px);
       margin-left: em(20px);
+    }
+  }
+
+  &_Details {
+    padding: em(24px) em(20px) em(40px);
+    background: $white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-bottom: em(20px);
+    @include ifmobile {
+      padding: em(10px) em(10px) em(40px);
+    }
+
+    &_Header {
+      background: #f9fafb;
+      border-radius: em(4px);
+      padding: em(24px) em(20px);
+      margin-bottom: em(25px);
+      display: grid;
+      grid-template-columns: 1fr 1px minmax(auto, em(303px));
+      gap: 0 em(40px);
+
+      &_InvestedInfo {
+        &_Graph {
+          display: flex;
+          flex-direction: column;
+
+          .GraphLabels {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: em(12px);
+            @include ifmobile {
+              margin-bottom: em(3px);
+            }
+            &_Item {
+              font-size: em(20px);
+              font-weight: 500;
+              color: rgba(26, 26, 26, 0.8);
+              @include ifmobile {
+                font-size: em(16px);
+                font-weight: 600;
+              }
+              &_Slash {
+                font-size: em(20px);
+                font-weight: 500;
+                color: #85198f;
+                @include ifmobile {
+                  font-size: em(16px);
+                  font-weight: 600;
+                }
+              }
+
+              &_Current {
+                color: #85198f;
+              }
+              &_Total {
+                margin-left: auto;
+              }
+            }
+          }
+
+          .GraphProgressBar {
+            width: 100%;
+            height: 4px;
+            background: #d9dcf2;
+            border-radius: em(10px);
+            margin-bottom: em(10px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+
+            &_Item {
+              &:nth-child(1) {
+                display: flex;
+                width: 40%;
+                background: #2e3c8d;
+              }
+              &:nth-child(2) {
+                display: flex;
+                width: 20%;
+                background: #85198f;
+                margin-left: 2px;
+                border-top-right-radius: em(10px);
+                border-bottom-right-radius: em(10px);
+              }
+            }
+          }
+
+          .GraphDate {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            &_Label {
+              font-size: em(14px);
+              font-weight: 400;
+              color: rgba(26, 26, 26, 0.7);
+            }
+
+            &_Tooltip {
+              position: relative;
+              margin-left: auto;
+              &_Icon {
+                width: em(16px);
+                height: em(16px);
+                cursor: pointer;
+                &:hover + .GraphDate_Tooltip_Tooltip {
+                  opacity: 1;
+                }
+                path,
+                circle {
+                  stroke: #9ca3b0;
+                }
+              }
+
+              &_Tooltip {
+                width: max-content;
+                position: absolute;
+                top: em(-35px);
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: em(8px) em(12px);
+                background: #fdfdfd;
+                border: 1px solid #d4d4d8;
+                border-radius: em(4px);
+                filter: drop-shadow(0px 1px 1px rgba(18, 18, 18, 0.3));
+                pointer-events: none;
+                opacity: 0;
+                transition: ease-in $speed;
+
+                &::after {
+                  content: '';
+                  display: flex;
+                  border: 1px solid #cccc;
+                  border-bottom: none;
+                  border-right: none;
+                  height: em(8px);
+                  width: em(8px);
+                  position: absolute;
+                  top: 100%;
+                  right: calc(50% - em(4px));
+                  transform: translatey(em(-3.3px)) rotate(225deg);
+                  background-color: #fff;
+                }
+                span {
+                  font-weight: 500;
+                  font-size: em(12px);
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+            }
+
+            &_Date {
+              margin-left: em(14px);
+              span {
+                font-weight: 500;
+                font-size: em(14px);
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+
+      &_Border {
+        height: 100%;
+        background: rgba(26, 26, 26, 0.05);
+      }
     }
   }
 }
