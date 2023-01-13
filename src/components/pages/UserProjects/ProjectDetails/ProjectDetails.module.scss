@@ -38,13 +38,66 @@
     &_Header {
       background: #f9fafb;
       border-radius: em(4px);
-      padding: em(24px) em(20px);
+      padding: em(24px) 0 em(24px) em(20px);
       margin-bottom: em(25px);
       display: grid;
-      grid-template-columns: 1fr 1px minmax(auto, em(303px));
+      grid-template-columns: 1fr 1px em(400px);
       gap: 0 em(40px);
 
+      @include ifmobile {
+        border-radius: 0;
+        padding: em(16px) em(12px) em(20px);
+        margin-bottom: em(25px);
+        grid-template-columns: 1fr;
+        gap: 0 em(40px);
+      }
+
       &_InvestedInfo {
+        &_Header {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: em(20px);
+
+          @include ifmobile {
+            align-items: flex-start;
+            margin-bottom: em(24px);
+          }
+
+          &_Title {
+            font-weight: 600;
+            font-size: em(24px);
+            line-height: 133%;
+            text-transform: uppercase;
+            color: $blue50;
+            @include ifmobile {
+              font-size: em(20px);
+            }
+          }
+          &_Status {
+            padding: em(10px) em(12px);
+            border-radius: 2px;
+            margin-left: em(20px);
+            width: max-content;
+            span {
+              text-transform: capitalize;
+              display: flex;
+              line-height: 100%;
+              font-weight: 500;
+              font-size: em(14px);
+            }
+          }
+          &_Logo {
+            display: none;
+            @include ifmobile {
+              display: block;
+              width: max-content;
+              margin: 0 auto;
+              margin-bottom: em(44px);
+            }
+          }
+        }
         &_Graph {
           display: flex;
           flex-direction: column;
@@ -58,11 +111,10 @@
             }
             &_Item {
               font-size: em(20px);
-              font-weight: 500;
+              font-weight: 600;
               color: rgba(26, 26, 26, 0.8);
               @include ifmobile {
                 font-size: em(16px);
-                font-weight: 600;
               }
               &_Slash {
                 font-size: em(20px);
@@ -191,6 +243,589 @@
       &_Border {
         height: 100%;
         background: rgba(26, 26, 26, 0.05);
+        @include ifmobile {
+          display: none;
+        }
+      }
+
+      &_Logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include ifmobile {
+          display: none;
+        }
+        svg {
+          height: em(52px);
+        }
+      }
+    }
+
+    &_Content {
+      display: grid;
+      grid-template-columns: 1fr 1px em(400px);
+      gap: 0 em(40px);
+
+      &_Left {
+        padding-left: em(20px);
+        .ProjectPipeline {
+          margin-bottom: em(48px);
+          &_Title {
+            margin-bottom: em(20px);
+            span {
+              font-weight: 500;
+              font-size: em(18px);
+              color: $black;
+            }
+          }
+
+          &_Items {
+            position: relative;
+            &::before {
+              content: '';
+              display: block;
+              position: absolute;
+              z-index: 0;
+              top: 0;
+              left: em(48px);
+              width: 1px;
+              height: 100%;
+              background: #eceef9;
+            }
+
+            .ProjectPipeline {
+              position: relative;
+              z-index: 100;
+              display: flex;
+              flex-direction: row;
+              margin-bottom: em(24px);
+              &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: -1;
+                top: em(16px);
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: #eceef9;
+              }
+              &:last-child {
+                margin-bottom: 0;
+                &::before {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  z-index: 0;
+                  bottom: 0;
+                  left: em(47px);
+                  width: 2px;
+                  height: 100%;
+                  background: $white;
+                }
+              }
+
+              &_Period {
+                background: #eceef9;
+                border-radius: 2px;
+                padding: em(4px) em(11px);
+                width: max-content;
+                height: max-content;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                position: relative;
+
+                &_Quartal {
+                  font-weight: 600;
+                  font-size: em(16px);
+                  line-height: 150%;
+                  text-transform: uppercase;
+                  color: $blue50;
+                }
+                &_Year {
+                  margin-left: em(8px);
+                  span {
+                    font-weight: 500;
+                    font-size: em(16px);
+                    line-height: 150%;
+                    color: #6575cd;
+                  }
+                }
+              }
+
+              &_Description {
+                width: 100%;
+                padding: em(8px) em(16px);
+                border: 1px solid rgba(26, 26, 26, 0.1);
+                border-radius: 4px;
+                margin-left: em(24px);
+                background: $white;
+                p {
+                  font-size: em(12px);
+                  font-weight: 400;
+                  line-height: 133%;
+                  color: $black;
+                }
+              }
+            }
+          }
+        }
+
+        .FinancialValues {
+          margin-bottom: em(48px);
+          &_Title {
+            margin-bottom: em(20px);
+            span {
+              font-weight: 500;
+              font-size: em(18px);
+              color: $black;
+            }
+          }
+
+          &_Items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: em(16px) em(10px);
+            .FinancialValue {
+              background: #ffffff;
+              border: 1px solid rgba(26, 26, 26, 0.05);
+              box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+              border-radius: 4px;
+              min-height: em(110px);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              &_Label {
+                margin-bottom: em(10px);
+                span {
+                  font-weight: 500;
+                  font-size: em(12px);
+                  line-height: 133%;
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+              &_Value {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 167%;
+                color: #263173;
+              }
+            }
+          }
+        }
+
+        .FundExpences {
+          &_Title {
+            margin-bottom: em(2px);
+            span {
+              font-weight: 500;
+              font-size: em(18px);
+              color: $black;
+            }
+          }
+
+          &_Subtitle {
+            margin-bottom: em(20px);
+            span {
+              display: flex;
+              font-weight: 400;
+              font-size: em(16px);
+              line-height: 150%;
+              color: rgba(26, 26, 26, 0.7);
+            }
+          }
+
+          &_Items {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(auto, em(210px)));
+            gap: em(16px) em(10px);
+            .FundExpence {
+              background: #ffffff;
+              border: 1px solid rgba(26, 26, 26, 0.05);
+              box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+              border-radius: 4px;
+              min-height: em(110px);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+
+              &_Tooltip {
+                position: absolute;
+                top: em(10px);
+                right: em(10px);
+                &_Icon {
+                  width: em(16px);
+                  height: em(16px);
+                  cursor: pointer;
+                  &:hover + .FundExpence_Tooltip_Tooltip {
+                    opacity: 1;
+                  }
+                  path,
+                  circle {
+                    stroke: #9ca3b0;
+                  }
+                }
+
+                &_Tooltip {
+                  width: max-content;
+                  min-width: em(200px);
+                  position: absolute;
+                  z-index: 100;
+                  bottom: calc(100% + em(10px));
+                  left: calc(50% - em(100px));
+                  padding: em(8px) em(12px);
+                  background: #fdfdfd;
+                  border: 1px solid #d4d4d8;
+                  border-radius: em(4px);
+                  filter: drop-shadow(0px 1px 1px rgba(18, 18, 18, 0.3));
+                  pointer-events: none;
+                  opacity: 0;
+                  transition: ease-in $speed;
+
+                  &::after {
+                    content: '';
+                    display: flex;
+                    border: 1px solid #cccc;
+                    border-bottom: none;
+                    border-right: none;
+                    height: em(8px);
+                    width: em(8px);
+                    position: absolute;
+                    top: 100%;
+                    right: calc(50% - em(4px));
+                    transform: translatey(em(-3.3px)) rotate(225deg);
+                    background-color: #fff;
+                  }
+
+                  ul {
+                    list-style: none;
+                    li {
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                      margin-bottom: em(4px);
+                      &:last-child {
+                        margin-bottom: 0;
+                      }
+                      .Label,
+                      .Value {
+                        font-weight: 500;
+                        font-size: em(12px);
+                        line-height: 133%;
+                      }
+                      .Label {
+                        color: rgba(26, 26, 26, 0.7);
+                      }
+                      .Value {
+                        color: $black;
+                      }
+                    }
+                  }
+                }
+              }
+
+              &_Label {
+                margin-bottom: em(10px);
+                span {
+                  font-weight: 500;
+                  font-size: em(12px);
+                  line-height: 133%;
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+              &_Value {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 167%;
+                color: #263173;
+              }
+            }
+          }
+        }
+      }
+
+      &_Border {
+        height: 100%;
+        background: rgba(26, 26, 26, 0.05);
+        @include ifmobile {
+          display: none;
+        }
+      }
+
+      &_Right {
+        .AboutCompany {
+          .Border {
+            width: 100%;
+            height: 1px;
+            background: rgba(26, 26, 26, 0.1);
+            margin: em(20px) 0;
+          }
+
+          &_Title {
+            margin-bottom: em(4px);
+            text-align: center;
+            span {
+              font-weight: 500;
+              font-size: em(16px);
+              line-height: 150%;
+              color: rgba(26, 26, 26, 0.8);
+            }
+          }
+
+          &_Founded {
+            margin-bottom: em(14px);
+            text-align: center;
+            span {
+              font-weight: 400;
+              font-size: em(14px);
+              line-height: 100%;
+              color: rgba(26, 26, 26, 0.7);
+            }
+          }
+
+          &_Market {
+            margin-bottom: em(4px);
+            text-align: center;
+            span {
+              font-weight: 400;
+              font-size: em(14px);
+              line-height: 100%;
+              color: rgba(26, 26, 26, 0.7);
+            }
+          }
+
+          &_Countries {
+            text-align: center;
+            font-weight: 400;
+            font-size: em(14px);
+            line-height: 143%;
+            color: $black;
+          }
+
+          &_Description {
+            margin-bottom: em(25px);
+            p {
+              font-weight: 400;
+              font-size: em(14px);
+              line-height: 143%;
+              color: $black;
+            }
+          }
+
+          &_Tags {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: em(25px);
+
+            &_Item {
+              width: max-content;
+              padding: em(5px) em(10px);
+              background: #eceef9;
+              border-radius: 2px;
+              margin-right: em(6px);
+              margin-bottom: em(6px);
+              &:first-child {
+                background: #b2bae6;
+              }
+
+              &_Name {
+                font-weight: 500;
+                font-size: em(12px);
+                color: $black;
+              }
+            }
+          }
+
+          &_File {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &_Icon {
+              width: em(20px);
+              height: em(20px);
+              margin-right: em(10px);
+            }
+            &_Filename {
+              cursor: pointer;
+              font-weight: 400;
+              font-size: em(14px);
+              color: #6575cd;
+              display: flex;
+              line-height: 100%;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          &_RegistrationNumber {
+            display: flex;
+            flex-direction: row;
+
+            &_Icon {
+              width: em(20px);
+              height: em(20px);
+              margin-right: em(10px);
+            }
+
+            &_Info {
+              &_Label {
+                margin-bottom: em(6px);
+                span {
+                  display: flex;
+                  font-weight: 400;
+                  line-height: 133%;
+                  font-size: em(14px);
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+              &_Value {
+                font-weight: 500;
+                font-size: em(14px);
+                color: $black;
+                display: flex;
+                line-height: 100%;
+              }
+            }
+          }
+
+          &_Website {
+            display: flex;
+            flex-direction: row;
+            &_Icon {
+              width: em(20px);
+              height: em(20px);
+              margin-right: em(10px);
+            }
+
+            &_Info {
+              &_Label {
+                margin-bottom: em(6px);
+                span {
+                  display: flex;
+                  font-weight: 400;
+                  line-height: 133%;
+                  font-size: em(14px);
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+              &_Value {
+                display: flex;
+                line-height: 100%;
+                font-weight: 400;
+                font-size: em(14px);
+                color: #6575cd;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          &_CompanyEmail {
+            display: flex;
+            flex-direction: row;
+            &_Icon {
+              width: em(20px);
+              height: em(20px);
+              margin-right: em(10px);
+              path {
+                stroke-opacity: 0.5;
+              }
+            }
+
+            &_Info {
+              &_Label {
+                margin-bottom: em(6px);
+                span {
+                  display: flex;
+                  line-height: 133%;
+                  font-weight: 400;
+                  font-size: em(14px);
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+              &_Value {
+                display: flex;
+                line-height: 100%;
+                font-weight: 400;
+                font-size: em(14px);
+                color: #6575cd;
+                cursor: pointer;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+
+          &_Address {
+            display: flex;
+            flex-direction: row;
+            &_Icon {
+              width: em(34px);
+              height: em(20px);
+              margin-right: em(10px);
+            }
+
+            &_Info {
+              &_Label {
+                margin-bottom: em(6px);
+                span {
+                  display: flex;
+                  line-height: 133%;
+                  font-weight: 400;
+                  font-size: em(14px);
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+
+              &_Value {
+                p {
+                  font-weight: 500;
+                  font-size: em(14px);
+                  line-height: 143%;
+                  color: $black;
+                }
+              }
+            }
+          }
+
+          &_ValuationPartner {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: em(16px);
+            &_Icon {
+              width: em(20px);
+              height: em(20px);
+              margin-right: em(10px);
+            }
+
+            &_Info {
+              &_Label {
+                margin-bottom: em(6px);
+                span {
+                  display: flex;
+                  line-height: 133%;
+                  font-weight: 400;
+                  font-size: em(14px);
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+
+              &_Logo {
+                width: em(132px);
+                height: em(32px);
+              }
+            }
+          }
+        }
       }
     }
   }
