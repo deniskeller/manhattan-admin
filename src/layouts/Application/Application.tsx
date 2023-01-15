@@ -9,6 +9,7 @@ import {
   DeleteAllNotificationsPopup,
   DeleteArticlePopup,
   EditPhotoArticlePopup,
+  InvestConfirmPopup,
   InvestorDocumentsUploadFilePopup,
   InvestorUserDetailsPopup,
   MakeDepositPopup,
@@ -120,6 +121,7 @@ const Application: React.FC<Props> = ({ children }) => {
       <PaymentSubmittedPopup className="PaymentSubmittedPopup" />
       <SelectActionPopup className="SelectActionPopup" />
       <MakePayoutPopup className="MakePayoutPopup" />
+      <InvestConfirmPopup className="InvestConfirmPopup" />
     </>
   );
 };

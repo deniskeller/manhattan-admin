@@ -20,3 +20,4 @@ export { default as MakeDepositPopup } from './MakeDepositPopup/MakeDepositPopup
 export { default as PaymentSubmittedPopup } from './PaymentSubmittedPopup/PaymentSubmittedPopup';
 export { default as SelectActionPopup } from './SelectActionPopup/SelectActionPopup';
 export { default as MakePayoutPopup } from './MakePayoutPopup/MakePayoutPopup';
+export { default as InvestConfirmPopup } from './InvestConfirmPopup/InvestConfirmPopup';

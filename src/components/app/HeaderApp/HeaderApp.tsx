@@ -22,7 +22,8 @@ const HeaderApp = () => {
         {router.pathname.split('/')[3] === 'create-article' ||
         router.pathname.split('/')[3] === 'edit-article' ||
         router.pathname.split('/')[4] === 'current-investor' ||
-        router.pathname.split('/')[4] === 'project-details' ? (
+        router.pathname.split('/')[4] === 'project-details' ||
+        router.pathname.split('/')[4] === 'invest-in-project' ? (
           <div
             className={styles.HeaderApp_Header_WithButtonBack}
             onClick={() => router.back()}
@@ -47,6 +48,8 @@ const HeaderApp = () => {
                 ? 'create-project'
                 : router.pathname.split('/')[3] === 'projects'
                 ? 'edit-project'
+                : router.pathname.split('/')[4] === 'invest-in-project'
+                ? 'Teido payments LTD'
                 : ''}
             </div>
           </div>
