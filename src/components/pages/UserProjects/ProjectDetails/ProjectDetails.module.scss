@@ -33,26 +33,31 @@
     margin-bottom: em(20px);
     @include ifmobile {
       padding: em(10px) em(10px) em(40px);
+      border-radius: 0;
     }
 
     &_Header {
       background: #f9fafb;
       border-radius: em(4px);
-      padding: em(24px) 0 em(24px) em(20px);
+      padding: em(24px) em(20px) em(24px) em(20px);
       margin-bottom: em(25px);
       display: grid;
-      grid-template-columns: 1fr 1px em(400px);
+      grid-template-columns: 1fr 1px minmax(em(303px), em(400px));
       gap: 0 em(40px);
 
       @include ifmobile {
         border-radius: 0;
         padding: em(16px) em(12px) em(20px);
-        margin-bottom: em(25px);
+        margin-bottom: em(44px);
         grid-template-columns: 1fr;
-        gap: 0 em(40px);
+        gap: 0;
       }
 
       &_InvestedInfo {
+        min-width: em(528px);
+        @include ifmobile {
+          min-width: 100%;
+        }
         &_Header {
           display: flex;
           flex-direction: row;
@@ -263,13 +268,25 @@
 
     &_Content {
       display: grid;
-      grid-template-columns: 1fr 1px em(400px);
+      grid-template-columns: 1fr 1px minmax(em(303px), em(400px));
       gap: 0 em(40px);
+      padding-right: em(20px);
+      @include ifmobile {
+        grid-template-columns: 1fr;
+        padding-right: 0;
+      }
 
       &_Left {
         padding-left: em(20px);
+        @include ifmobile {
+          padding-left: 0;
+        }
+
         .ProjectPipeline {
           margin-bottom: em(48px);
+          @include ifmobile {
+            margin-bottom: em(32px);
+          }
           &_Title {
             margin-bottom: em(20px);
             span {
@@ -328,7 +345,7 @@
               &_Period {
                 background: #eceef9;
                 border-radius: 2px;
-                padding: em(4px) em(11px);
+                padding: em(8px) em(11px);
                 width: max-content;
                 height: max-content;
                 display: flex;
@@ -336,20 +353,33 @@
                 align-items: center;
                 position: relative;
 
+                @include ifmobile {
+                  padding: em(6px) em(11px);
+                }
+
                 &_Quartal {
+                  display: flex;
                   font-weight: 600;
                   font-size: em(16px);
-                  line-height: 150%;
+                  line-height: 100%;
                   text-transform: uppercase;
                   color: $blue50;
+
+                  @include ifmobile {
+                    font-size: em(12px);
+                  }
                 }
                 &_Year {
                   margin-left: em(8px);
                   span {
+                    display: flex;
                     font-weight: 500;
                     font-size: em(16px);
-                    line-height: 150%;
+                    line-height: 100%;
                     color: #6575cd;
+                    @include ifmobile {
+                      font-size: em(12px);
+                    }
                   }
                 }
               }
@@ -361,6 +391,10 @@
                 border-radius: 4px;
                 margin-left: em(24px);
                 background: $white;
+                @include ifmobile {
+                  padding: em(4px) em(8px);
+                  margin-left: em(12px);
+                }
                 p {
                   font-size: em(12px);
                   font-weight: 400;
@@ -374,6 +408,9 @@
 
         .FinancialValues {
           margin-bottom: em(48px);
+          @include ifmobile {
+            margin-bottom: em(32px);
+          }
           &_Title {
             margin-bottom: em(20px);
             span {
@@ -387,19 +424,38 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: em(16px) em(10px);
+
+            @include ifmobile {
+              grid-template-columns: 1fr;
+              gap: em(10px) 0;
+            }
+
             .FinancialValue {
               background: #ffffff;
               border: 1px solid rgba(26, 26, 26, 0.05);
               box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
               border-radius: 4px;
-              min-height: em(110px);
               display: flex;
               flex-direction: column;
               align-items: center;
               justify-content: center;
+              padding: 0 em(10px);
+              min-height: em(110px);
+              min-width: em(170px);
+              @include ifmobile {
+                flex-direction: row;
+                justify-content: space-between;
+                min-height: em(56px);
+              }
+
               &_Label {
                 margin-bottom: em(10px);
+                text-align: center;
+                @include ifmobile {
+                  margin-bottom: 0;
+                }
                 span {
+                  display: flex;
                   font-weight: 500;
                   font-size: em(12px);
                   line-height: 133%;
@@ -408,9 +464,13 @@
               }
               &_Value {
                 font-weight: 600;
-                font-size: 18px;
+                font-size: em(18px);
                 line-height: 167%;
                 color: #263173;
+                white-space: nowrap;
+                @include ifmobile {
+                  font-size: em(16px);
+                }
               }
             }
           }
@@ -441,22 +501,41 @@
             display: grid;
             grid-template-columns: repeat(4, minmax(auto, em(210px)));
             gap: em(16px) em(10px);
+
+            @include ifmobile {
+              grid-template-columns: 1fr;
+              gap: em(10px) 0;
+            }
+
             .FundExpence {
               background: #ffffff;
               border: 1px solid rgba(26, 26, 26, 0.05);
               box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
               border-radius: 4px;
+              min-width: em(210px);
               min-height: em(110px);
               display: flex;
               flex-direction: column;
               align-items: center;
               justify-content: center;
               position: relative;
+              padding: 0 em(10px);
+              @include ifmobile {
+                flex-direction: row;
+                min-height: em(56px);
+              }
 
               &_Tooltip {
                 position: absolute;
                 top: em(10px);
                 right: em(10px);
+
+                @include ifmobile {
+                  position: relative;
+                  top: auto;
+                  right: auto;
+                  margin-left: em(10px);
+                }
                 &_Icon {
                   width: em(16px);
                   height: em(16px);
@@ -485,6 +564,10 @@
                   pointer-events: none;
                   opacity: 0;
                   transition: ease-in $speed;
+
+                  @include ifmobile {
+                    left: 50%;
+                  }
 
                   &::after {
                     content: '';
@@ -530,6 +613,10 @@
 
               &_Label {
                 margin-bottom: em(10px);
+                @include ifmobile {
+                  margin-bottom: 0;
+                  order: -1;
+                }
                 span {
                   font-weight: 500;
                   font-size: em(12px);
@@ -539,9 +626,13 @@
               }
               &_Value {
                 font-weight: 600;
-                font-size: 18px;
+                font-size: em(18px);
                 line-height: 167%;
                 color: #263173;
+                @include ifmobile {
+                  font-size: em(16px);
+                  margin-left: auto;
+                }
               }
             }
           }
@@ -557,6 +648,10 @@
       }
 
       &_Right {
+        @include ifmobile {
+          order: -1;
+          margin-bottom: em(24px);
+        }
         .AboutCompany {
           .Border {
             width: 100%;
@@ -820,7 +915,6 @@
               }
 
               &_Logo {
-                width: em(132px);
                 height: em(32px);
               }
             }
