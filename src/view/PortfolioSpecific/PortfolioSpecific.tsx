@@ -10,7 +10,7 @@ import { ALL_ICONS } from '@constants/icons';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import {PortfolioIcon} from "../../components/pages/Main/OurPorftolio/OurPorftolio";
+import { PortfolioIcon } from '../../components/pages/Main/OurPorftolio/OurPorftolio';
 
 const images = [
   'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
@@ -32,9 +32,10 @@ const PortfolioSpecific = () => {
   const { id } = router.query;
 
   //тащим с базы
-  const newItem = (portfolioItems.filter((item) => +item.id === Number(id)))?.[0] || {};
-  console.log("newItem",newItem);
- /* company_market_cap: "$ 10,00M"
+  const newItem =
+    portfolioItems.filter((item) => +item.id === Number(id))?.[0] || {};
+  console.log('newItem', newItem);
+  /* company_market_cap: "$ 10,00M"
   founding_date: "Founded in 2021"
   founding_place: "USA & Canada"
   id: 71
@@ -84,7 +85,7 @@ const PortfolioSpecific = () => {
             <Header className={styles.StepBack}>
               <span className={styles.StepBack_Btn} onClick={goToBack}>
                 <div className={styles.IconBack}>
-                  <i className={styles.Up}/>
+                  <i className={styles.Up} />
                 </div>
                 <BaseTitle>PORTFOLIO</BaseTitle>
               </span>
@@ -169,7 +170,9 @@ const PortfolioSpecific = () => {
                 <div className={styles.Parameters_Row_Name}>
                   Company Market Cap
                 </div>
-                <div className={styles.Parameters_Row_Value}>{newItem?.company_market_cap}</div>
+                <div className={styles.Parameters_Row_Value}>
+                  {newItem?.company_market_cap}
+                </div>
               </div>
 
               <div className={styles.Parameters_Row}>
@@ -197,8 +200,7 @@ const PortfolioSpecific = () => {
 
           <div className={styles.Description}>
             <div className={styles.Logo}>
-              <PortfolioIcon name={newItem?.name} styles={styles}/>
-
+              <PortfolioIcon name={newItem?.name} styles={styles} />
             </div>
 
             <div className={styles.Title}>
@@ -248,14 +250,14 @@ const PortfolioSpecific = () => {
             className={styles.PrevSlide}
             onClick={() => slider1.current.slickPrev()}
           >
-            <i className={styles.Arrow}/>
+            <i className={styles.Arrow} />
           </div>
 
           <div
             className={styles.NextSlide}
             onClick={() => slider1.current.slickNext()}
           >
-            <i className={styles.Arrow}/>
+            <i className={styles.Arrow} />
           </div>
         </div>
 

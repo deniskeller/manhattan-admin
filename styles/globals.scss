@@ -455,3 +455,38 @@ section .tip-wrapper svg path {
 }
 
 // стили для таблиц
+
+//стили для слайдров в адмминке на странице деталей проекта
+.project-details-slider .slick-list {
+  margin: 0 em(-18px) !important;
+  @include iftablet {
+    margin: 0 em(-15px) !important;
+  }
+
+  @include ifmobile {
+    margin: 0 !important;
+  }
+}
+
+.project-details-slider .slick-slide {
+  height: em(215px) !important;
+  padding: 0 em(18px) !important;
+
+  @include iftablet {
+    height: em(190px) !important;
+    padding: 0 em(15px) !important;
+  }
+
+  @include ifmobile {
+    height: em(190px) !important;
+    padding: 0 !important;
+  }
+
+  div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

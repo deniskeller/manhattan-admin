@@ -923,4 +923,59 @@
       }
     }
   }
+
+  &_Gallery {
+    padding: em(24px);
+    background: $white;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    @include ifmobile {
+      padding: em(10px);
+      border-radius: 0;
+    }
+
+    &_Header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: em(15px);
+
+      &_Title {
+        font-weight: 500;
+        font-size: em(16px);
+        line-height: 150%;
+        color: $black;
+      }
+
+      &_Navbar {
+        display: flex;
+        flex-direction: row;
+        .PrevSlide {
+          margin-right: em(21px);
+        }
+        .NextSlide,
+        .PrevSlide {
+          width: em(18px);
+          height: em(8px);
+          cursor: pointer;
+          path {
+            stroke: rgba(26, 26, 26, 0.5);
+          }
+        }
+
+        .PrevSlide {
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &_Slider {
+      overflow: hidden;
+    }
+  }
 }
