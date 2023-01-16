@@ -1,0 +1,262 @@
+.CreateProject {
+  padding: 0 em(47px);
+  @include iftablet {
+    padding: 0;
+  }
+
+  @include ifmobile {
+    padding: 0 em(10px);
+  }
+
+  &_Header {
+    margin-bottom: em(30px);
+  }
+
+  &_Content {
+    display: grid;
+    grid-template-columns: 1fr em(354px);
+    background: #ffffff;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    &_Main {
+      padding: em(24px) em(58px) em(24px) em(24px);
+
+      .Form {
+        width: 100%;
+        max-width: em(800px);
+        @include iftablet {
+          max-width: em(574px);
+        }
+
+        &_Block {
+          &_Title {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            margin-bottom: em(16px);
+            span {
+              font-weight: 600;
+              font-size: em(20px);
+              color: #32429a;
+              &:nth-child(2) {
+                font-size: em(16px);
+                margin-left: em(16px);
+                p {
+                  font-weight: 500;
+                  color: rgba(26, 26, 26, 0.7);
+                }
+              }
+            }
+          }
+
+          &_Subtitle {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: em(8px);
+            p {
+              font-weight: 500;
+              font-size: em(16px);
+              line-height: 150%;
+              color: rgba(26, 26, 26, 0.8);
+            }
+
+            .MilestoneDelete {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              cursor: pointer;
+              &:hover {
+                .MilestoneDelete_Title {
+                  span {
+                    color: $red;
+                  }
+                }
+                .MilestoneDelete_Icon {
+                  path {
+                    stroke: $red;
+                  }
+                }
+              }
+              &_Title {
+                margin-right: em(10px);
+                span {
+                  font-weight: 400;
+                  font-size: em(16px);
+
+                  color: rgba(26, 26, 26, 0.5);
+                }
+              }
+              &_Icon {
+                width: em(18px);
+                height: em(20px);
+                path {
+                  stroke: rgba(26, 26, 26, 0.5);
+                }
+              }
+            }
+          }
+
+          &_Row {
+            width: 100%;
+            display: inline-flex;
+            flex-direction: row;
+            margin-bottom: em(16px);
+
+            .ProjectName {
+              width: 100%;
+            }
+
+            .FoundedIn {
+              width: 100%;
+              max-width: em(170px);
+              margin-left: em(16px);
+            }
+
+            .Tagline {
+              width: 100%;
+            }
+
+            .Discription {
+              width: 100%;
+            }
+
+            .Select {
+              width: 100%;
+            }
+
+            .Fullwidth {
+              width: 100%;
+            }
+
+            .Halfwidth {
+              width: 50%;
+            }
+
+            .SecondItem {
+              margin-left: em(16px);
+            }
+          }
+
+          &_Grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: em(16px);
+            margin-bottom: em(32px);
+          }
+
+          .MilestoneItem {
+            margin-bottom: em(16px);
+            &:last-child {
+              margin-bottom: em(32px);
+            }
+            &_ButtonAdd {
+              font-weight: 500;
+              font-size: em(16px);
+              color: #6575cd;
+              cursor: pointer;
+            }
+          }
+
+          &_ChoiseOptions {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: em(32px);
+            &_Button {
+              &:nth-child(1) {
+                margin-bottom: em(16px);
+              }
+            }
+          }
+        }
+
+        &_Border {
+          width: 100%;
+          height: 1px;
+          background: rgba(26, 26, 26, 0.1);
+          margin: em(16px) 0 em(32px);
+        }
+      }
+    }
+
+    &_Navbar {
+      padding: em(71px) em(58px);
+      border-left: 1px solid rgba(26, 26, 26, 0.1);
+
+      .Navbar {
+        position: sticky;
+        top: 0;
+        &_Header {
+          display: flex;
+          flex-direction: row;
+          gap: em(16px);
+          margin-bottom: em(40px);
+          &_Button {
+            width: em(103px);
+          }
+        }
+
+        &_Content {
+          list-style: none;
+          &_Item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: em(16px);
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &:hover {
+              .Navbar_Content_Item_Number {
+                border: 1px solid #8c97d9;
+              }
+              .Navbar_Content_Item_Name {
+                color: $black;
+              }
+            }
+
+            &.Active {
+              .Navbar_Content_Item_Number {
+                background: #2e3c8d;
+                border: none;
+                span {
+                  color: $white;
+                }
+              }
+              .Navbar_Content_Item_Name {
+                color: #32429a;
+              }
+            }
+
+            &_Number {
+              width: em(32px);
+              height: em(32px);
+              border-radius: 50%;
+              background: #eceef9;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-right: em(12px);
+              span {
+                font-weight: 600;
+                font-size: em(16px);
+                color: $blue50;
+              }
+            }
+
+            &_Name {
+              font-weight: 600;
+              font-size: em(16px);
+              line-height: 100%;
+              color: rgba(26, 26, 26, 0.8);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -43,11 +43,39 @@ const BaseInputApp: React.FC<Props> = ({
       {prefix ? (
         <>
           <div className={styles.Prefix}>
-            <BaseIcon
-              viewBox="0 0 20 20"
-              icon={ALL_ICONS.PREFIX_DOLLAR}
-              className={styles.Prefix_Icon}
-            />
+            {prefix == 'dollar' ? (
+              <BaseIcon
+                viewBox="0 0 20 20"
+                icon={ALL_ICONS.PREFIX_DOLLAR}
+                className={styles.Prefix_Icon}
+              />
+            ) : prefix == 'marker' ? (
+              <BaseIcon
+                viewBox="0 0 20 20"
+                icon={ALL_ICONS.MARKER}
+                className={styles.Prefix_Icon}
+              />
+            ) : prefix == 'website' ? (
+              <BaseIcon
+                viewBox="0 0 20 20"
+                icon={ALL_ICONS.WEBSITE}
+                className={styles.Prefix_Icon}
+              />
+            ) : prefix == 'mail' ? (
+              <BaseIcon
+                viewBox="0 0 16 12"
+                icon={ALL_ICONS.MAIL}
+                className={styles.Prefix_Icon}
+              />
+            ) : prefix == 'percent' ? (
+              <BaseIcon
+                viewBox="0 0 18 15"
+                icon={ALL_ICONS.PERCENT}
+                className={styles.Prefix_Icon}
+              />
+            ) : (
+              ''
+            )}
           </div>
         </>
       ) : null}

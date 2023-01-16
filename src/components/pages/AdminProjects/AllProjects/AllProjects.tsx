@@ -182,7 +182,7 @@ const AllProjects: React.FC<Props> = () => {
             icon="create-project"
             className={s.AllProjects_Header_Button}
             onClick={() => {
-              router.push('/app/admin/create-article');
+              router.push('/app/admin/projects/create-project');
             }}
           />
         </div>
