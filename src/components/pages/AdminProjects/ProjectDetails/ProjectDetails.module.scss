@@ -13,15 +13,33 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: em(30px);
 
     @include ifmobile {
       padding: 0 em(10px);
     }
 
-    &_Button {
-      width: em(177px);
-      margin-left: em(20px);
+    &_Title {
+      margin-right: auto;
+    }
+
+    &_Edit,
+    &_Archive {
+      width: em(110px);
+      margin-left: em(16px);
+      @include ifmobile {
+        margin-top: em(30px);
+        width: 100%;
+        max-width: em(162px);
+      }
+    }
+
+    &_Edit {
+      margin-left: em(32px);
+      @include ifmobile {
+        margin-left: 0;
+      }
     }
   }
 

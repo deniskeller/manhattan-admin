@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BaseButtonApp, BaseIcon, BaseTitle } from '@base/index';
+import { BaseButtonApp, BaseIcon, BaseSwitch, BaseTitle } from '@base/index';
 import { useAppDispatch } from '@hooks/redux';
 import { modalSlice } from '@store/modals/reducer';
 import React, { useEffect, useRef, useState } from 'react';
@@ -36,6 +36,7 @@ const ProjectDetails: React.FC<Props> = ({ id }) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
+  const [checked, setChecked] = React.useState<boolean>(true);
   const [status, setStatus] = useState('available');
   const [tags, setTags] = useState([
     'FinTech',
@@ -87,15 +88,26 @@ const ProjectDetails: React.FC<Props> = ({ id }) => {
             Project details
           </BaseTitle>
 
+          <BaseSwitch checked={checked} onChange={() => setChecked(!checked)}>
+            Available
+          </BaseSwitch>
+
           <BaseButtonApp
-            title="Invest details"
+            title="Edit"
             type="primary"
-            icon="to-details"
+            icon="edit"
             size="small"
-            className={s.ProjectDetails_Header_Button}
+            className={s.ProjectDetails_Header_Edit}
             onClick={() =>
-              router.push(`/app/user/projects/invest-in-project/${id}`)
+              router.push(`/app/admin/projects/edit-project/${id}`)
             }
+          />
+
+          <BaseButtonApp
+            title="Archive"
+            type="secondary"
+            size="small"
+            className={s.ProjectDetails_Header_Archive}
           />
         </div>
 

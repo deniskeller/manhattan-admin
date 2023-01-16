@@ -21,3 +21,4 @@ export { default as BaseStatus } from "./BaseStatus/BaseStatus";
 export { default as BaseCheck } from "./BaseCheck/BaseCheck";
 export { default as BaseRadioButton } from "./BaseRadioButton/BaseRadioButton";
 export { default as BaseCheckbox } from "./BaseCheckbox/BaseCheckbox";
+export { default as BaseSwitch } from "./BaseSwitch/BaseSwitch";
