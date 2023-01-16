@@ -5,11 +5,14 @@
   }
 
   @include ifmobile {
-    padding: 0 em(10px);
+    padding: 0;
   }
 
   &_Header {
     margin-bottom: em(30px);
+    @include ifmobile {
+      padding: 0 em(10px);
+    }
   }
 
   &_Content {
@@ -19,8 +22,20 @@
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 
+    @include iftablet {
+      grid-template-columns: 1fr em(336px);
+    }
+
+    @include ifmobile {
+      grid-template-columns: 1fr;
+      border-radius: none;
+    }
+
     &_Main {
       padding: em(24px) em(58px) em(24px) em(24px);
+      @include ifmobile {
+        padding: em(10px);
+      }
 
       .Form {
         width: 100%;
@@ -105,6 +120,12 @@
             flex-direction: row;
             margin-bottom: em(16px);
 
+            @include ifmobile {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: em(16px) 0;
+            }
+
             .ProjectName {
               width: 100%;
             }
@@ -113,6 +134,10 @@
               width: 100%;
               max-width: em(170px);
               margin-left: em(16px);
+              @include ifmobile {
+                max-width: 100%;
+                margin-left: 0;
+              }
             }
 
             .Tagline {
@@ -133,10 +158,16 @@
 
             .Halfwidth {
               width: 50%;
+              @include ifmobile {
+                width: 100%;
+              }
             }
 
             .SecondItem {
               margin-left: em(16px);
+              @include ifmobile {
+                margin-left: 0;
+              }
             }
           }
 
@@ -145,18 +176,34 @@
             grid-template-columns: 1fr 1fr;
             gap: em(16px);
             margin-bottom: em(32px);
+
+            @include ifmobile {
+              grid-template-columns: 1fr;
+              gap: em(16px) 0;
+              margin-bottom: em(16px);
+            }
           }
 
           .MilestoneItem {
             margin-bottom: em(16px);
             &:last-child {
               margin-bottom: em(32px);
+              @include ifmobile {
+                margin-bottom: em(16px);
+              }
             }
             &_ButtonAdd {
               font-weight: 500;
               font-size: em(16px);
               color: #6575cd;
               cursor: pointer;
+            }
+
+            .Form_Block_Row {
+              @include ifmobile {
+                grid-template-columns: 1fr 1fr;
+                gap: 0 em(16px);
+              }
             }
           }
 
@@ -177,6 +224,10 @@
           height: 1px;
           background: rgba(26, 26, 26, 0.1);
           margin: em(16px) 0 em(32px);
+
+          @include ifmobile {
+            margin: em(16px) 0 em(16px);
+          }
         }
       }
     }
@@ -185,17 +236,22 @@
       padding: em(71px) em(58px);
       border-left: 1px solid rgba(26, 26, 26, 0.1);
 
+      @include iftablet {
+        padding: em(95px) em(58px) em(71px) em(58px);
+      }
+
+      @include ifmobile {
+        display: none;
+      }
+
       .Navbar {
         position: sticky;
         top: 0;
         &_Header {
-          display: flex;
-          flex-direction: row;
-          gap: em(16px);
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0 em(16px);
           margin-bottom: em(40px);
-          &_Button {
-            width: em(103px);
-          }
         }
 
         &_Content {
@@ -204,8 +260,9 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            cursor: pointer;
+            width: max-content;
             margin-bottom: em(16px);
+            cursor: pointer;
             &:last-child {
               margin-bottom: 0;
             }

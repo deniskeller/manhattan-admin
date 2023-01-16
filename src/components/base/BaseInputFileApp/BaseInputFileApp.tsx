@@ -183,7 +183,7 @@ const BaseInputFileApp: React.FC<FileInputProps> = ({
                   <div
                     className={styles.FileInput_Clear_Content_Header_Subtitle}
                   >
-                    {types}
+                    <span>{types}</span>
                   </div>
                 </div>
 

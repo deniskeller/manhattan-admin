@@ -57,6 +57,14 @@ const CreateProject = () => {
   ];
   const [radioValue, setRadioValue] = React.useState('yes');
 
+  const handleClickNavbar = (index: number) => {
+    setIsActive(index);
+    const element = document.getElementById(`section-${index + 1}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <>
       <div className={s.CreateProject}>
@@ -66,7 +74,7 @@ const CreateProject = () => {
           </BaseTitle>
         </div>
 
-        <div className={s.CreateProject_Content}>
+        <div className={s.CreateProject_Content} id="section-1">
           <div className={s.CreateProject_Content_Main}>
             <div className={s.Form}>
               {/* 1 */}
@@ -177,7 +185,7 @@ const CreateProject = () => {
                       { value: 'mss', label: 'Mss.' },
                     ]}
                     onChange={(val: string) => setNewValue(val, 'title')}
-                    className={s.Select}
+                    className={`${s.Select} ${s.Halfwidth}`}
                   />
                 </div>
 
@@ -337,7 +345,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-2"></div>
 
               {/* 2 */}
               <div className={s.Form_Block}>
@@ -460,7 +468,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-3"></div>
 
               {/* 3 */}
               <div className={s.Form_Block}>
@@ -520,7 +528,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-4"></div>
 
               {/* 4 */}
               <div className={s.Form_Block}>
@@ -649,7 +657,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-5"></div>
 
               {/* 5 */}
               <div className={s.Form_Block}>
@@ -696,7 +704,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-6"></div>
 
               {/* 6 */}
               <div className={s.Form_Block}>
@@ -755,7 +763,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-7"></div>
 
               {/* 7 */}
               <div className={s.Form_Block}>
@@ -807,7 +815,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-8"></div>
 
               {/* 8 */}
               <div className={s.Form_Block}>
@@ -837,7 +845,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-9"></div>
 
               {/* 9 */}
               <div className={s.Form_Block}>
@@ -860,7 +868,7 @@ const CreateProject = () => {
               </div>
 
               {/* border */}
-              <div className={s.Form_Border}></div>
+              <div className={s.Form_Border} id="section-10"></div>
 
               {/* 10 */}
               <div className={s.Form_Block}>
@@ -913,7 +921,7 @@ const CreateProject = () => {
                         isActive == index ? s.Active : ''
                       }`}
                       key={index}
-                      onClick={() => setIsActive(index)}
+                      onClick={() => handleClickNavbar(index)}
                     >
                       <div className={s.Navbar_Content_Item_Number}>
                         <span>{index + 1}</span>
