@@ -1,0 +1,51 @@
+.AllProjects {
+  padding: 0 em(47px);
+  @include iftablet {
+    padding: 0;
+  }
+
+  @include ifmobile {
+    padding: 0 em(10px);
+  }
+
+  &_Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: em(30px);
+    flex-wrap: wrap;
+    @include ifmobile {
+      margin-bottom: em(10px);
+    }
+
+    &_Sorting {
+      @include ifmobile {
+        margin-left: auto;
+        ul {
+          right: 0;
+        }
+      }
+    }
+
+    &_Button {
+      width: em(186px);
+      @include ifmobile {
+        width: 100%;
+        order: -1;
+        margin-bottom: em(10px);
+      }
+    }
+  }
+  &_Items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: em(20px) 0;
+    margin-bottom: em(30px);
+  }
+
+  &_Pagination {
+    width: max-content;
+    margin: 0 auto;
+  }
+}
