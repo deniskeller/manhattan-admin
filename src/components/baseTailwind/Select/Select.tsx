@@ -95,7 +95,7 @@ export const Select = function <T>({
   ...props
 }: SelectProps<T>) {
   const [isOpen, setIsOpen] = useState(props.listboxOpen || false);
-  console.log('select placeholder', props.placeholder);
+  /* console.log('select placeholder', props.placeholder); */
   const CustomSelect = React.forwardRef(function CustomSelect<
     TValue extends {}
   >(
@@ -142,7 +142,7 @@ export const Select = function <T>({
     ]);
 
     const randomId = useId() as string;
-    console.log('props.slots', props.slots);
+    /* console.log('props.slots', props.slots); */
     const components: SelectUnstyledProps<TValue>['slots'] = {
       root: SelectRoot,
       listbox: StyledListbox,
@@ -230,19 +230,19 @@ export const Select = function <T>({
           slots={components}
           autoFocus={false}
           renderValue={(option) => {
-            console.log(
+            /* console.log(
               'props.renderValue',
               props.renderValue,
               'option',
               option
-            );
+            ); */
             if (props.renderValue && option?.value) {
               const rendered = props.renderValue(option);
               if (rendered) {
                 return rendered;
               }
             }
-            console.log('option==', option);
+            /* console.log('option==', option); */
 
             return option && option?.label ? (
               <p css={props.disabled && tw`text-base-light-300`}>
@@ -368,7 +368,7 @@ export const Select = function <T>({
             }
             ref={(input) => {
               if (input != null) {
-                console.log('hehehhehehehehe', input);
+                /* console.log('hehehhehehehehe', input); */
                 setTimeout(() => {
                   input.focus();
                 }, 0);

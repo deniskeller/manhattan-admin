@@ -12,7 +12,7 @@ import {
   BaseTextareaApp,
   BaseTitle,
 } from '@base/index';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import s from './CreateProject.module.scss';
 import Input from '@tw/components/Input/Input';
 import { ALL_ICONS } from '@constants/icons';
@@ -58,7 +58,7 @@ const CreateProject = () => {
     },
   ];
   const [radioValue, setRadioValue] = React.useState('yes');
-
+  //desktop navigation
   const handleClickNavbar = (index: number) => {
     setIsActive(index);
     const element = document.getElementById(`section-${index + 1}`);
@@ -66,17 +66,120 @@ const CreateProject = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+  //mobile navigation
+  const mobile_links = [
+    { value: 'general', label: '1. General' },
+    { value: 'pipeline', label: '2. Pipeline' },
+    { value: 'payout', label: '3. Payout' },
+    { value: 'fund_expences', label: '4. Fund Expences' },
+    { value: 'life_cycle', label: '5. Life Cycle' },
+    { value: 'commitments', label: '6. Commitments' },
+    { value: 'capital_calls', label: '7. Capital Calls' },
+    { value: 'provisions', label: '8. Provisions' },
+    {
+      value: 'investment_agreement',
+      label: '9. Investment agreement',
+    },
+    {
+      value: 'portfolio_pictures',
+      label: '10. Portfolio pictures',
+    },
+  ];
+
+  const handleClickNavbarMobile = (value: string) => {
+    const curent_index = mobile_links.findIndex((el) => el.value === value);
+    const element = document.getElementById(`section-${curent_index + 1}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  //логика для липких кнопок
+  // const scrollContainer = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
+  // const [scroll, setScroll] = useState(0);
+
+  // const scrollFunction = () => {
+  //   // if (scrollContainer.current?.clientHeight > 900) {
+  //   //   setIsVisible(true);
+  //   // } else {
+  //   //   setIsVisible(false);
+  //   // }
+  // };
+
+  // const onScroll = () => {
+  //   console.log('kek');
+  //   const scrollY = window.scrollY;
+  //   const scrollTop = scrollContainer.current?.scrollTop;
+  //   console.log(
+  //     `onScroll, window.scrollY: ${scrollY} myRef.scrollTop: ${scrollTop}`
+  //   );
+
+  //   setScroll(scrollTop);
+  // };
+
+  // useEffect(() => {
+  //   console.log('scroll: ', scroll);
+  // }, [scroll]);
 
   return (
     <>
-      <div className={s.CreateProject}>
+      <div
+        className={s.CreateProject}
+        id="section-1"
+        // ref={scrollContainer}
+        // onScroll={() => onScroll()}
+      >
+        {isVisible ? (
+          <div className={s.CreateProject_StickyActions}>
+            <BaseButtonApp
+              title="Archive"
+              type="secondary"
+              size="small"
+              className={s.Navbar_Header_Button}
+            />
+
+            <BaseButtonApp
+              title="Publish"
+              type="primary"
+              size="small"
+              className={s.Navbar_Header_Button}
+            />
+          </div>
+        ) : null}
+
         <div className={s.CreateProject_Header}>
           <BaseTitle type="app" className={s.CreateProject_Header_Title}>
             Create project
           </BaseTitle>
+
+          <div className={s.CreateProject_Header_MobileContent}>
+            <div className={s.CreateProject_Header_MobileContent_Actions}>
+              <BaseButtonApp
+                title="Archive"
+                type="secondary"
+                size="small"
+                className={s.Navbar_Header_Button}
+              />
+
+              <BaseButtonApp
+                title="Publish"
+                type="primary"
+                size="small"
+                className={s.Navbar_Header_Button}
+              />
+            </div>
+
+            <BaseSelectApp
+              initialValue="General"
+              options={mobile_links}
+              onChange={(val: string) => handleClickNavbarMobile(val)}
+              className={s.CreateProject_Header_MobileContent_Navbar}
+            />
+          </div>
         </div>
 
-        <div className={s.CreateProject_Content} id="section-1">
+        <div className={s.CreateProject_Content}>
           <div className={s.CreateProject_Content_Main}>
             <div className={s.Form}>
               {/* 1 */}

@@ -57,7 +57,7 @@
   cursor: not-allowed;
   pointer-events: none;
   background: #f4f4f5;
-  border: 1px solid #e5e7eb !important;
+  border: 1px solid #e5e7eb;
   color: rgba(26, 26, 26, 0.5);
 }
 
@@ -108,12 +108,14 @@
   .Increment,
   .Decrement {
     width: em(55px);
-    height: em(27px);
+    height: em(26.5px);
     background: #f3f4f6;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     cursor: pointer;
+    box-sizing: border-box;
     &_Icon {
       width: em(16px);
       height: em(9px);

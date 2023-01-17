@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { LegacyRef, Ref, useEffect, useState } from 'react';
 import styles from './Application.module.scss';
 import { HeaderApp, Sidebar } from 'components/app';
 
@@ -77,9 +77,11 @@ const user_pages = [
 
 interface Props {
   children: JSX.Element;
+  ref: LegacyRef<HTMLDivElement> | undefined;
+  onScroll: any;
 }
 
-const Application: React.FC<Props> = ({ children }) => {
+const Application: React.FC<Props> = ({ children, ref, onScroll }) => {
   const router = useRouter();
   const [pages, setPages] = useState(admin_pages);
 
@@ -100,7 +102,9 @@ const Application: React.FC<Props> = ({ children }) => {
 
         <Sidebar pages={pages} />
 
-        <div className={styles.AppLayout_Content}>{children}</div>
+        <div className={styles.AppLayout_Content} ref={ref} onScroll={onScroll}>
+          {children}
+        </div>
       </div>
 
       <DeleteAllNotificationsPopup className="DeleteAllNotificationsPopup" />
