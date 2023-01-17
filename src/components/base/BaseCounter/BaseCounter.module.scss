@@ -1,0 +1,141 @@
+.BaseCounter {
+  font-size: inherit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Input {
+  line-height: 100%;
+  font-size: em(16px);
+  font-weight: 400;
+  color: #1a1a1a;
+  font-family: $font-Avenir;
+  width: 100%;
+  height: em(56px);
+  background: none;
+  outline: none;
+  border: none;
+  position: relative;
+  box-shadow: none;
+  background: #fdfdfd;
+  border: 1px solid #d1d5db;
+  border-radius: 2px;
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  @include placeholder-color(rgba(26, 26, 26, 0));
+  padding: em(26px) em(70px) em(8px) em(16px);
+
+  &:hover {
+    border-color: #8c97d9;
+  }
+
+  &:focus {
+    border-color: #6575cd;
+    @include placeholder-color(rgba(26, 26, 26, 0.7));
+    & + .Label_Default {
+      $size: 12px;
+      font-size: em(12px);
+      left: em(17px, $size);
+      top: em(10px);
+    }
+  }
+
+  & + .NoEmpty {
+    $size: 12px;
+    font-size: em(12px);
+    left: em(17px, $size);
+    top: em(10px);
+  }
+}
+
+//disabled style
+.Input:disabled,
+.Input:disabled:hover,
+.Input:disabled:focus {
+  cursor: not-allowed;
+  pointer-events: none;
+  background: #f4f4f5;
+  border: 1px solid #e5e7eb !important;
+  color: rgba(26, 26, 26, 0.5);
+}
+
+.Error {
+  border: 1px solid #ef4343 !important;
+}
+
+.ErrorText {
+  font-size: em(12px);
+  font-family: $font-Avenir;
+  line-height: 100%;
+  color: #ef4343;
+  display: block;
+  margin-top: em(10px);
+  font-weight: 400;
+}
+
+.Label {
+  position: absolute;
+  pointer-events: none;
+  font-size: em(16px);
+  top: em(20px);
+  font-family: $font-Avenir;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(26, 26, 26, 0.5);
+  transition: all 0.3s ease;
+}
+
+.Label_Default {
+  left: em(16px);
+}
+
+.Counter {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  top: 1px;
+  right: 1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+
+  &_Disabled {
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+
+  .Increment,
+  .Decrement {
+    width: em(55px);
+    height: em(27px);
+    background: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &_Icon {
+      width: em(16px);
+      height: em(9px);
+      svg {
+        path {
+          stroke: rgba(26, 26, 26, 0.5);
+        }
+      }
+    }
+
+    &:hover {
+      .Increment_Icon,
+      .Decrement_Icon svg {
+        path {
+          stroke: #32429a;
+        }
+      }
+    }
+  }
+  .Increment {
+    &_Icon {
+      transform: rotate(180deg);
+    }
+  }
+}

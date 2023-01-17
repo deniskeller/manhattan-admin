@@ -3,6 +3,7 @@ import {
   BaseAlert,
   BaseButtonApp,
   BaseCheckbox,
+  BaseCounter,
   BaseIcon,
   BaseInputApp,
   BaseInputFileApp,
@@ -34,6 +35,7 @@ const CreateProject = () => {
 
   const [value, setValue] = React.useState({
     some_text: '',
+    counter: 1,
     dividend_payments: 'Upon expiration',
     files: [],
     title: 'Mr',
@@ -150,7 +152,6 @@ const CreateProject = () => {
 
                 <div className={s.Form_Block_Row}>
                   <BaseTextareaApp
-                    // error="werewr"
                     name="message"
                     label="Discription"
                     placeholder="Discription"
@@ -668,34 +669,32 @@ const CreateProject = () => {
                 </div>
 
                 <div className={s.Form_Block_Grid}>
-                  {/* переделать на каунтеры */}
-                  <BaseInputApp
-                    prefix="dollar"
-                    name="some_text"
-                    placeholder="Office rent"
-                    label="Office rent"
-                    value={value.some_text}
-                    onChange={(val: string) => setNewValue(val, 'some_text')}
+                  <BaseCounter
+                    error="wer"
+                    name="counter"
+                    placeholder="Years"
+                    label="Years"
+                    value={value.counter}
+                    onChange={(val: string) => setNewValue(val, 'counter')}
                     className={`${s.Halfwidth}`}
                   />
 
-                  <BaseInputApp
-                    prefix="dollar"
-                    name="some_text"
-                    placeholder="Salaries"
-                    label="Salaries"
-                    value={value.some_text}
-                    onChange={(val: string) => setNewValue(val, 'some_text')}
+                  <BaseCounter
+                    disabled
+                    name="counter"
+                    placeholder="Deal period (years)"
+                    label="Deal period (years)"
+                    value={value.counter}
+                    onChange={(val: string) => setNewValue(val, 'counter')}
                     className={`${s.Halfwidth} ${s.SecondItem}`}
                   />
 
-                  <BaseInputApp
-                    prefix="dollar"
-                    name="some_text"
-                    placeholder="Salaries"
-                    label="Salaries"
-                    value={value.some_text}
-                    onChange={(val: string) => setNewValue(val, 'some_text')}
+                  <BaseCounter
+                    name="counter"
+                    placeholder="Payout period (month)"
+                    label="Payout period (month)"
+                    value={value.counter}
+                    onChange={(val: string) => setNewValue(val, 'counter')}
                     className={`${s.Halfwidth} ${s.SecondItem}`}
                   />
                 </div>
