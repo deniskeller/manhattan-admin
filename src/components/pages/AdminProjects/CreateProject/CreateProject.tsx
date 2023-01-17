@@ -8,7 +8,7 @@ import {
   BaseInputFileApp,
   BaseRadioButton,
   BaseSelectApp,
-  BaseTextarea,
+  BaseTextareaApp,
   BaseTitle,
 } from '@base/index';
 import React, { useState } from 'react';
@@ -149,8 +149,8 @@ const CreateProject = () => {
                 </div>
 
                 <div className={s.Form_Block_Row}>
-                  {/* переделать текстареа */}
-                  <BaseTextarea
+                  <BaseTextareaApp
+                    // error="werewr"
                     name="message"
                     label="Discription"
                     placeholder="Discription"
@@ -388,8 +388,7 @@ const CreateProject = () => {
                   </div>
 
                   <div className={s.Form_Block_Row}>
-                    {/* переделать текстареа */}
-                    <BaseTextarea
+                    <BaseTextareaApp
                       name="message"
                       label="Discription"
                       placeholder="Discription"
@@ -449,8 +448,7 @@ const CreateProject = () => {
                   </div>
 
                   <div className={s.Form_Block_Row}>
-                    {/* переделать текстареа */}
-                    <BaseTextarea
+                    <BaseTextareaApp
                       name="message"
                       label="Discription"
                       placeholder="Discription"
