@@ -8,6 +8,7 @@ interface FileInputProps {
   files: File[];
   multiple?: boolean;
   article?: boolean;
+  outside?: boolean;
   className?: string;
   title?: string;
   types?: string;
@@ -22,6 +23,8 @@ const BaseInputFileApp: React.FC<FileInputProps> = ({
   multiple = false,
   //флаг для фалйдропа настранцие новостей
   article = false,
+  // флаг для контента снаружи
+  outside = false,
   // типы файлов
   type = 'all',
   // заголовок инпута
@@ -44,7 +47,6 @@ const BaseInputFileApp: React.FC<FileInputProps> = ({
   );
 
   function onDropFunc(files: File[]) {
-    console.log('files: ', files);
     if (files.length > 1 && multiple === true) {
       uploadDropFile(files);
     } else {
@@ -70,7 +72,7 @@ const BaseInputFileApp: React.FC<FileInputProps> = ({
   return (
     <>
       <div className={`${styles.FileInput} ${className}`}>
-        {files?.length > 0 ? (
+        {files?.length > 0 && !outside ? (
           files.map((file) => {
             return (
               <>

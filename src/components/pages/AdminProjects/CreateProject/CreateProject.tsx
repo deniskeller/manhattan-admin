@@ -39,6 +39,7 @@ const CreateProject = () => {
     dividend_payments: 'Upon expiration',
     files: [],
     title: 'Mr',
+    files2: [],
   });
 
   const setNewValue = (val: string | number | File[], key: string) => {
@@ -57,6 +58,7 @@ const CreateProject = () => {
       label: 'no',
     },
   ];
+
   const [radioValue, setRadioValue] = React.useState('yes');
   //desktop navigation
   const handleClickNavbar = (index: number) => {
@@ -96,6 +98,10 @@ const CreateProject = () => {
 
   //логика для липких кнопок
   const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    console.log('files2: ', value.files2);
+  }, [value]);
 
   return (
     <>
@@ -961,10 +967,47 @@ const CreateProject = () => {
                     type="image"
                     title="Drag file here to upload or browse"
                     types="jpg, jpeg, png"
-                    files={value.files}
+                    files={value.files2}
                     multiple
-                    onChange={(val: any[]) => setNewValue(val, 'files')}
+                    outside
+                    onChange={(val: any[]) => setNewValue(val, 'files2')}
                   />
+                </div>
+
+                <div className={s.Form_Block_RowWithImage}>
+                  {value.files2?.map((file) => {
+                    return (
+                      <div
+                        className={s.UploadImage}
+                        key={file?.name}
+                        style={{
+                          backgroundImage: `url(/images/image/main_header_bg.jpg)`,
+                        }}
+                      >
+                        <div className={s.UploadImage_Overlay}></div>
+
+                        <div
+                          className={`${s.UploadImage_Delete} ${s.UploadImage_Delete_Desktop}`}
+                        >
+                          <BaseIcon
+                            viewBox="0 0 18 22"
+                            icon={ALL_ICONS.DELETE}
+                            className={s.UploadImage_Delete_Icon}
+                          />
+                        </div>
+
+                        <div
+                          className={`${s.UploadImage_Delete} ${s.UploadImage_Delete_Mobile}`}
+                        >
+                          <BaseIcon
+                            icon={ALL_ICONS.APP_MODAL_CLOSE}
+                            viewBox="0 0 16 16"
+                            className={s.UploadImage_Delete_Mobile_Icon}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

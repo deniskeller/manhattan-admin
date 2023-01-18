@@ -206,6 +206,104 @@
             }
           }
 
+          &_RowWithImage {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(em(113px), 1fr));
+            gap: em(13px) em(13px);
+
+            @include iftablet {
+              grid-template-columns: repeat(4, minmax(em(113px), 1fr));
+            }
+
+            @include ifmobile {
+              grid-template-columns: 1fr 1fr;
+              gap: em(16px) em(16px);
+            }
+
+            .UploadImage {
+              width: 100%;
+              height: em(145px);
+              background: $grey;
+              border: 1px solid #d1d5db;
+              border-radius: 2px;
+              position: relative;
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+              cursor: pointer;
+              @include ifmobile {
+                height: em(162px);
+              }
+              &:hover {
+                .UploadImage_Overlay {
+                  opacity: 0.5;
+                }
+                .UploadImage_Delete_Desktop {
+                  display: flex;
+                }
+              }
+
+              &_Overlay {
+                @extend %fullsize;
+                background: #000;
+                opacity: 0;
+                @include ifmobile {
+                  display: none;
+                }
+              }
+
+              &_Delete {
+                position: absolute;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                &_Icon {
+                  width: em(18px);
+                  height: em(18px);
+                  cursor: pointer;
+                  path {
+                    stroke: rgba(26, 26, 26, 0.5);
+                  }
+                  &:hover {
+                    path {
+                      stroke: $red;
+                    }
+                  }
+                }
+
+                &_Desktop {
+                  display: none;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: em(40px);
+                  height: em(40px);
+                  background: $white;
+                  @include ifmobile {
+                    display: none !important;
+                  }
+                }
+
+                &_Mobile {
+                  top: em(-13px);
+                  right: em(-13px);
+                  display: none;
+                  width: em(26px);
+                  height: em(26px);
+                  background: #f4f4f4;
+                  @include ifmobile {
+                    display: flex;
+                  }
+
+                  &_Icon {
+                    width: em(11px);
+                    height: em(11px);
+                  }
+                }
+              }
+            }
+          }
+
           &_Grid {
             display: grid;
             grid-template-columns: 1fr 1fr;

@@ -122,8 +122,8 @@
   }
 
   &_UploadImage {
-    width: 145px;
-    height: 145px;
+    width: em(145px);
+    height: em(145px);
     background: $grey;
     border: 1px solid #d1d5db;
     border-radius: 2px;
@@ -178,7 +178,7 @@
         height: em(40px);
         background: $white;
         @include ifmobile {
-          display: none;
+          display: none !important;
         }
       }
 
