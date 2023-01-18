@@ -63,7 +63,7 @@
 
     @include ifmobile {
       grid-template-columns: 1fr;
-      border-radius: none;
+      border-radius: 0;
     }
 
     &_Main {
@@ -285,8 +285,8 @@
                 }
 
                 &_Mobile {
-                  top: em(-13px);
-                  right: em(-13px);
+                  top: em(-8px);
+                  right: em(-8px);
                   display: none;
                   width: em(26px);
                   height: em(26px);
