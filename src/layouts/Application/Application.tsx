@@ -5,9 +5,11 @@ import { HeaderApp, Sidebar } from 'components/app';
 import { useRouter } from 'next/router';
 import {
   AcceptApplicationPopup,
+  ArchiveProjectPopup,
   ChangePhoneNumberPopup,
   DeleteAllNotificationsPopup,
   DeleteArticlePopup,
+  DeleteProjectPopup,
   EditPhotoArticlePopup,
   InvestConfirmPopup,
   InvestorDocumentsUploadFilePopup,
@@ -16,6 +18,7 @@ import {
   MakePayoutPopup,
   NotificationsPopup,
   PaymentSubmittedPopup,
+  ProjectSaveChangesPopup,
   PublishArticlePopup,
   RejectApplicationPopup,
   SaveArticlePopup,
@@ -126,6 +129,9 @@ const Application: React.FC<Props> = ({ children, ref, onScroll }) => {
       <SelectActionPopup className="SelectActionPopup" />
       <MakePayoutPopup className="MakePayoutPopup" />
       <InvestConfirmPopup className="InvestConfirmPopup" />
+      <ProjectSaveChangesPopup className="ProjectSaveChangesPopup" />
+      <ArchiveProjectPopup className="ArchiveProjectPopup" />
+      <DeleteProjectPopup className="DeleteProjectPopup" />
     </>
   );
 };

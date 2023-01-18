@@ -21,3 +21,6 @@ export { default as PaymentSubmittedPopup } from './PaymentSubmittedPopup/Paymen
 export { default as SelectActionPopup } from './SelectActionPopup/SelectActionPopup';
 export { default as MakePayoutPopup } from './MakePayoutPopup/MakePayoutPopup';
 export { default as InvestConfirmPopup } from './InvestConfirmPopup/InvestConfirmPopup';
+export { default as ProjectSaveChangesPopup } from './ProjectSaveChangesPopup/ProjectSaveChangesPopup';
+export { default as ArchiveProjectPopup } from './ArchiveProjectPopup/ArchiveProjectPopup';
+export { default as DeleteProjectPopup } from './DeleteProjectPopup/DeleteProjectPopup';

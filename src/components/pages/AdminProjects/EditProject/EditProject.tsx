@@ -1,4 +1,6 @@
 //@ts-nocheck
+
+// УБРАТЬ НОУЧЕК И ПОФИКСИТЬ ОШИБКИ ТИПОВ
 import {
   BaseAlert,
   BaseButtonApp,
@@ -16,6 +18,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import s from './EditProject.module.scss';
 import Input from '@tw/components/Input/Input';
 import { ALL_ICONS } from '@constants/icons';
+import { useAppDispatch } from '@hooks/redux';
+import { modalSlice } from '@store/modals/reducer';
 
 const navbar_links = [
   'General',
@@ -35,6 +39,8 @@ type Props = {
 };
 
 const EditProject: React.FC<Props> = ({ id }) => {
+  const dispatch = useAppDispatch();
+  const { setPopup } = modalSlice.actions;
   const [isActive, setIsActive] = useState(0);
 
   const [value, setValue] = React.useState({
@@ -114,6 +120,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
               type="secondary"
               size="small"
               className={s.CreateProject_StickyActions_Button1}
+              onClick={() => {
+                dispatch(setPopup({ popup: 'DeleteProjectPopup' }));
+              }}
             />
 
             <BaseButtonApp
@@ -121,6 +130,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
               type="secondary"
               size="small"
               className={s.CreateProject_StickyActions_Button2}
+              onClick={() => {
+                dispatch(setPopup({ popup: 'ArchiveProjectPopup' }));
+              }}
             />
 
             <BaseButtonApp
@@ -128,6 +140,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
               type="primary"
               size="small"
               className={s.CreateProject_StickyActions_Button3}
+              onClick={() => {
+                dispatch(setPopup({ popup: 'ProjectSaveChangesPopup' }));
+              }}
             />
           </div>
         ) : null}
@@ -158,6 +173,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
                 type="secondary"
                 size="small"
                 className={s.CreateProject_Header_MobileContent_Actions_Button1}
+                onClick={() => {
+                  dispatch(setPopup({ popup: 'DeleteProjectPopup' }));
+                }}
               />
 
               <BaseButtonApp
@@ -165,6 +183,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
                 type="secondary"
                 size="small"
                 className={s.CreateProject_Header_MobileContent_Actions_Button2}
+                onClick={() => {
+                  dispatch(setPopup({ popup: 'ArchiveProjectPopup' }));
+                }}
               />
 
               <BaseButtonApp
@@ -172,6 +193,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
                 type="primary"
                 size="small"
                 className={s.CreateProject_Header_MobileContent_Actions_Button3}
+                onClick={() => {
+                  dispatch(setPopup({ popup: 'ProjectSaveChangesPopup' }));
+                }}
               />
             </div>
 
@@ -1028,6 +1052,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
                   type="secondary"
                   size="small"
                   className={s.Navbar_Header_Button1}
+                  onClick={() => {
+                    dispatch(setPopup({ popup: 'DeleteProjectPopup' }));
+                  }}
                 />
 
                 <BaseButtonApp
@@ -1035,6 +1062,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
                   type="secondary"
                   size="small"
                   className={s.Navbar_Header_Button2}
+                  onClick={() => {
+                    dispatch(setPopup({ popup: 'ArchiveProjectPopup' }));
+                  }}
                 />
 
                 <BaseButtonApp
@@ -1042,6 +1072,9 @@ const EditProject: React.FC<Props> = ({ id }) => {
                   type="primary"
                   size="small"
                   className={s.Navbar_Header_Button3}
+                  onClick={() => {
+                    dispatch(setPopup({ popup: 'ProjectSaveChangesPopup' }));
+                  }}
                 />
               </div>
 
