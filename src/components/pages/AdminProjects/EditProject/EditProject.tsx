@@ -13,7 +13,7 @@ import {
   BaseTitle,
 } from '@base/index';
 import React, { useEffect, useRef, useState } from 'react';
-import s from './CreateProject.module.scss';
+import s from './EditProject.module.scss';
 import Input from '@tw/components/Input/Input';
 import { ALL_ICONS } from '@constants/icons';
 
@@ -30,7 +30,11 @@ const navbar_links = [
   'Portfolio pictures',
 ];
 
-const CreateProject = () => {
+type Props = {
+  id: string;
+};
+
+const EditProject: React.FC<Props> = ({ id }) => {
   const [isActive, setIsActive] = useState(0);
 
   const [value, setValue] = React.useState({
@@ -97,46 +101,77 @@ const CreateProject = () => {
   //логика для липких кнопок
   const [isVisible, setIsVisible] = useState(true);
 
+  //моковый статус
+  const [status, setStatus] = useState('published');
+
   return (
     <>
       <div className={s.CreateProject} id="section-1">
         {isVisible ? (
           <div className={s.CreateProject_StickyActions}>
             <BaseButtonApp
-              title="Archive"
+              icon="delete"
               type="secondary"
               size="small"
-              className={s.Navbar_Header_Button}
+              className={s.CreateProject_StickyActions_Button1}
             />
 
             <BaseButtonApp
-              title="Publish"
+              title="Archive"
+              type="secondary"
+              size="small"
+              className={s.CreateProject_StickyActions_Button2}
+            />
+
+            <BaseButtonApp
+              title="Save"
               type="primary"
               size="small"
-              className={s.Navbar_Header_Button}
+              className={s.CreateProject_StickyActions_Button3}
             />
           </div>
         ) : null}
 
         <div className={s.CreateProject_Header}>
           <BaseTitle type="app" className={s.CreateProject_Header_Title}>
-            Create project
+            Edit Project
           </BaseTitle>
+
+          <div
+            className={s.CreateProject_Header_Status}
+            style={{
+              backgroundColor:
+                status == 'published'
+                  ? '#1C713C'
+                  : status == 'archived'
+                  ? '#BF8822'
+                  : '#1C713C',
+            }}
+          >
+            <span>{status}</span>
+          </div>
 
           <div className={s.CreateProject_Header_MobileContent}>
             <div className={s.CreateProject_Header_MobileContent_Actions}>
               <BaseButtonApp
-                title="Archive"
+                icon="delete"
                 type="secondary"
                 size="small"
-                className={s.Navbar_Header_Button}
+                className={s.CreateProject_Header_MobileContent_Actions_Button1}
               />
 
               <BaseButtonApp
-                title="Publish"
+                title="Archive"
+                type="secondary"
+                size="small"
+                className={s.CreateProject_Header_MobileContent_Actions_Button2}
+              />
+
+              <BaseButtonApp
+                title="Save"
                 type="primary"
                 size="small"
-                className={s.Navbar_Header_Button}
+                className={s.CreateProject_Header_MobileContent_Actions_Button3}
               />
             </div>
 
@@ -973,19 +1008,40 @@ const CreateProject = () => {
           {/* НАВБАР */}
           <div className={s.CreateProject_Content_Navbar}>
             <div className={s.Navbar}>
+              <div
+                className={s.Navbar_Status}
+                style={{
+                  backgroundColor:
+                    status == 'published'
+                      ? '#1C713C'
+                      : status == 'archived'
+                      ? '#BF8822'
+                      : '#1C713C',
+                }}
+              >
+                <span>{status}</span>
+              </div>
+
               <div className={s.Navbar_Header}>
+                <BaseButtonApp
+                  icon="delete"
+                  type="secondary"
+                  size="small"
+                  className={s.Navbar_Header_Button1}
+                />
+
                 <BaseButtonApp
                   title="Archive"
                   type="secondary"
                   size="small"
-                  className={s.Navbar_Header_Button}
+                  className={s.Navbar_Header_Button2}
                 />
 
                 <BaseButtonApp
-                  title="Publish"
+                  title="Save"
                   type="primary"
                   size="small"
-                  className={s.Navbar_Header_Button}
+                  className={s.Navbar_Header_Button3}
                 />
               </div>
 
@@ -1017,4 +1073,4 @@ const CreateProject = () => {
   );
 };
 
-export default CreateProject;
+export default EditProject;

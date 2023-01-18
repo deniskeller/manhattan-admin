@@ -77,8 +77,8 @@ const user_pages = [
 
 interface Props {
   children: JSX.Element;
-  ref: LegacyRef<HTMLDivElement> | undefined;
-  onScroll: any;
+  ref?: LegacyRef<HTMLDivElement> | undefined;
+  onScroll?: any;
 }
 
 const Application: React.FC<Props> = ({ children, ref, onScroll }) => {
