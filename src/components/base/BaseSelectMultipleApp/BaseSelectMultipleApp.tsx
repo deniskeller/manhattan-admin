@@ -1,5 +1,6 @@
 //@ts-nocheck
 import { ALL_ICONS } from '@constants/icons';
+import { alertClasses } from '@mui/material';
 import React, { KeyboardEvent, useEffect, useRef } from 'react';
 import { BaseIcon } from '..';
 import styles from './BaseSelectMultipleApp.module.scss';
@@ -38,11 +39,8 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    if (isOpen && searchInputRef) {
-      console.log('searchInputRef: ', searchInputRef);
-      // searchInputRef.current?.focus();
-    }
-  }, [isOpen, searchInputRef]);
+    console.log('searchInputRef: ', searchInputRef);
+  }, []);
 
   const onBlur = () => {
     if (multiple) {
@@ -78,6 +76,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
               } else {
                 values2.splice(index, 1);
               }
+
               setValues(values2);
               onChange(values2);
             }
@@ -157,6 +156,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   };
 
   const onClick = () => {
+    searchInputRef.current?.focus();
     setIsOpen(!isOpen);
   };
 
@@ -173,6 +173,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   };
 
   const onHoverOption = (e: React.ChangeEvent<HTMLElement>) => {
+    e.preventDefault();
     const { value } = e.currentTarget.dataset;
     const index = options.findIndex((option) => option.value === value);
 
@@ -181,7 +182,6 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
 
   const onClickOption = (e) => {
     const { value } = e.currentTarget.dataset;
-    // console.log('value: ', value);
 
     if (!multiple) {
       e.preventDefault();
@@ -256,6 +256,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
               type="text"
               className={styles.Search_Input}
               onChange={(e) => setInputValue(e.target.value)}
+              onBlur={stopPropagation}
             />
           </div>
         </div>
@@ -317,18 +318,13 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
     );
   };
 
-  // React.useEffect(() => {
-  //   console.log('values inside: ', values);
-  //   onChange(values);
-  // }, [values, onChange]);
-
   return (
     <div
       className={`${styles.Select} ${className}`}
       tabIndex={0}
       onFocus={onFocus}
       onBlur={onBlur}
-      onKeyDown={onKeyDown}
+      // onKeyDown={onKeyDown}
     >
       <label
         className={`${styles.Label} ${

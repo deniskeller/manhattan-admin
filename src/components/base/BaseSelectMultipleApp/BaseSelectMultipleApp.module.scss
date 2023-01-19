@@ -1,6 +1,7 @@
 .Select {
   position: relative;
   width: 100%;
+  cursor: text;
 
   &:focus {
     outline: none;
@@ -11,7 +12,6 @@
 }
 
 .Selection {
-  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   line-height: 100%;
@@ -100,7 +100,7 @@
     width: 100%;
     min-width: em(4px);
     line-height: 100%;
-    font-size: em(14px);
+    font-size: em(16px);
     font-weight: 400;
     font-family: $font-Avenir;
     padding-bottom: em(8px);
