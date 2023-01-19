@@ -24,3 +24,4 @@ export { default as BaseCheckbox } from "./BaseCheckbox/BaseCheckbox";
 export { default as BaseSwitch } from "./BaseSwitch/BaseSwitch";
 export { default as BaseTextareaApp } from "./BaseTextareaApp/BaseTextareaApp";
 export { default as BaseCounter } from "./BaseCounter/BaseCounter";
+export { default as BaseSelectMultipleApp } from "./BaseSelectMultipleApp/BaseSelectMultipleApp";

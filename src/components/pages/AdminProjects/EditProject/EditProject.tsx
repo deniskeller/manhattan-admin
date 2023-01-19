@@ -11,6 +11,7 @@ import {
   BaseInputFileApp,
   BaseRadioButton,
   BaseSelectApp,
+  BaseSelectMultipleApp,
   BaseTextareaApp,
   BaseTitle,
 } from '@base/index';
@@ -110,6 +111,12 @@ const EditProject: React.FC<Props> = ({ id }) => {
 
   //моковый статус
   const [status, setStatus] = useState('published');
+
+  //для мульти селекта
+  const [value2, setValue2] = React.useState([]);
+  React.useEffect(() => {
+    console.log('multiselect value: ', value2);
+  }, [value2]);
 
   return (
     <>
@@ -296,44 +303,45 @@ const EditProject: React.FC<Props> = ({ id }) => {
                 </div>
 
                 <div className={s.Form_Block_Row}>
-                  <BaseSelectApp
-                    label="Market countries"
+                  <BaseSelectMultipleApp
+                    placeholder="Market countries"
                     options={[
-                      { value: 'mr', label: 'Mr.' },
-                      { value: 'mrs', label: 'Mrs.' },
-                      { value: 'ms', label: 'Ms.' },
-                      { value: 'mss', label: 'Mss.' },
+                      { value: 'USA' },
+                      { value: 'Canada' },
+                      { value: 'New Zeland' },
                     ]}
-                    onChange={(val: string) => setNewValue(val, 'title')}
-                    className={s.Select}
+                    onChange={setValue2}
+                    multiple
+                  />
+                </div>
+
+                <div
+                  className={`${s.Form_Block_Row} ${s.Form_Block_Row_Halfwidth}`}
+                >
+                  <BaseSelectMultipleApp
+                    placeholder="Main tag"
+                    options={[
+                      { value: 'FinTech' },
+                      { value: 'Finance' },
+                      { value: 'Compliance' },
+                      { value: 'Information Technologies' },
+                    ]}
+                    onChange={setValue2}
+                    multiple
                   />
                 </div>
 
                 <div className={s.Form_Block_Row}>
-                  <BaseSelectApp
-                    label="Main tag"
+                  <BaseSelectMultipleApp
+                    placeholder="Secondary tags"
                     options={[
-                      { value: 'mr', label: 'Mr.' },
-                      { value: 'mrs', label: 'Mrs.' },
-                      { value: 'ms', label: 'Ms.' },
-                      { value: 'mss', label: 'Mss.' },
+                      { value: 'FinTech' },
+                      { value: 'Finance' },
+                      { value: 'Compliance' },
+                      { value: 'Information Technologies' },
                     ]}
-                    onChange={(val: string) => setNewValue(val, 'title')}
-                    className={`${s.Select} ${s.Halfwidth}`}
-                  />
-                </div>
-
-                <div className={s.Form_Block_Row}>
-                  <BaseSelectApp
-                    label="Secondary tags"
-                    options={[
-                      { value: 'mr', label: 'Mr.' },
-                      { value: 'mrs', label: 'Mrs.' },
-                      { value: 'ms', label: 'Ms.' },
-                      { value: 'mss', label: 'Mss.' },
-                    ]}
-                    onChange={(val: string) => setNewValue(val, 'title')}
-                    className={s.Select}
+                    onChange={setValue2}
+                    multiple
                   />
                 </div>
 

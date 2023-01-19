@@ -238,6 +238,13 @@
               }
             }
 
+            &_Halfwidth {
+              width: 50%;
+              @include ifmobile {
+                width: 100%;
+              }
+            }
+
             .SecondItem {
               margin-left: em(16px);
               @include ifmobile {
