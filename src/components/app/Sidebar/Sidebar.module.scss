@@ -37,7 +37,7 @@
     &_Logo {
       margin: em(47px) em(24px) em(118px);
       @include ifmobile {
-        margin: em(30px) em(24px) em(30px);
+        margin: em(30px) em(24px) em(24px);
       }
     }
 
@@ -93,7 +93,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-bottom: em(8px);
+        margin-bottom: em(4px);
 
         &:hover {
           background: #32429a;
@@ -124,6 +124,10 @@
       border-radius: em(4px);
       margin: 0 em(12px) em(57px);
       padding: em(10px);
+
+      @include ifmobile {
+        margin: 0 em(12px) em(24px);
+      }
 
       &_Title {
         margin-bottom: em(12px);
