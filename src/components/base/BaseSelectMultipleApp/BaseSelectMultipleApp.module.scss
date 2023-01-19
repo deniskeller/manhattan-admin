@@ -95,10 +95,15 @@
     appearance: none;
     cursor: text;
     color: inherit;
-    opacity: 0;
     display: inline-flex;
+    height: 100%;
     width: 100%;
     min-width: em(4px);
+    line-height: 100%;
+    font-size: em(14px);
+    font-weight: 400;
+    font-family: $font-Avenir;
+    padding-bottom: em(8px);
   }
 }
 

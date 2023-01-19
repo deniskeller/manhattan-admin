@@ -83,11 +83,13 @@
       }
 
       &_Logout {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        cursor: pointer;
         position: relative;
+        span {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          cursor: pointer;
+        }
 
         @include ifmobile {
           display: none;

@@ -31,6 +31,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   const [isOpen, setIsOpen] = React.useState(false);
   const [typed, setTyped] = React.useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = React.useState('');
 
   const onFocus = () => {
     setIsFocused(true);
@@ -39,6 +40,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   useEffect(() => {
     if (isOpen && searchInputRef) {
       console.log('searchInputRef: ', searchInputRef);
+      // searchInputRef.current?.focus();
     }
   }, [isOpen, searchInputRef]);
 
@@ -182,6 +184,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
     // console.log('value: ', value);
 
     if (!multiple) {
+      e.preventDefault();
       setValues([value]);
       setIsOpen(false);
       onChange(value);
@@ -243,16 +246,18 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
             );
           })}
 
-          {isOpen ? (
-            <div className={styles.Search}>
-              <input
-                ref={searchInputRef}
-                type="text"
-                className={styles.Search_Input}
-                onClick={(e) => e.preventDefault()}
-              />
-            </div>
-          ) : null}
+          <div
+            className={styles.Search}
+            // style={{ display: isOpen ? 'block' : 'none' }}
+          >
+            <input
+              value={inputValue}
+              ref={searchInputRef}
+              type="text"
+              className={styles.Search_Input}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+          </div>
         </div>
       );
     }
@@ -327,7 +332,7 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
     >
       <label
         className={`${styles.Label} ${
-          isOpen || values.length > 0 ? styles.Label_Focus : ''
+          isOpen || values.length > 0 || inputValue ? styles.Label_Focus : ''
         }`}
       >
         {placeholder}

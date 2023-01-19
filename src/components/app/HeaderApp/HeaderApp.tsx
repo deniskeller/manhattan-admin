@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Notifications } from '../content';
 import styles from './HeaderApp.module.scss';
+import useOnClickOutside from '@hooks/useOnClickOutside';
 
 const HeaderApp = () => {
   const dispatch = useAppDispatch();
@@ -17,6 +18,13 @@ const HeaderApp = () => {
   const [isNotifications, setIsNotifications] = React.useState(false);
 
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const thisDropdown = React.useRef<HTMLDivElement>(null);
+
+  const clickOutsideHandler = () => {
+    setShowDropdown(false);
+  };
+  useOnClickOutside(thisDropdown, clickOutsideHandler);
 
   return (
     <div className={styles.HeaderApp}>
@@ -119,29 +127,33 @@ const HeaderApp = () => {
             />
           </div>
 
-          <div className={styles.HeaderApp_Header_Actions_Logout}>
-            <BaseIcon
-              icon={ALL_ICONS.USER}
-              viewBox="0 0 20 20"
-              className={styles.IconUser}
-              onClick={() => setShowDropdown(!showDropdown)}
-            />
-
-            <svg
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={styles.IconCheveron}
-              style={{ transform: showDropdown ? 'rotate(180deg)' : '' }}
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M3.17574 4.37569C3.41005 4.14137 3.78995 4.14137 4.02426 4.37569L6 6.35142L7.97574 4.37569C8.21005 4.14137 8.58995 4.14137 8.82426 4.37569C9.05858 4.61 9.05858 4.9899 8.82426 5.22422L6.42426 7.62422C6.18995 7.85853 5.81005 7.85853 5.57574 7.62422L3.17574 5.22422C2.94142 4.9899 2.94142 4.61 3.17574 4.37569Z"
-                fill="#1A1A1A"
-                fillOpacity="0.3"
+          <div
+            className={styles.HeaderApp_Header_Actions_Logout}
+            ref={thisDropdown}
+          >
+            <span onClick={() => setShowDropdown(!showDropdown)}>
+              <BaseIcon
+                icon={ALL_ICONS.USER}
+                viewBox="0 0 20 20"
+                className={styles.IconUser}
               />
-            </svg>
+
+              <svg
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.IconCheveron}
+                style={{ transform: showDropdown ? 'rotate(180deg)' : '' }}
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M3.17574 4.37569C3.41005 4.14137 3.78995 4.14137 4.02426 4.37569L6 6.35142L7.97574 4.37569C8.21005 4.14137 8.58995 4.14137 8.82426 4.37569C9.05858 4.61 9.05858 4.9899 8.82426 5.22422L6.42426 7.62422C6.18995 7.85853 5.81005 7.85853 5.57574 7.62422L3.17574 5.22422C2.94142 4.9899 2.94142 4.61 3.17574 4.37569Z"
+                  fill="#1A1A1A"
+                  fillOpacity="0.3"
+                />
+              </svg>
+            </span>
             {showDropdown ? (
               <>
                 <div className={styles.HeaderApp_Header_Actions_Dropdown}>
