@@ -147,7 +147,7 @@ const AllProjects: React.FC<Props> = () => {
       <div className={s.AllProjects}>
         <div className={s.AllProjects_Items}>
           {project_items?.map((item, index) => {
-            return <AccordionProjectItem {...item} key={index} link="user" />;
+            return <AccordionProjectItem {...item} key={index} link="user"/>;
           })}
         </div>
 

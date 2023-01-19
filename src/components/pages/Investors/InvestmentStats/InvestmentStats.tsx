@@ -421,7 +421,7 @@ const InvestmentStats: React.FC<Props> = () => {
 
           <div className={s.InvestmentStats_InvestedProjects_Items}>
             {project_items?.map((item, index) => {
-              return <AccordionProjectItem {...item} key={index} />;
+              return <AccordionProjectItem {...item} key={index} isAccordion />;
             })}
           </div>
         </div>

@@ -18,13 +18,14 @@ interface IProps {
   link?: string;
   purpose_of_collection?: IPurpose[];
   tags?: string[];
+  isAccordion?: boolean;
 }
 
 const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
   const router = useRouter();
   const [isVisible, setIsVisible] = React.useState<boolean>(true);
 
-  const { name, status, image, tags, link } = props;
+  const { name, status, image, tags, link, isAccordion = false } = props;
 
   return (
     <>
@@ -32,7 +33,7 @@ const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
         <div
           className={`${styles.ProjectItem_Header} ${
             name.length > 15 ? styles.ProjectItem_HeaderWithLargeTitle : ''
-          }`}
+          } ${!isAccordion ? styles.Accordion : ''}`}
           onClick={() => setIsVisible(!isVisible)}
         >
           <div className={styles.ProjectItem_Header_Icon}>{image}</div>
@@ -66,22 +67,24 @@ const AccordionProjectItem: React.FC<IProps> = ({ ...props }) => {
             </span>
           </div>
 
-          <div
-            className={`${styles.ProjectItem_Header_Toggle} ${
-              !isVisible ? styles.Open : ''
-            }`}
-          >
-            <BaseIcon
-              icon={ALL_ICONS.ARROW_2}
-              viewBox="0 0 16 9"
-              className={styles.ProjectItem_Header_Toggle_Icon}
-            />
-          </div>
+          {isAccordion ? (
+            <div
+              className={`${styles.ProjectItem_Header_Toggle} ${
+                !isVisible ? styles.Open : ''
+              }`}
+            >
+              <BaseIcon
+                icon={ALL_ICONS.ARROW_2}
+                viewBox="0 0 16 9"
+                className={styles.ProjectItem_Header_Toggle_Icon}
+              />
+            </div>
+          ) : null}
         </div>
 
         <div
           className={`${styles.ProjectItem_Content} ${
-            isVisible ? styles.ProjectItem_Content_Hidden : ''
+            isVisible && isAccordion ? styles.ProjectItem_Content_Hidden : ''
           }`}
         >
           <div className={styles.ProjectItem_Content_MoreInfo}>

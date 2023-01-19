@@ -99,6 +99,14 @@
     }
   }
 
+  .Accordion {
+    padding: em(26.5px) em(40px) em(26.5px) em(40px);
+    cursor: initial;
+    @include ifmobile {
+      padding: em(17px) em(17px) em(24px) em(17px);
+    }
+  }
+
   &_HeaderWithLargeTitle {
     .ProjectItem_Header_Icon {
       @include ifmobile {
