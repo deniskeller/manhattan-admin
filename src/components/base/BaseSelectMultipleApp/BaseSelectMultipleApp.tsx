@@ -1,9 +1,9 @@
 //@ts-nocheck
 import { ALL_ICONS } from '@constants/icons';
-import { alertClasses } from '@mui/material';
 import React, { KeyboardEvent, useEffect, useRef } from 'react';
 import { BaseIcon } from '..';
 import styles from './BaseSelectMultipleApp.module.scss';
+import useOnClickOutside from '@hooks/useOnClickOutside';
 
 interface Props {
   placeholder?: string;
@@ -33,6 +33,13 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   const [typed, setTyped] = React.useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = React.useState('');
+
+  const refSelect = React.useRef<HTMLDivElement>(null);
+
+  const clickOutsideHandler = () => {
+    setIsOpen(false);
+  };
+  useOnClickOutside(refSelect, clickOutsideHandler);
 
   const onFocus = () => {
     setIsFocused(true);
@@ -173,7 +180,6 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   };
 
   const onHoverOption = (e: React.ChangeEvent<HTMLElement>) => {
-    e.preventDefault();
     const { value } = e.currentTarget.dataset;
     const index = options.findIndex((option) => option.value === value);
 
@@ -324,7 +330,8 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
       tabIndex={0}
       onFocus={onFocus}
       onBlur={onBlur}
-      // onKeyDown={onKeyDown}
+      onKeyDown={onKeyDown}
+      ref={refSelect}
     >
       <label
         className={`${styles.Label} ${
