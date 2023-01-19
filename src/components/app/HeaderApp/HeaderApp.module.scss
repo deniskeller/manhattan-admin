@@ -60,7 +60,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-
         margin-right: em(40px);
 
         @include ifmobile {
@@ -88,21 +87,106 @@
         flex-direction: row;
         align-items: center;
         cursor: pointer;
+        position: relative;
 
         @include ifmobile {
-          display: none;
+          margin-left: em(44px);
         }
 
-        &_Name {
-          margin-right: em(8px);
-          span {
-            font-size: em(16px);
-            color: $blue900;
+        .IconUser {
+          width: em(18px);
+          height: em(20px);
+          margin-right: em(2px);
+          path,
+          ellipse {
+            stroke: $black;
+            stroke-width: 1px;
           }
+        }
+
+        .IconCheveron {
+          width: em(12px);
+          height: em(12px);
+          transition: all 0.3s ease;
+        }
+
+        &_Profile {
+          display: flex;
+          flex-direction: column;
+          margin-right: em(16px);
+          width: max-content;
+          &_Name {
+            margin-bottom: em(2px);
+            span {
+              display: flex;
+              font-size: em(16px);
+              font-weight: 500;
+              line-height: 100%;
+              color: $black;
+            }
+          }
+
+          &_Mail {
+            font-weight: 400;
+            font-size: em(14px);
+            line-height: 143%;
+            color: rgba(26, 26, 26, 0.5);
+          }
+
+          &_Icon {
+            width: em(24px);
+            height: em(24px);
+          }
+        }
+
+        &_Title {
+          font-weight: 400;
+          font-size: em(16px);
+          color: $black;
         }
         &_Button {
           width: em(20px);
           height: em(18px);
+        }
+      }
+
+      &_Dropdown {
+        min-width: em(217px);
+        position: absolute;
+        top: em(30px);
+        right: 0;
+        background: $white;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+          0px 4px 6px -1px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        display: flex;
+        padding: em(16px) 0;
+
+        @include ifmobile {
+          right: em(-35px);
+        }
+
+        &_Border {
+          height: 1px;
+          background: rgba(26, 26, 26, 0.1);
+          margin: em(4px) em(16px);
+        }
+
+        ul {
+          width: 100%;
+          list-style: none;
+          li {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            min-height: em(44px);
+            padding: em(4px) em(24px);
+            cursor: pointer;
+            &:hover {
+              background: #eceef9;
+            }
+          }
         }
       }
 

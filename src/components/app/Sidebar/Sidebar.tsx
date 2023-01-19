@@ -139,7 +139,7 @@ const Sidebar: React.FC<Props> = ({ pages }) => {
 
         <div className={styles.SidebarApp_Sidebar_Logout}>
           <div className={styles.SidebarApp_Sidebar_Logout_Name}>
-            <span>Maxim Ivanov</span>
+            <span>Logout</span>
           </div>
 
           <svg

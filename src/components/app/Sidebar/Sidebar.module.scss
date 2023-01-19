@@ -76,6 +76,11 @@
         &_Button {
           width: em(20px);
           height: em(20px);
+
+          @include ifmobile {
+            margin-left: auto;
+            margin-right: em(22px);
+          }
         }
       }
     }
@@ -187,6 +192,10 @@
       &_Button {
         width: em(20px);
         height: em(18px);
+        @include ifmobile {
+          margin-left: auto;
+          margin-right: em(22px);
+        }
       }
     }
 

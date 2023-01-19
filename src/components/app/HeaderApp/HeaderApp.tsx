@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { modalSlice } from '@store/modals/reducer';
 import { sidebarSlice } from '@store/sidebar/reducer';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import { Notifications } from '../content';
 import styles from './HeaderApp.module.scss';
 
@@ -15,6 +15,8 @@ const HeaderApp = () => {
   const isVisible = useAppSelector((state) => state.sidebar.visible);
   const { setVisibleSidebar } = sidebarSlice.actions;
   const [isNotifications, setIsNotifications] = React.useState(false);
+
+  const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <div className={styles.HeaderApp}>
@@ -118,26 +120,113 @@ const HeaderApp = () => {
           </div>
 
           <div className={styles.HeaderApp_Header_Actions_Logout}>
-            <div
-              className={styles.HeaderApp_Header_Actions_Logout_Name}
-              onClick={() => router.push('/app/admin/profile')}
-            >
-              <span>Maxim Ivanov</span>
-            </div>
+            <BaseIcon
+              icon={ALL_ICONS.USER}
+              viewBox="0 0 20 20"
+              className={styles.IconUser}
+              onClick={() => setShowDropdown(!showDropdown)}
+            />
 
             <svg
-              viewBox="0 0 20 18"
+              viewBox="0 0 12 12"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={styles.HeaderApp_Header_Actions_Logout_Button}
+              className={styles.IconCheveron}
+              style={{ transform: showDropdown ? 'rotate(180deg)' : '' }}
             >
               <path
-                d="M15 13L19 9M19 9L15 5M19 9L5 9M11 13V14C11 15.6569 9.65686 17 8 17H4C2.34315 17 1 15.6569 1 14V4C1 2.34315 2.34315 1 4 1H8C9.65686 1 11 2.34315 11 4V5"
-                stroke="#0d1026"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M3.17574 4.37569C3.41005 4.14137 3.78995 4.14137 4.02426 4.37569L6 6.35142L7.97574 4.37569C8.21005 4.14137 8.58995 4.14137 8.82426 4.37569C9.05858 4.61 9.05858 4.9899 8.82426 5.22422L6.42426 7.62422C6.18995 7.85853 5.81005 7.85853 5.57574 7.62422L3.17574 5.22422C2.94142 4.9899 2.94142 4.61 3.17574 4.37569Z"
+                fill="#1A1A1A"
+                fillOpacity="0.3"
               />
             </svg>
+            {showDropdown ? (
+              <>
+                <div className={styles.HeaderApp_Header_Actions_Dropdown}>
+                  <ul>
+                    <li>
+                      <div
+                        className={
+                          styles.HeaderApp_Header_Actions_Logout_Profile
+                        }
+                      >
+                        <div
+                          className={
+                            styles.HeaderApp_Header_Actions_Logout_Profile_Name
+                          }
+                          onClick={() => router.push('/app/admin/profile')}
+                        >
+                          <span>Maxim Ivanov</span>
+                        </div>
+
+                        <div
+                          className={
+                            styles.HeaderApp_Header_Actions_Logout_Profile_Mail
+                          }
+                        >
+                          verilongmailadress@mail.com
+                        </div>
+                      </div>
+
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={
+                          styles.HeaderApp_Header_Actions_Logout_Profile_Icon
+                        }
+                      >
+                        <path
+                          d="M10.3246 4.31731C10.751 2.5609 13.249 2.5609 13.6754 4.31731C13.9508 5.45193 15.2507 5.99038 16.2478 5.38285C17.7913 4.44239 19.5576 6.2087 18.6172 7.75218C18.0096 8.74925 18.5481 10.0492 19.6827 10.3246C21.4391 10.751 21.4391 13.249 19.6827 13.6754C18.5481 13.9508 18.0096 15.2507 18.6172 16.2478C19.5576 17.7913 17.7913 19.5576 16.2478 18.6172C15.2507 18.0096 13.9508 18.5481 13.6754 19.6827C13.249 21.4391 10.751 21.4391 10.3246 19.6827C10.0492 18.5481 8.74926 18.0096 7.75219 18.6172C6.2087 19.5576 4.44239 17.7913 5.38285 16.2478C5.99038 15.2507 5.45193 13.9508 4.31731 13.6754C2.5609 13.249 2.5609 10.751 4.31731 10.3246C5.45193 10.0492 5.99037 8.74926 5.38285 7.75218C4.44239 6.2087 6.2087 4.44239 7.75219 5.38285C8.74926 5.99037 10.0492 5.45193 10.3246 4.31731Z"
+                          stroke="#1A1A1A"
+                          strokeOpacity="0.7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                          stroke="#1A1A1A"
+                          strokeOpacity="0.7"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </li>
+
+                    <div
+                      className={
+                        styles.HeaderApp_Header_Actions_Dropdown_Border
+                      }
+                    ></div>
+
+                    <li>
+                      <div
+                        className={styles.HeaderApp_Header_Actions_Logout_Title}
+                      >
+                        Logout
+                      </div>
+                      <svg
+                        viewBox="0 0 20 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={
+                          styles.HeaderApp_Header_Actions_Logout_Button
+                        }
+                      >
+                        <path
+                          d="M15 13L19 9M19 9L15 5M19 9L5 9M11 13V14C11 15.6569 9.65686 17 8 17H4C2.34315 17 1 15.6569 1 14V4C1 2.34315 2.34315 1 4 1H8C9.65686 1 11 2.34315 11 4V5"
+                          stroke="#0d1026"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            ) : null}
           </div>
 
           <div
