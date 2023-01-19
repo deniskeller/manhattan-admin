@@ -58,6 +58,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex: auto;
 }
 
 .Multiple {
@@ -80,19 +81,26 @@
   }
 }
 
-// .Search {
-// margin: 0;
-// padding: 0;
-// background: 0 0;
-// border: none;
-// outline: none;
-// // appearance: none;
-// cursor: auto;
-// color: inherit;
-// opacity: 0;
-// display: inline-flex;
-// max-width: 100%;
-// }
+.Search {
+  flex: 1;
+  align-self: center;
+  width: 100%;
+  display: inline-flex;
+  &_Input {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    appearance: none;
+    cursor: text;
+    color: inherit;
+    opacity: 0;
+    display: inline-flex;
+    width: 100%;
+    min-width: em(24px);
+  }
+}
 
 .Delete {
   cursor: pointer;

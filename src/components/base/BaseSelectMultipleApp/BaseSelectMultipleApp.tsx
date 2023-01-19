@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { ALL_ICONS } from '@constants/icons';
-import React, { KeyboardEvent } from 'react';
+import React, { KeyboardEvent, useEffect, useRef } from 'react';
 import { BaseIcon } from '..';
 import styles from './BaseSelectMultipleApp.module.scss';
 
@@ -30,10 +30,17 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
   const [isFocused, setIsFocused] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const [typed, setTyped] = React.useState('');
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const onFocus = () => {
     setIsFocused(true);
   };
+
+  useEffect(() => {
+    if (isOpen && searchInputRef) {
+      console.log('searchInputRef: ', searchInputRef);
+    }
+  }, [isOpen, searchInputRef]);
 
   const onBlur = () => {
     if (multiple) {
@@ -236,7 +243,16 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
             );
           })}
 
-          {isOpen ? <input type="text" className={styles.Search} /> : null}
+          {isOpen ? (
+            <div className={styles.Search}>
+              <input
+                ref={searchInputRef}
+                type="text"
+                className={styles.Search_Input}
+                onClick={(e) => e.preventDefault()}
+              />
+            </div>
+          ) : null}
         </div>
       );
     }
