@@ -861,12 +861,12 @@
           }
 
           &_Address {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: em(16px) 1fr;
+            gap: 0 em(10px);
             &_Icon {
-              width: em(34px);
+              width: em(16px);
               height: em(20px);
-              margin-right: em(10px);
             }
 
             &_Info {

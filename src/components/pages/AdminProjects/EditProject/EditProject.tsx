@@ -1075,6 +1075,8 @@ const EditProject: React.FC<Props> = ({ id }) => {
             </div>
           </div>
 
+          <div className={s.CreateProject_Content_Border}></div>
+
           {/* НАВБАР */}
           <div className={s.CreateProject_Content_Navbar}>
             <div className={s.Navbar}>

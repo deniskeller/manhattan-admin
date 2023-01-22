@@ -1,6 +1,11 @@
 .CreateProject {
   position: relative;
   padding: 0 em(47px);
+
+  @media only screen and (min-width: 767px) and (max-width: 1550px) {
+    padding: 0;
+  }
+
   @include iftablet {
     padding: 0;
   }
@@ -92,22 +97,22 @@
 
   &_Content {
     display: grid;
-    grid-template-columns: 1fr em(354px);
+    grid-template-columns: 1fr 1px em(354px);
+    gap: 0 em(58px);
     background: #ffffff;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 
     @include iftablet {
-      grid-template-columns: 1fr em(336px);
+      grid-template-columns: 1fr 1px em(336px);
     }
 
     @include ifmobile {
       grid-template-columns: 1fr;
-      border-radius: none;
     }
 
     &_Main {
-      padding: em(24px) em(58px) em(24px) em(24px);
+      padding: em(24px) 0 em(24px) em(24px);
       @include ifmobile {
         padding: em(10px);
       }
@@ -412,12 +417,21 @@
       }
     }
 
+    &_Border {
+      display: flex;
+      width: 1px;
+      background: rgba(26, 26, 26, 0.1);
+      height: 100%;
+      @include ifmobile {
+        display: none;
+      }
+    }
+
     &_Navbar {
-      padding: em(71px) em(24px) em(71px) em(58px);
-      border-left: 1px solid rgba(26, 26, 26, 0.1);
+      padding: em(71px) em(24px) em(71px) 0;
 
       @include iftablet {
-        padding: em(95px) em(58px) em(71px) em(58px);
+        padding: em(95px) em(58px) em(71px) 0;
       }
 
       @include ifmobile {
