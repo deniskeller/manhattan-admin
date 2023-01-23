@@ -427,10 +427,10 @@
     }
 
     &_Navbar {
-      padding: em(71px) em(24px) em(71px) 0;
+      padding: em(26px) em(24px) em(71px) 0;
 
       @include iftablet {
-        padding: em(95px) em(58px) em(71px) 0;
+        padding: em(26px) em(58px) em(71px) 0;
       }
 
       @include ifmobile {
