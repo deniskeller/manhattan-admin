@@ -718,10 +718,7 @@ const ProjectDetails: React.FC<Props> = ({ id }) => {
                     </div>
 
                     <div className={s.AboutCompany_Address_Info_Value}>
-                      <p>
-                        17 State Street Suite 4000, New York, NY 10004 Level 18,
-                        40 Bank Street, Canary Wharf, London, UK, E14 5NR
-                      </p>
+                      <p>17 State</p>
                     </div>
 
                     <br />
@@ -731,10 +728,7 @@ const ProjectDetails: React.FC<Props> = ({ id }) => {
                     </div>
 
                     <div className={s.AboutCompany_Address_Info_Value}>
-                      <p>
-                        17 State Street Suite 4000, New York, NY 10004 Level 18,
-                        40 Bank Street, Canary Wharf, London, UK, E14 5NR
-                      </p>
+                      <p>17 State</p>
                     </div>
                   </div>
                 </div>

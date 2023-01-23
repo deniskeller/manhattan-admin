@@ -707,8 +707,11 @@ const ProjectDetails: React.FC<Props> = ({ id }) => {
 
                     <div className={s.AboutCompany_Address_Info_Value}>
                       <p>
-                        17 State Street Suite 4000, New York, NY 10004 Level 18,
-                        40 Bank Street, Canary Wharf, London, UK, E14 5NR
+                        17 State Street Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Sunt nesciunt officia eveniet incidunt
+                        quibusdam, vitae dolore quas qui deserunt iusto
+                        architecto tenetur, dolor adipisci aperiam repellendus
+                        laborum. Enim, consequatur dicta?
                       </p>
                     </div>
 
@@ -720,8 +723,11 @@ const ProjectDetails: React.FC<Props> = ({ id }) => {
 
                     <div className={s.AboutCompany_Address_Info_Value}>
                       <p>
-                        17 State Street Suite 4000, New York, NY 10004 Level 18,
-                        40 Bank Street, Canary Wharf, London, UK, E14 5NR
+                        17 State Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Enim exercitationem ea fuga, ipsam
+                        explicabo consequatur recusandae officiis, maiores quis,
+                        ut aliquid veniam aspernatur totam. Corrupti ab omnis
+                        illo quisquam sit!
                       </p>
                     </div>
                   </div>
