@@ -1,4 +1,4 @@
-import React, { LegacyRef, Ref, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Application.module.scss';
 import { HeaderApp, Sidebar } from 'components/app';
 
@@ -27,6 +27,8 @@ import {
   TeamUserDetailsPopup,
   TwoFactorAuthenticationPopup,
 } from 'components/modals';
+import { buttonsSlice } from '@store/buttons/reducers';
+import { useAppDispatch } from '@hooks/redux';
 
 const admin_pages = [
   {
@@ -80,11 +82,9 @@ const user_pages = [
 
 interface Props {
   children: JSX.Element;
-  ref?: LegacyRef<HTMLDivElement> | undefined;
-  onScroll?: any;
 }
 
-const Application: React.FC<Props> = ({ children, ref, onScroll }) => {
+const Application: React.FC<Props> = ({ children }) => {
   const router = useRouter();
   const [pages, setPages] = useState(admin_pages);
 
@@ -98,6 +98,20 @@ const Application: React.FC<Props> = ({ children, ref, onScroll }) => {
     }
   }, [router.pathname]);
 
+  //логика для липких кнопок
+  const scrollBlockRef = React.useRef<HTMLDivElement>(null);
+  const { setVisibleButtons } = buttonsSlice.actions;
+  const dispatch = useAppDispatch();
+
+  const scrollFunction = () => {
+    const scrollTop = scrollBlockRef.current?.scrollTop;
+    if (scrollTop && scrollTop > 300) {
+      dispatch(setVisibleButtons({ visible: true }));
+    } else {
+      dispatch(setVisibleButtons({ visible: false }));
+    }
+  };
+
   return (
     <>
       <div className={styles.AppLayout}>
@@ -105,7 +119,11 @@ const Application: React.FC<Props> = ({ children, ref, onScroll }) => {
 
         <Sidebar pages={pages} />
 
-        <div className={styles.AppLayout_Content} ref={ref} onScroll={onScroll}>
+        <div
+          className={styles.AppLayout_Content}
+          ref={scrollBlockRef}
+          onScroll={scrollFunction}
+        >
           {children}
         </div>
       </div>

@@ -19,7 +19,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import s from './EditProject.module.scss';
 import Input from '@tw/components/Input/Input';
 import { ALL_ICONS } from '@constants/icons';
-import { useAppDispatch } from '@hooks/redux';
+import { useAppDispatch, useAppSelector } from '@hooks/redux';
 import { modalSlice } from '@store/modals/reducer';
 
 const navbar_links = [
@@ -118,10 +118,14 @@ const EditProject: React.FC<Props> = ({ id }) => {
     console.log('multiselect value: ', value2);
   }, [value2]);
 
+  //логика для липких кнопок
+  // const [isVisible, setIsVisible] = useState(true);
+  const visible = useAppSelector((state) => state.buttons.visible);
+
   return (
     <>
       <div className={s.CreateProject} id="section-1">
-        {isVisible ? (
+        {visible ? (
           <div className={s.CreateProject_StickyActions}>
             <BaseButtonApp
               icon="delete"

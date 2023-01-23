@@ -45,10 +45,6 @@ const BaseSelectMultipleApp: React.FC<Props> = ({
     setIsFocused(true);
   };
 
-  useEffect(() => {
-    console.log('searchInputRef: ', searchInputRef);
-  }, []);
-
   const onBlur = () => {
     if (multiple) {
       setFocusedValue(-1);

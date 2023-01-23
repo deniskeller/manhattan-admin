@@ -17,6 +17,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import s from './CreateProject.module.scss';
 import Input from '@tw/components/Input/Input';
 import { ALL_ICONS } from '@constants/icons';
+import { useAppSelector } from '@hooks/redux';
 
 const navbar_links = [
   'General',
@@ -98,18 +99,15 @@ const CreateProject = () => {
   };
 
   //логика для липких кнопок
-  const [isVisible, setIsVisible] = useState(true);
-
+  // const [isVisible, setIsVisible] = useState(true);
+  const visible = useAppSelector((state) => state.buttons.visible);
   //для мульти селекта
   const [value2, setValue2] = React.useState([]);
-  React.useEffect(() => {
-    console.log('multiselect value: ', value2);
-  }, [value2]);
 
   return (
     <>
       <div className={s.CreateProject} id="section-1">
-        {isVisible ? (
+        {visible ? (
           <div className={s.CreateProject_StickyActions}>
             <BaseButtonApp
               title="Archive"
